@@ -6,23 +6,14 @@
 ## RE: Write the Subject/Type of the Meeting Here + Date of Mtg
 ### Participants
 
-Person1
-Title
-
-Person2
-Title	
-
-Person1
-Title
-
-Person2
-Title	
-
-Person1
-Title
-
-Person2
-Title
+Padraig MacGabann
+Josh Chou
+Nhat (Nick) Nguyen
+David Cruz	
+Diego Alfaro	
+Dexter Hamilton	
+Stephen Wang	
+Christine Phan
 
  
 ## Meeting Objective
