@@ -77,6 +77,7 @@ A Summary of any decisions made & their reasoning (if there were dissenting opin
 
 ## Action Items
 TODO:
-●	[[TODO Item 1]]
+●	[[TODO Item 1]]  
+
 ●	[[TODO Item 2]]
 ●	[[TODO Item 3]]
