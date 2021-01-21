@@ -48,13 +48,17 @@ Teleconference Details
 	[[Note: Mark ONE, and delete the other options before sending the agenda to participants]]  
 [ x ] (A) Participants will join host’s Zoom link:  
               [[insert zoom link here]]  
+	      
 [   ] (B) Participants will call Nakamura, who is the host:   
               +1 310 861 6996  
+	      
 [    ] (C) Participants will call [[Some Other Host, i.e. “Conrad Frank”]], who is the host:   
               [[+1 123 456 7890]]  
+	      
 [    ] (D) Participants will meet in person at the following location:  
              [[Address Line 1]]  
              [[Address Line 2]]  
+	     
 [    ] (E) Other: [[description]]  
 
 Question Handling 	Mark ONE:
@@ -64,15 +68,15 @@ Question Handling 	Mark ONE:
 
 
 ## Prework
-This is a free form section for material that participants must read before the meeting in order to save time:
+This is a free form section for material that participants must read before the meeting in order to save time:  
 [[Prework material goes here]]
 
 ## Actual Notes
-Actual Notes taken during the meeting may optionally be written into this digital document below:
+Actual Notes taken during the meeting may optionally be written into this digital document below:  
 [[Notes may go here]]
 
 ## Summary of Decisions Made
-A Summary of any decisions made & their reasoning (if there were dissenting opinions include them, then write why the group decided to make that decision anyways) may be written into this digital document below:
+A Summary of any decisions made & their reasoning (if there were dissenting opinions include them, then write why the group decided to make that decision anyways) may be written into this digital document below:  
 [[Notes may go here]]
 
 ## Action Items
