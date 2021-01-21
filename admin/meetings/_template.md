@@ -11,11 +11,13 @@ Title
 
 Person2
 Title	
+
 Person1
 Title
 
 Person2
 Title	
+
 Person1
 Title
 
@@ -33,15 +35,9 @@ Title
 
 2 ;; [[Agenda Item #2]]	;; [[Participant]] ;; 20 min
 
-3
-	
-[[Agenda Item #3]]
-	
-[[Participant]]
-	
-10 min
+3 ;; [[Agenda Item #3]] ;; [[Participant]] ;; 10 min
 
-Logistics
+## Logistics
 Date & Time	September XXX, 2020 at XX:XX am/pm PST.
 
 Duration	This meeting is expected to take approximately 30 minutes to complete.
@@ -67,19 +63,19 @@ Question Handling 	Mark ONE:
 
 
 
-Prework
+## Prework
 This is a free form section for material that participants must read before the meeting in order to save time:
 [[Prework material goes here]]
 
-Actual Notes
+## Actual Notes
 Actual Notes taken during the meeting may optionally be written into this digital document below:
 [[Notes may go here]]
 
-Summary of Decisions Made
+## Summary of Decisions Made
 A Summary of any decisions made & their reasoning (if there were dissenting opinions include them, then write why the group decided to make that decision anyways) may be written into this digital document below:
 [[Notes may go here]]
 
-Action Items
+## Action Items
 TODO:
 ●	[[TODO Item 1]]
 ●	[[TODO Item 2]]
