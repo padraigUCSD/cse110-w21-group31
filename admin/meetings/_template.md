@@ -6,15 +6,14 @@
 ## RE: Write the Subject/Type of the Meeting Here + Date of Mtg
 ### Participants
 
-Padraig MacGabann
-Josh Chou
-Nhat (Nick) Nguyen
-David Cruz	
-Diego Alfaro	
-Dexter Hamilton	
-Stephen Wang	
-Christine Phan
-
+Padraig MacGabann  
+Josh Chou  
+Nhat (Nick) Nguyen  
+David Cruz  
+Diego Alfaro  
+Dexter Hamilton  
+Stephen Wang  
+Christine Phan  
  
 ## Meeting Objective
 [[Meeting objective here – capture it in 1-3 sentences. For example “Review new patent claims,” or “Discuss the status of (A) our financial process design project; and (B) provide feedback on the most recent Deloitte draft deliverable”]] 
