@@ -1,10 +1,10 @@
-#Meeting Agenda & Notes
+# Meeting Agenda & Notes
 
-###CSE 110 Team Name: UnhandledPromiseRejection (UPR)
-###CSE 110 Team No. 31
+### CSE 110 Team Name: UnhandledPromiseRejection (UPR)
+### CSE 110 Team No. 31
 
-##RE: Write the Subject/Type of the Meeting Here + Date of Mtg
-###Participants
+## RE: Write the Subject/Type of the Meeting Here + Date of Mtg
+### Participants
 
 Person1
 Title
@@ -23,10 +23,10 @@ Person2
 Title
 
  
-##Meeting Objective
+## Meeting Objective
 [[Meeting objective here – capture it in 1-3 sentences. For example “Review new patent claims,” or “Discuss the status of (A) our financial process design project; and (B) provide feedback on the most recent Deloitte draft deliverable”]] 
 
-##Agenda
+## Agenda
 (Item No.	;; Agenda Item ;;	Presenter ;; Time Allotted)
 
 1 ;; [[Agenda Item #1]]	;; [[Participant]] ;; 30 min
