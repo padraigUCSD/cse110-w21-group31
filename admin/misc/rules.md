@@ -113,15 +113,17 @@ Meeting Scribe – Josh Chou
 (Note: Business process and knowledge management related functions report to capabilities lead).
 
  
-## 2. Team Brand & Design System
-
-The parties agree that the team and projects shall adhere to the IBM Carbon Design System, which is described below. The text of this section of the Agreement and the content of the Carbon website defines the entirety of our brand system.
-Our Team Brand & Design System – At A Glance
+### Our Team Brand & Design System – At A Glance
 Team Name: UnhandledPromiseRejection
+
 (with no spaces between words)
+
 Short Code: UPR
+
 Design System: https://www.carbondesignsystem.com/
+
 Brand Guidelines & Design System – Quick Links:
+
 -	Color:  https://www.carbondesignsystem.com/guidelines/color/overview
 
 -	Typography: https://www.carbondesignsystem.com/guidelines/typography/overview
@@ -132,15 +134,16 @@ We use IBM Plex as our font. Arial is acceptable as an alternative in a pinch.
 
 -	Logo / Identity: 
  
-
+![logo](https://ligmabukkit.s3-us-west-1.amazonaws.com/cse110/UPR+logo.png)
+![identity](https://ligmabukkit.s3-us-west-1.amazonaws.com/cse110/UPR+Identity.png)
  
 
-About Carbon
+### **About Carbon**
 Carbon is IBM’s open-source design system for products and digital experiences. With the IBM Design Language as its foundation, the system consists of working code, design tools and resources, and human interface guidelines. As IBM’s official design system, Carbon serves a wide range of designers and developers building digital products and experiences. Carbon is funded and built by IBM. 
 The goals of the design system include improving UI consistency and quality, making the design and development process more efficient and focused, establishing a shared vocabulary between designer and developer, and providing clear, discoverable guidance around design and development best practices.
 The design system is built React first. We also support core parts of the system in vanilla JS, Angular, Vue, and Svelte. If you’re using a different framework, you can still build components by following our guidelines for other frameworks.
  
-Guiding principles of Carbon
+### **Guiding principles of Carbon**
 Carbon is open. The design system is a distributed effort, guided by the principles of the open source movement. Carbon’s users are also its makers, and everyone is encouraged to contribute.
 Carbon is inclusive. It’s designed and built to be accessible to all, regardless of ability or situation.
 Carbon is modular and flexible. The system’s modularity ensures maximum flexibility in execution. Its components are designed to work seamlessly with each other, in whichever combination suits the needs of the user.
