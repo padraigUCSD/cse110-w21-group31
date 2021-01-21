@@ -20,14 +20,14 @@ Conduct project kickoff meeting in order to get to know the team, find times to 
 ## Agenda
 (Item No.	;; Agenda Item ;;	Presenter ;; Time Allotted)
 
-1 ;; [[Agenda Item #1]]	;; [[Participant]] ;; 30 min
+1 ;; Team Intros	;; Josh Chou ;; 25 min
 
-2 ;; [[Agenda Item #2]]	;; [[Participant]] ;; 20 min
+2 ;; Solve Weekly Schedule	;; Josh Chou ;; 15 min
 
-3 ;; [[Agenda Item #3]] ;; [[Participant]] ;; 10 min
+3 ;; Describe non-stantard S&P, issue first TODOs ;; Padraig MacGabann ;; 15 min
 
 ## Logistics
-**Date & Time**	January 17, 2021 at XXX pm PST.
+**Date & Time**	January 17, 2021 at 2:00 pm PST.
 
 **Duration**	This meeting is expected to take approximately 1 hour to complete.  
 
