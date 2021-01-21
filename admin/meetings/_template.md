@@ -38,28 +38,28 @@ Title
 3 ;; [[Agenda Item #3]] ;; [[Participant]] ;; 10 min
 
 ## Logistics
-Date & Time	September XXX, 2020 at XX:XX am/pm PST.
+Date & Time	September XXX, 2020 at XX:XX am/pm PST.  
 
-Duration	This meeting is expected to take approximately 30 minutes to complete.
+Duration	This meeting is expected to take approximately 30 minutes to complete.  
 
-Please Bring/Read	See Prework section below for material to be read before this respective meeting.
+Please Bring/Read	See Prework section below for material to be read before this respective meeting.  
 
-Teleconference Details
-	[[Note: Mark ONE, and delete the other options before sending the agenda to participants]] 
-[ x ] (A) Participants will join host’s Zoom link: 
-              [[insert zoom link here]]
-[   ] (B) Participants will call Nakamura, who is the host: 
-              +1 310 861 6996
-[    ] (C) Participants will call [[Some Other Host, i.e. “Conrad Frank”]], who is the host: 
-              [[+1 123 456 7890]]
-[    ] (D) Participants will meet in person at the following location:
-             [[Address Line 1]]
-             [[Address Line 2]]
-[    ] (E) Other: [[description]]
+Teleconference Details  
+	[[Note: Mark ONE, and delete the other options before sending the agenda to participants]]  
+[ x ] (A) Participants will join host’s Zoom link:  
+              [[insert zoom link here]]  
+[   ] (B) Participants will call Nakamura, who is the host:   
+              +1 310 861 6996  
+[    ] (C) Participants will call [[Some Other Host, i.e. “Conrad Frank”]], who is the host:   
+              [[+1 123 456 7890]]  
+[    ] (D) Participants will meet in person at the following location:  
+             [[Address Line 1]]  
+             [[Address Line 2]]  
+[    ] (E) Other: [[description]]  
 
 Question Handling 	Mark ONE:
-[    ] (A) Questions can be answered during an explanation.
-[ x ] (B) Questions must be held until the end of an explanation as designated by the speaker.
+[    ] (A) Questions can be answered during an explanation.  
+[ x ] (B) Questions must be held until the end of an explanation as designated by the speaker.  
 
 
 
@@ -78,6 +78,5 @@ A Summary of any decisions made & their reasoning (if there were dissenting opin
 ## Action Items
 TODO:  
 ●	[[TODO Item 1]]  
-
 ●	[[TODO Item 2]]  
 ●	[[TODO Item 3]]
