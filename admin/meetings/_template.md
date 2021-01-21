@@ -38,13 +38,13 @@ Title
 3 ;; [[Agenda Item #3]] ;; [[Participant]] ;; 10 min
 
 ## Logistics
-Date & Time	September XXX, 2020 at XX:XX am/pm PST.  
+**Date & Time**	September XXX, 2020 at XX:XX am/pm PST.  
 
-Duration	This meeting is expected to take approximately 30 minutes to complete.  
+**Duration**	This meeting is expected to take approximately 30 minutes to complete.  
 
-Please Bring/Read	See Prework section below for material to be read before this respective meeting.  
+**Please Bring/Read**	See Prework section below for material to be read before this respective meeting.  
 
-Teleconference Details  
+**Teleconference Details**  
 	[[Note: Mark ONE, and delete the other options before sending the agenda to participants]]  
 [ x ] (A) Participants will join host’s Zoom link:  
               [[insert zoom link here]]  
@@ -61,7 +61,8 @@ Teleconference Details
 	     
 [    ] (E) Other: [[description]]  
 
-Question Handling 	Mark ONE:
+**Question Handling** 	
+Mark ONE:  
 [    ] (A) Questions can be answered during an explanation.  
 [ x ] (B) Questions must be held until the end of an explanation as designated by the speaker.  
 
