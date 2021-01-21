@@ -182,7 +182,7 @@ The parties acknowledge that notetaking during all meetings is mandatory. As suc
 (A) a Meeting Scribe is to be assigned to take notes during all group meetings; 
 (B) the meeting scribe of (a) is to take notes in Markdown format as follows: Name your file the date-topic.md (mmddyy-topic.md).  For example 011621-kickoff.md;  
 (C) the meeting scribe of (a) is to ensure that all meeting notes are kept in the appropriate /admin/meetings directory of the team’s git repo; and
-(D) meeting minutes are to be structured according to the body text on the next two pages after this page. 
+(D) meeting minutes are to be structured according to the body text on the next two pages after this page **(OR, SEE template.md in admin/meetings for the latest template)**. 
  
 
 CSE 110 Team Name: UnhandledPromiseRejection (UPR)
