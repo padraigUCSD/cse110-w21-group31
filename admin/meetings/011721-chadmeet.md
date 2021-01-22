@@ -29,25 +29,20 @@ Christine Phan
 **Duration**	This meeting is expected to take approximately 30 minutes to complete.  
 
 ## Actual Notes
-Introductions
--How did bonding activity go
-  -going to be occuring right after, probably something like Scribbl.io
--Wiki Showcase
-  -How did the kickoff go
-    -Collected information on people's course load
-    -Conducted one on ones
-    -Decided on values important to us -- certain grade result, minimal paper work
-    -Decided on a name 
--Contract Review
--From Chad: Project details being compiled, will be released in the next few days
- - In the future, mentor meetings will be more like progress checks 
-
-## Summary of Decisions Made
-A Summary of any decisions made & their reasoning (if there were dissenting opinions include them, then write why the group decided to make that decision anyways) may be written into this digital document below:  
-[[Notes may go here]]
+- Introductions
+- How did bonding activity go
+    - going to be occuring right after, probably something like Scribbl.io
+- Wiki Showcase
+    - How did the kickoff go
+      - Collected information on people's course load
+      - Conducted one on ones
+      - Decided on values important to us: certain grade result, minimal paper work
+      - Decided on a name 
+- Contract Review
+- From Chad: 
+    - Project details being compiled, will be released in the next few days
+    - In the future, mentor meetings will be more like progress checks 
 
 ## Action Items
 TODO:  
-●	Mandatory Fun session (Group Bonding)
-●	[[TODO Item 2]]  
-●	[[TODO Item 3]]
+●	Mandatory Fun session (Group Bonding) 
