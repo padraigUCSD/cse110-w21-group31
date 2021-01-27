@@ -29,11 +29,13 @@ Actual Notes taken during the meeting may optionally be written into this digita
 [[Notes may go here]]
 
 ## Summary of Decisions Made
-A Summary of any decisions made & their reasoning (if there were dissenting opinions include them, then write why the group decided to make that decision anyways) may be written into this digital document below:  
-[[Notes may go here]]
+
+- Created Brainstorm slide deck
+- Each member contributed an entry of their vision for the app
+- Decided on important features we all agree on
+- Discussed the presentation at discussion on Wednesday
 
 ## Action Items
 TODO:  
-●	[[TODO Item 1]]  
-●	[[TODO Item 2]]  
-●	[[TODO Item 3]]
+●	Delegate tasks of brainstorm assignment 
+● Flesh out slide deck
