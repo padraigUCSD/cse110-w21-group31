@@ -18,7 +18,7 @@ Christine Phan
 [[Meeting objective here – capture it in 1-3 sentences. For example “Review new patent claims,” or “Discuss the status of (A) our financial process design project; and (B) provide feedback on the most recent Deloitte draft deliverable”]] 
  
 ## Logistics
-**Date & Time**	September XXX, 2020 at XX:XX am/pm PST.  
+**Date & Time**	Janurary 26, 2021 at 4:00 pm PST.  
 
 **Duration**	This meeting is expected to take approximately 60 minutes to complete.  
 
