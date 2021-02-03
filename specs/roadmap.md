@@ -4,14 +4,14 @@
 - Finish personas draft
 # Sprint 1: V1
 - Finish MVP draft
-- 
-- 
+  - Core structure with single button
+  - Hamburger menu to include extra options
 # Sprint 2: V2
-- 
-- 
-- 
-# Sprint 3
+- Additional features to implement
+  - Automate long break calculations
+  - 
+# Sprint 3: Stretch goals
 - Stretch Stories
   - Task list
   - Assigning tasks to pomos
-  -
+  - Custom timer durations
