@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button onclick="status()" type="button"><p id="text">Start</p></button>
+
+<script>
+  var isStart = 0;
+  function status(){
+    if(isStart == 1){
+      document.getElementById("text").innerHTML = "Start";
+      isStart = 0;
+    } else {
+      document.getElementById("text").innerHTML = "Cancel";
+      
+      isStart = 1;
+    }
+  }
+</script>
