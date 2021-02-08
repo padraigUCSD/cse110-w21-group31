@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ft1</title>
+    </head>
+
+    <body>
+        <div id="timer">2:00</div> <!-- This displays the timer -->
+        <br>
+        <button id="timer_button" type="button">Start</button> <!-- This is the start button -->
+
+        <script>
+            let startButton = document.getElementById("timer_button");
+            startButton.addEventListener("click", startTimer); // Calls startTimer() when button is clicked
+            
+            function startTimer()
+            {
+                let endTime = 120000; // Sets the timer
+                let x = setInterval(countdown, 1000); // Repeatedly calls countdown() each second
+
+                function countdown()
+                {
+                    endTime = endTime - 1000; // Subtracts by 1 second
+                    let minutes = Math.floor((endTime % (1000 * 60 * 60)) / (1000 * 60)); // Convert to minutes
+                    let seconds = Math.floor((endTime % (1000 * 60)) / 1000); // Convert to seconds
+                    document.getElementById("timer").innerHTML = minutes + ":" + seconds; // Displays remaining time
+
+                    if(endTime < 0)
+                    {
+                        clearInterval(x); // Stops the repeated countdown() calls
+                        document.getElementById("timer").innerHTML = "2:00"; // Resets timer display
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
