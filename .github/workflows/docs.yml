@@ -1,0 +1,29 @@
+name: ci
+
+on:
+  push:
+    branches: [ master ]
+    paths-ignore: [ docs/** ]
+
+jobs:
+  doc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v2
+      - name: Build Docs
+        uses: andstor/jsdoc-action@v1
+        with:
+          source_dir: ./source
+          recurse: true
+          output_dir: ./docs
+      - name: Deploy Docs
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.DEPLOY_KEY }}
+          publish_dir: ./docs
+          publish_branch: master
+          destination_dir: ./docs
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'Update documentation'
