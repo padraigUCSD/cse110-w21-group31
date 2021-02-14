@@ -20,7 +20,7 @@ Christine Phan
 
 
 ## Logistics
-**Date & Time**	September XXX, 2020 at XX:XX am/pm PST.  
+**Date & Time**	Feburary 4 at 4:32 pm PST.  
 
 **Duration**	This meeting is expected to take approximately 30 minutes to complete.  
 
