@@ -3,7 +3,7 @@
 ### CSE 110 Team Name: UnhandledPromiseRejection (UPR)
 ### CSE 110 Team No. 31
 
-## RE: Write the Subject/Type of the Meeting Here + Date of Mtg
+## Pitch planning
 ### Participants
 
 Padraig MacGabann  
