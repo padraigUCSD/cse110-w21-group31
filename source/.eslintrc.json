@@ -43,6 +43,8 @@
       "arrow-body-style": "off",
       "semi": "off",
       "no-nested-ternary": "off",
-      "no-console": "off"
+      "no-console": "off",
+      "no-underscore-dangle": "off",
+      "no-restricted-syntax": "off"
     }
 }
