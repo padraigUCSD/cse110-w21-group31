@@ -1,16 +1,31 @@
+//timer display
+var second;
+var minute;
+var timeOut;
 
 var lap = 1; // this variable to keep track what lap we are on
 var skip;
+
 document.getElementById("control").addEventListener("click",bubble);
+
 function bubble(){
 	var x = document.getElementById("control").innerHTML;
 	if (x == "Start" || x == "Start Pomo"){
 		document.body.style.background = "#cfe2f3";
+		minute = 24;			//set minute for display here
+		second = 59;			//set second for display here
+		timedCount();
 		StartPomo();
 	} else if (x == "ShortBreak"){
 		document.body.style.background = "#cfe2f3";
+		minute = 4;			//set minute for display here
+		second = 29;			//set second for display here
+		timedCount();
 		ShortBreak();
 	} else if (x == "LongBreak"){
+		minute = 29;			//set minute for display here
+		second = 59;			//set second for display here
+		timedCount();
 		LongBreak();
 	} else if (x == "Skip"){
 		Skip();
@@ -30,7 +45,7 @@ function StartPomo(){
 		lap = parseInt(lap);
 		lap = lap + 1;
 		
-	}, 3000);	
+	}, 1500000);	
 }
 function ShortBreak(){
 	document.getElementById("control").style.display = "none";
@@ -41,11 +56,12 @@ function ShortBreak(){
 		document.getElementById("control").innerHTML = "Start Pomo";	
 		
 		
-	}, 3000);
+	}, 300000);
 }
 
 function Skip(){
 	clearTimeout(skip);
+	clearTimeout(timeOut);
 	clear();	
 }
 function LongBreak(){
@@ -54,11 +70,11 @@ function LongBreak(){
 	setTimeout(function(){
 		document.getElementById("control").style.display = "block";
 		document.getElementById("control").innerHTML = "Skip";
-	}, 6000);
+	}, 900000);			//half of the long break is 15' * 60" * 1000 = 900000
 	
 	skip = setTimeout(function(){	
 		clear();
-	}, 20000);
+	}, 1800000);			//long break is 30' * 60" * 1000 = 1800000
 	
 }
 function clear(){
@@ -68,12 +84,26 @@ function clear(){
 	}
 	document.getElementById("control").innerHTML= "Start";
 	document.body.style.background = "#cfe2f3";
+	document.getElementById("counter").innerHTML = "25:00";
 }
 
-//timer display
-var second;
-var minute;
-var timeOut;
-function timer(){
-	
+
+function timedCount() {
+  if (second < 10 && minute < 10){
+  	document.getElementById("counter").innerHTML = "0" + minute + ":0" + second;
+  } else if (second < 10){
+  	document.getElementById("counter").innerHTML = minute + ":0" + second;
+  } else if (minute < 10) {
+  	document.getElementById("counter").innerHTML = "0" + minute + ":" + second;
+  } else {
+  	document.getElementById("counter").innerHTML = minute + ":" + second;
+  }
+  second = second - 1;
+  if (second < 0){
+  	minute = minute - 1;
+    second = 59;
+  }
+  if (minute >= 0){
+  	timeOut = setTimeout(timedCount, 1000);
+  }
 }
