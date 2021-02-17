@@ -88,7 +88,7 @@ export class PomoCounterController {
 
         //change background color to light blue
         document.body.style.background = "#cfe2f3";
-        
+
         this.timerController.addAlarmCallback('tc_advance', this._advance.call(this));
         this.timerController.set(POMO_LENGTH_SEC);
         break;
