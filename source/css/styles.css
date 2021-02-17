@@ -150,6 +150,10 @@ body {
     line-height: 28px;
 }
 
+h1{
+    font-size: 60px;
+}
+
 .button-div{
     display: flex; 
     flex-direction: column; 
