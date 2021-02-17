@@ -12,7 +12,6 @@ const longcolor = '#b6d7a8'; // color of dark green for long break stage
 export class BackgroundColorView {
   /**
   * Create Pomo counter control
-  * 
   */
   constructor() {
     this.background = document.body.style.background;

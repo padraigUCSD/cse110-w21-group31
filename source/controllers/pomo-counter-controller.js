@@ -1,5 +1,5 @@
-import { PomoCycleView } from '../views/pomo-cycle-view';
-import { BackgroundColorView } from '../views/background-color-view';
+import { PomoCycleView } from '../views/pomo-cycle-view.js';
+import { BackgroundColorView } from '../views/background-color-view.js';
 /**
  * Enum of stages of the Pomodoro cycle
  * @readonly
@@ -102,7 +102,7 @@ export class PomoCounterController {
         } else {
           this._stage = Stages.BREAK;
 
-          this._colorbackground._setBackground(this._stage); //set to short break background
+          this._colorbackground._setBackground(this._stage); // set to short break background
           this._colorbubble._setBubble(this._stage, this._currentPomo); // set the bubble base on the current pomo
 
           this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
