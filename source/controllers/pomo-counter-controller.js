@@ -27,7 +27,7 @@ export class PomoCounterController {
   constructor(timerController) {
     this.timerController = timerController;
     this.stage = Stages.POMO;
-    this.currentPomo = 0;
+    this.currentPomo = 1;
     this._skippable = false;
     this.skippableCallbacks = {};
   }
@@ -36,7 +36,7 @@ export class PomoCounterController {
    * Starts the Pomodoro cycle
    */
   start() {
-    this.currentPomo = 0;
+    this.currentPomo = 1;
     this.stage = Stages.POMO;
     this.timerController.addAlarmCallback('tc_advance', () => this._advance.call(this));
     this.timerController.set(POMO_LENGTH_SEC);
@@ -112,7 +112,7 @@ export class PomoCounterController {
       case Stages.LONG_BREAK:
         this._setSkippable(false);
         this.stage = Stages.POMO;
-        this.currentPomo = 0;
+        this.currentPomo = 1;
         this.timerController.addAlarmCallback('tc_advance', () => this._advance.call(this));
         this.timerController.set(POMO_LENGTH_SEC);
         break;
