@@ -11,7 +11,7 @@ export class TimerController {
     this._timeRemaining = 0;
     this._timeCallbacks = {};
     this._alarmCallbacks = {};
-    this._ticker = setInterval(() => this._tick.call(this), MS_PER_SECOND);
+    //this._ticker = setInterval(() => this._tick.call(this), MS_PER_SECOND); //remove to prevent start by default - only controls can start it
   }
 
   /**
@@ -52,6 +52,11 @@ export class TimerController {
    */
   _tick() {
     this._timeRemaining--;
+    console.log(this._timeRemaining);
+    // TODO HELP!!! - should controller know about view?
+    // beware of garbage
+    document.getElementById('counter').textContent = this._timeRemaining;
+    // end garbage
     for (const callback of Object.values(this._timeCallbacks)) {
       callback(this._timeRemaining);
     }

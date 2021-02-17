@@ -27,7 +27,7 @@ export class PomoCounterController {
   constructor(timerController) {
     this._timerController = timerController;
     this._stage = Stages.POMO;
-    this._currentPomo = 1;
+    this._currentPomo = 0; //1; //to try and prevent autostart
     this._skippable = false;
     this._skippableCallbacks = {};
   }
