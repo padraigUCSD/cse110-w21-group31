@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+	background: #cfe2f3;
+}
+.dot {
+	height: 25px;
+	width: 25px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	border = 5px;
+}
+#control {
+	text: center;
+	margin: auto;
+}
+.pomo-timer {
+	padding: 200px;	
+}
+</style>
+</head>
+<body>
+
+
+
+<div class="pomo-timer">
+	<div style="text-align:center">
+		<h1 id="counter" >25:00</h1>
+		<span class="dot" id="dot1"></span>
+		<span class="dot" id="dot2"></span>
+		<span class="dot" id="dot3"></span>
+		<span class="dot" id="dot4"></span>
+	
+	</div>
+	<br>
+	<div style="text-align:center">
+		<button id="control">Start</button>
+	</div>
+</div>
+<script src ="../controllers/pomo-counter-controller.js">
+</script>
+
+</body>
+</html>
 
