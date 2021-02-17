@@ -11,6 +11,9 @@ export class TimerControlsView {
     this._skipButton = document.getElementById('skip-long-break-btn');
   }
 
+  /**
+   * Binds the view to the actual HTML elements of the page.
+   */
   bind() {
     this._pomoCounterController.addSkippableCallback('tcv_display_button', skippable => this._onSkippableChanged.call(this, skippable))
     this._skipButton.onclick = e => this._onSkipPressed.call(this, e);
