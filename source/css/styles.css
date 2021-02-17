@@ -193,7 +193,7 @@ h1{
     list-style: none;
     color: black;
     font-family: 'IBM Plex Sans', sans-serif;
-    padding: 5px;
+    padding-bottom: 20px;
     font-size: 30px;
     cursor: pointer;
     text-decoration: none;
