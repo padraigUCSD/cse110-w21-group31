@@ -3,7 +3,7 @@
  */
 export class TimerView {
     /**
-     * Creates a TimerView and binds the UI to controller events
+     * Creates a TimerView and binds the UI to controller events.
      * @param timerController {TimerController}
      */
     constructor(timerController) {
@@ -19,6 +19,7 @@ export class TimerView {
     }
 
     /**
+     * Updates the HTML counter text in minutes:seconds format.
      * @param timeRemaining {int}
      */
     _onTick(timeRemaining) {
