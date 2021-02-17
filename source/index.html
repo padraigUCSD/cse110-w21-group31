@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>100minutes app</title>
-        <link rel="stylesheet" href="./css/styles.css">
-    </head>
 
-    <body>
-        <h1>Henlo world</h1>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <title>100minutes app</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel='shortcut icon' href='./images/favicon.ico' />
+    <script type="module" src="index.js"></script>
+
+    <style>
+        <!--Should I put it here or move to style.css-->
+        body
+        {
+        background: #cfe2f3;
+        }
+    </style>
+</head>
+
+<!--make sure to make padding and margin for body = 0 !!!-->
+
+<body>
+    <div class="sidebar">
+        <div class="header"></div>
+        <!--hamburger menu-->
+        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+        <label for="openSidebarMenu" class="sidebarIconToggle">
+            <div class="hamburger part1"></div>
+            <div class="hamburger part2"></div>
+            <div class="hamburger part3"></div>
+        </label>
+        <!--the side bar menu-->
+        <div id="sidebarMenu">
+            <ul class="sidebarMenuInner">
+                <li>Settings</li>
+                <li>Task Tracker</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="pomo-timer">
+        <div style="text-align:center">
+            <h1 id="counter">25:00</h1>
+            <span class="dot" id="dot0"></span>
+            <span class="dot" id="dot1"></span>
+            <span class="dot" id="dot2"></span>
+            <span class="dot" id="dot3"></span>
+
+        </div>
+        <br>
+        <div class="button-div">
+            <button id="control">Start</button>
+
+            <!-- skip button hidden until needed -->
+            <button id="skip-long-break-btn" style="visibility:hidden">Skip</button>
+
+        </div>
+
+    </div>
+
+
+</body>
+
 </html>
