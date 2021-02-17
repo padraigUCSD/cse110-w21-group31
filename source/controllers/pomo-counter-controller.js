@@ -38,7 +38,7 @@ export class PomoCounterController {
   start() {
     this.currentPomo = 1;
     this.stage = Stages.POMO;
-    this.timerController.addAlarmCallback('tc_advance', () => this._advance.call(this));
+    this.timerController.addAlarmCallback('pcc', () => this._advance.call(this));
     this.timerController.set(POMO_LENGTH_SEC);
   }
 
@@ -53,9 +53,6 @@ export class PomoCounterController {
       throw new Error('Minimum long break time has not passed, unable to skip');
     }
 
-    // Do not auto-advance again in 15 minutes
-    this.cancelAdvance();
-    // Instead, manually advance immediately
     this._advance();
   }
 
@@ -93,11 +90,11 @@ export class PomoCounterController {
         if (this.currentPomo === POMOS_PER_LONG_BREAK) {
           this.stage = Stages.LONG_BREAK;
 
-          this.timerController.addAlarmCallback('tc_allow_skip', () => this._allowSkip.call(this));
+          this.timerController.addAlarmCallback('pcc', () => this._allowSkip.call(this));
           this.timerController.set(LONG_BREAK_MIN_LENGTH_SEC);
         } else {
           this.stage = Stages.BREAK;
-          this.timerController.addAlarmCallback('tc_advance', () => this._advance.call(this));
+          this.timerController.addAlarmCallback('pcc', () => this._advance.call(this));
           this.timerController.set(BREAK_LENGTH_SEC);
         }
         break;
@@ -105,7 +102,7 @@ export class PomoCounterController {
       case Stages.BREAK:
         this.stage = Stages.POMO;
         this.currentPomo++;
-        this.timerController.addAlarmCallback('tc_advance', () => this._advance.call(this));
+        this.timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this.timerController.set(POMO_LENGTH_SEC);
         break;
 
@@ -113,7 +110,7 @@ export class PomoCounterController {
         this._setSkippable(false);
         this.stage = Stages.POMO;
         this.currentPomo = 1;
-        this.timerController.addAlarmCallback('tc_advance', () => this._advance.call(this));
+        this.timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this.timerController.set(POMO_LENGTH_SEC);
         break;
 
@@ -128,7 +125,7 @@ export class PomoCounterController {
    */
   _allowSkip() {
     this._setSkippable(true);
-    this.cancelAdvance = this.timerController.addAlarmCallback('tc_advance', () => this._advance.call(this));
+    this.timerController.addAlarmCallback('pcc', () => this._advance.call(this));
     this.timerController.set(LONG_BREAK_MAX_EXTENDED_LENGTH_SEC);
   }
 }
