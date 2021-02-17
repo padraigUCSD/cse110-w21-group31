@@ -11,10 +11,8 @@ export const Stages = {
 
 const POMO_LENGTH_SEC = 25 * 60; // 25 minutes
 const BREAK_LENGTH_SEC = 5 * 60; // 5 minutes
-// eslint-disable-next-line no-unused-vars
 const LONG_BREAK_MIN_LENGTH_SEC = 15 * 60; // 15 minutes
-// eslint-disable-next-line no-unused-vars
-const LONG_BREAK_MAX_LENGTH_SEC = 30 * 60; // 30 minutes
+const LONG_BREAK_MAX_EXTENDED_LENGTH_SEC = 15 * 60; // 15 minutes, max amount of time to allow the long break to be extended past LONG_BREAK_MIN_LENGTH_SEC
 
 const POMOS_PER_LONG_BREAK = 4; // number of consecutive pomos before starting a long break
 
@@ -27,19 +25,58 @@ export class PomoCounterController {
    * @param {TimerController} timerController - the source of wall-clock time
    */
   constructor(timerController) {
-    this.timerController = timerController;
-    this.stage = Stages.POMO;
-    this.currentPomo = 0;
+    this._timerController = timerController;
+    this._stage = Stages.POMO;
+    this._currentPomo = 1;
+    this._skippable = false;
+    this._skippableCallbacks = {};
   }
 
   /**
    * Starts the Pomodoro cycle
    */
   start() {
-    this.currentPomo = 0;
-    this.stage = Stages.POMO;
-    this.timerController.addAlarmCallback('tc_advance', this._advance.call(this));
-    this.timerController.set(POMO_LENGTH_SEC);
+    this._currentPomo = 1;
+    this._stage = Stages.POMO;
+    this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
+    this._timerController.set(POMO_LENGTH_SEC);
+  }
+
+  /**
+   * Manually skips a long break if the minimum amount of time has passed.
+   */
+  skipLongBreak() {
+    if (this._stage !== Stages.LONG_BREAK) {
+      throw new Error('Not in a long break, unable to skip');
+    }
+    if (!this._skippable) {
+      throw new Error('Minimum long break time has not passed, unable to skip');
+    }
+
+    this._advance();
+  }
+
+  /**
+   * Registers a callback to be called when a long break is allowed or disallowed to be skipped
+   * @param id {string} unique ID to refer to this callback
+   * @param callback {function(boolean)} called with true if skipping is allowed, or false if skipping is not allowed
+   * @returns {function(): boolean} call to clear the callback
+   */
+  addSkippableCallback(id, callback) {
+    this._skippableCallbacks[id] = callback;
+    return () => delete this._skippableCallbacks[id];
+  }
+
+  /**
+   * Sets whether the current long break can be skipped or not, and notify callbacks
+   * @param skippable true to allow the long break to be skipped, false to disallow
+   * @private
+   */
+  _setSkippable(skippable) {
+    this._skippable = skippable;
+    for (const callback of Object.values(this._skippableCallbacks)) {
+      callback(skippable);
+    }
   }
 
   /**
@@ -48,34 +85,47 @@ export class PomoCounterController {
    * @private
    */
   _advance() {
-    switch (this.stage) {
+    switch (this._stage) {
       case Stages.POMO:
-        if (this.currentPomo === POMOS_PER_LONG_BREAK) {
-          this.stage = Stages.LONG_BREAK;
-          // TODO make long break skippable, set up callback for ending the long break after 30 min
+        if (this._currentPomo === POMOS_PER_LONG_BREAK) {
+          this._stage = Stages.LONG_BREAK;
+
+          this._timerController.addAlarmCallback('pcc', () => this._allowSkip.call(this));
+          this._timerController.set(LONG_BREAK_MIN_LENGTH_SEC);
         } else {
-          this.stage = Stages.BREAK;
-          this.timerController.addAlarmCallback('tc_advance', this._advance.call(this));
-          this.timerController.set(BREAK_LENGTH_SEC);
+          this._stage = Stages.BREAK;
+          this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
+          this._timerController.set(BREAK_LENGTH_SEC);
         }
         break;
 
       case Stages.BREAK:
-        this.stage = Stages.POMO;
-        this.currentPomo++;
-        this.timerController.addAlarmCallback('tc_advance', this._advance.call(this));
-        this.timerController.set(POMO_LENGTH_SEC);
+        this._stage = Stages.POMO;
+        this._currentPomo++;
+        this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
+        this._timerController.set(POMO_LENGTH_SEC);
         break;
 
       case Stages.LONG_BREAK:
-        this.stage = Stages.POMO;
-        this.currentPomo = 0;
-        this.timerController.addAlarmCallback('tc_advance', this._advance.call(this));
-        this.timerController.set(POMO_LENGTH_SEC);
+        this._setSkippable(false);
+        this._stage = Stages.POMO;
+        this._currentPomo = 1;
+        this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
+        this._timerController.set(POMO_LENGTH_SEC);
         break;
 
       default:
-        throw new Error(`unable to advance, invalid stage ${this.stage}`);
+        throw new Error(`unable to advance, invalid stage ${this._stage}`);
     }
+  }
+
+  /**
+   * Callback to unlock the "skip long break" functionality after 15 minutes.
+   * @private
+   */
+  _allowSkip() {
+    this._setSkippable(true);
+    this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
+    this._timerController.set(LONG_BREAK_MAX_EXTENDED_LENGTH_SEC);
   }
 }

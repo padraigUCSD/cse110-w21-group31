@@ -8,10 +8,10 @@ export class TimerController {
    * Creates a TimerController
    */
   constructor() {
-    this.timeCallbacks = {};
-    this.alarmCallbacks = {};
-    this.timeRemaining = 0;
-    this.ticker = setInterval(() => this._tick.call(this), MS_PER_SECOND);
+    this._timeRemaining = 0;
+    this._timeCallbacks = {};
+    this._alarmCallbacks = {};
+    this._ticker = setInterval(() => this._tick.call(this), MS_PER_SECOND);
   }
 
   /**
@@ -21,8 +21,8 @@ export class TimerController {
    * @returns {function(): boolean} - call to clear the callback
    */
   addTimeCallback(id, callback) {
-    this.timeCallbacks[id] = callback;
-    return () => delete this.timeCallbacks[id];
+    this._timeCallbacks[id] = callback;
+    return () => delete this._timeCallbacks[id];
   }
 
   /**
@@ -32,8 +32,8 @@ export class TimerController {
    * @returns {function(): boolean} - call to clear the callback
    */
   addAlarmCallback(id, callback) {
-    this.alarmCallbacks[id] = callback;
-    return () => delete this.alarmCallbacks[id];
+    this._alarmCallbacks[id] = callback;
+    return () => delete this._alarmCallbacks[id];
   }
 
   /**
@@ -41,9 +41,9 @@ export class TimerController {
    * @param timeSeconds - time in seconds
    */
   set(timeSeconds) {
-    this.timeRemaining = timeSeconds;
-    clearInterval(this.ticker);
-    this.ticker = setInterval(() => this._tick.call(this), MS_PER_SECOND);
+    this._timeRemaining = timeSeconds;
+    clearInterval(this._ticker);
+    this._ticker = setInterval(() => this._tick.call(this), MS_PER_SECOND);
   }
 
   /**
@@ -51,14 +51,14 @@ export class TimerController {
    * @private
    */
   _tick() {
-    this.timeRemaining--;
-    for (const callback of Object.values(this.timeCallbacks)) {
-      callback(this.timeRemaining);
+    this._timeRemaining--;
+    for (const callback of Object.values(this._timeCallbacks)) {
+      callback(this._timeRemaining);
     }
 
-    if (this.timeRemaining === 0) {
-      clearInterval(this.ticker);
-      for (const callback of Object.values(this.alarmCallbacks)) {
+    if (this._timeRemaining === 0) {
+      clearInterval(this._ticker);
+      for (const callback of Object.values(this._alarmCallbacks)) {
         callback();
       }
     }
