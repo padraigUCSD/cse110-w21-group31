@@ -17,7 +17,7 @@ export class TimerControlsView {
   }
 
   /**
-   *
+   * Called when a long break becomes skippable, or unskippable, in order to show or hide the skip button.
    * @param skippable {boolean}
    * @private
    */
@@ -26,7 +26,7 @@ export class TimerControlsView {
   }
 
   /**
-   *
+   * Called when the skip button is pressed, to skip the long break.
    * @param e {Event}
    * @private
    */
