@@ -25,28 +25,28 @@ export class PomoCounterController {
    * @param {TimerController} timerController - the source of wall-clock time
    */
   constructor(timerController) {
-    this.timerController = timerController;
-    this.stage = Stages.POMO;
-    this.currentPomo = 1;
+    this._timerController = timerController;
+    this._stage = Stages.POMO;
+    this._currentPomo = 1;
     this._skippable = false;
-    this.skippableCallbacks = {};
+    this._skippableCallbacks = {};
   }
 
   /**
    * Starts the Pomodoro cycle
    */
   start() {
-    this.currentPomo = 1;
-    this.stage = Stages.POMO;
-    this.timerController.addAlarmCallback('pcc', () => this._advance.call(this));
-    this.timerController.set(POMO_LENGTH_SEC);
+    this._currentPomo = 1;
+    this._stage = Stages.POMO;
+    this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
+    this._timerController.set(POMO_LENGTH_SEC);
   }
 
   /**
    * Manually skips a long break if the minimum amount of time has passed.
    */
   skipLongBreak() {
-    if (this.stage !== Stages.LONG_BREAK) {
+    if (this._stage !== Stages.LONG_BREAK) {
       throw new Error('Not in a long break, unable to skip');
     }
     if (!this._skippable) {
@@ -63,8 +63,8 @@ export class PomoCounterController {
    * @returns {function(): boolean} call to clear the callback
    */
   addSkippableCallback(id, callback) {
-    this.skippableCallbacks[id] = callback;
-    return () => delete this.skippableCallbacks[id];
+    this._skippableCallbacks[id] = callback;
+    return () => delete this._skippableCallbacks[id];
   }
 
   /**
@@ -74,7 +74,7 @@ export class PomoCounterController {
    */
   _setSkippable(skippable) {
     this._skippable = skippable;
-    for (const callback of Object.values(this.skippableCallbacks)) {
+    for (const callback of Object.values(this._skippableCallbacks)) {
       callback(skippable);
     }
   }
@@ -85,37 +85,37 @@ export class PomoCounterController {
    * @private
    */
   _advance() {
-    switch (this.stage) {
+    switch (this._stage) {
       case Stages.POMO:
-        if (this.currentPomo === POMOS_PER_LONG_BREAK) {
-          this.stage = Stages.LONG_BREAK;
+        if (this._currentPomo === POMOS_PER_LONG_BREAK) {
+          this._stage = Stages.LONG_BREAK;
 
-          this.timerController.addAlarmCallback('pcc', () => this._allowSkip.call(this));
-          this.timerController.set(LONG_BREAK_MIN_LENGTH_SEC);
+          this._timerController.addAlarmCallback('pcc', () => this._allowSkip.call(this));
+          this._timerController.set(LONG_BREAK_MIN_LENGTH_SEC);
         } else {
-          this.stage = Stages.BREAK;
-          this.timerController.addAlarmCallback('pcc', () => this._advance.call(this));
-          this.timerController.set(BREAK_LENGTH_SEC);
+          this._stage = Stages.BREAK;
+          this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
+          this._timerController.set(BREAK_LENGTH_SEC);
         }
         break;
 
       case Stages.BREAK:
-        this.stage = Stages.POMO;
-        this.currentPomo++;
-        this.timerController.addAlarmCallback('pcc', () => this._advance.call(this));
-        this.timerController.set(POMO_LENGTH_SEC);
+        this._stage = Stages.POMO;
+        this._currentPomo++;
+        this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
+        this._timerController.set(POMO_LENGTH_SEC);
         break;
 
       case Stages.LONG_BREAK:
         this._setSkippable(false);
-        this.stage = Stages.POMO;
-        this.currentPomo = 1;
-        this.timerController.addAlarmCallback('pcc', () => this._advance.call(this));
-        this.timerController.set(POMO_LENGTH_SEC);
+        this._stage = Stages.POMO;
+        this._currentPomo = 1;
+        this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
+        this._timerController.set(POMO_LENGTH_SEC);
         break;
 
       default:
-        throw new Error(`unable to advance, invalid stage ${this.stage}`);
+        throw new Error(`unable to advance, invalid stage ${this._stage}`);
     }
   }
 
@@ -125,7 +125,7 @@ export class PomoCounterController {
    */
   _allowSkip() {
     this._setSkippable(true);
-    this.timerController.addAlarmCallback('pcc', () => this._advance.call(this));
-    this.timerController.set(LONG_BREAK_MAX_EXTENDED_LENGTH_SEC);
+    this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
+    this._timerController.set(LONG_BREAK_MAX_EXTENDED_LENGTH_SEC);
   }
 }
