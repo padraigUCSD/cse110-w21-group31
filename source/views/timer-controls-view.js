@@ -52,7 +52,7 @@ export class TimerControlsView {
    */
   _onStartPressed(e) {
     e.preventDefault();
-    this._pomoCounterController.start();
+    this._pomoCounterController.start(); //!!!controller only starts cycle onClick!!!
     this._startButton.style.visibility = 'hidden';
   }
 }
