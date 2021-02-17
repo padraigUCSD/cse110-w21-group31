@@ -125,7 +125,7 @@ export class PomoCounterController {
 
         this._colorbackground._setBackground(this._stage); // set to normal background color
         this._colorbubble._setBubble(this._stage, this._currentPomo); // reset all the bubble to empty bubbles
-        
+
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this._timerController.set(POMO_LENGTH_SEC);
         break;
