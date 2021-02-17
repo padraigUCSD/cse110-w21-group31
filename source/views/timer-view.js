@@ -25,7 +25,7 @@ export class TimerView {
   _onTick(timeRemaining) {
     const minutes = parseInt(timeRemaining / 60, 10);
     const seconds = (timeRemaining % 60).toString().padStart(2, '0');
-    const timeString = `${minutes} + : + ${seconds}`;
+    const timeString = `${minutes} : ${seconds}`;
     this._timeDisplay.textContent = timeString;
   }
 }
