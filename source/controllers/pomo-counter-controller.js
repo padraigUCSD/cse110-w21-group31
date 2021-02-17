@@ -20,10 +20,10 @@ const POMOS_PER_LONG_BREAK = 4; // number of consecutive pomos before starting a
 
 const DOT = 'dot'; //to get the name for the bubble
 var setbackgr = document.body.style.background; // set background color
-const setbubble0 = document.getElementById(DOT + ZERO).style.backgroundColor;
-const setbubble1 = document.getElementById(DOT + ONE).style.backgroundColor;
-const setbubble2 = document.getElementById(DOT + TWO).style.backgroundColor;
-const setbubble3 = document.getElementById(DOT + THREE).style.backgroundColor;
+const setbubble0 = document.getElementById(DOT + Indicator.ZERO).style.backgroundColor;
+const setbubble1 = document.getElementById(DOT + Indicator.ONE).style.backgroundColor;
+const setbubble2 = document.getElementById(DOT + Indicator.TWO).style.backgroundColor;
+const setbubble3 = document.getElementById(DOT + Indicator.THREE).style.backgroundColor;
 const emptybubble = '#bbb'; //color of normal bubble
 const darkbubble = '#1155cc'; //color of blue bubble
 const startcolor = '#cfe2f3'; //color of light blue for start stage
@@ -99,11 +99,11 @@ export class PomoCounterController {
           //change the color for the short break
           setbackgr = breakcolor;
           //set the bubbles color base on the currentPomo
-          if (this.currentPomo === ZERO){
+          if (this.currentPomo === Indicator.ZERO){
             setbubble0 = darkbubble;
-          } else if (this.currentPomo === ONE){
+          } else if (this.currentPomo === Indicator.ONE){
             setbubble1 = darkbubble;
-          } else if (this.currentPomo === TWO){
+          } else if (this.currentPomo === Indicator.TWO){
             setbubble2 = darkbubble;
           } else {
             setbubble3 = darkbubble;
