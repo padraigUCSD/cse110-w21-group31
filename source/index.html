@@ -10,7 +10,26 @@
 
 </head>
 
+<!--make sure to make padding and margin for body = 0 !!!-->
 <body>
+  <div class="sidebar">
+            <div class="header"></div>
+            <!--hamburger menu-->
+            <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+            <label for="openSidebarMenu" class="sidebarIconToggle">
+                <div class="hamburger part1"></div>
+                <div class="hamburger part2"></div>
+                <div class="hamburger part3"></div>
+            </label>
+            <!--the side bar menu-->
+            <div id="sidebarMenu">
+                <ul class="sidebarMenuInner">
+                    <li>Settings</li>
+                    <li>Task Tracker</li>
+                </ul>
+            </div>
+        </div>
+  
   <div class="pomo-timer">
         <div style="text-align:center">
             <h1 id="counter">25:00</h1>
