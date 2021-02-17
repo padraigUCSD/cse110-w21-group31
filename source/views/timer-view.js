@@ -15,7 +15,7 @@ export class TimerView {
      * Binds the view to the actual HTML elements of the page.
      */
     bind() {
-        this._timerController.addTimeCallback('tv_tick_update', timeRemaining => this._onTick.call(this, timeRemaining)) //TODO
+        this._timerController.addTimeCallback('tv_tick_update', timeRemaining => this._onTick.call(this, timeRemaining));
     }
 
     /**
