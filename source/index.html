@@ -2,22 +2,28 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>100minutes app</title>
+        <title>Pomodoro app</title>
         <link rel="stylesheet" href="./css/styles.css">
     </head>
+
+    <!--make sure to make padding and margin for body = 0 !!!-->
     <body>
-        <div class="header"></div>
-        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-        <label for="openSidebarMenu" class="sidebarIconToggle">
-          <div class="hamburger part1"></div>
-          <div class="hamburger horizontal"></div>
-          <div class="hamburger part3"></div>
-        </label>
-        <div id="sidebarMenu">
-          <ul class="sidebarMenuInner">
-            <li><a>Settings</a></li>
-            <li><a>Task Tracker</a></li>
-          </ul>
+        <div class="sidebar">
+            <div class="header"></div>
+            <!--hamburger menu-->
+            <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+            <label for="openSidebarMenu" class="sidebarIconToggle">
+                <div class="hamburger part1"></div>
+                <div class="hamburger part2"></div>
+                <div class="hamburger part3"></div>
+            </label>
+            <!--the side bar menu-->
+            <div id="sidebarMenu">
+                <ul class="sidebarMenuInner">
+                    <li>Settings</li>
+                    <li>Task Tracker</li>
+                </ul>
+            </div>
         </div>
     </body>
 </html>
