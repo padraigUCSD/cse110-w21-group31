@@ -11,7 +11,6 @@ export class TimerController {
     this._timeRemaining = 0;
     this._timeCallbacks = {};
     this._alarmCallbacks = {};
-    this._ticker = setInterval(() => this._tick.call(this), MS_PER_SECOND);
   }
 
   /**

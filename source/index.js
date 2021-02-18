@@ -5,7 +5,6 @@ import { TimerView } from './views/timer-view.js';
 
 const timerController = new TimerController();
 const pomoCounterController = new PomoCounterController(timerController);
-pomoCounterController.start();
 
 const timerView = new TimerView(timerController);
 timerView.bind();

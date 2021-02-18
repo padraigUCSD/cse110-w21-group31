@@ -9,6 +9,7 @@ export class TimerControlsView {
   constructor(pomoCounterController) {
     this._pomoCounterController = pomoCounterController;
     this._skipButton = document.getElementById('skip-long-break-btn');
+    this._startButton = document.getElementById('control');
   }
 
   /**
@@ -17,6 +18,7 @@ export class TimerControlsView {
   bind() {
     this._pomoCounterController.addSkippableCallback('tcv_display_button', skippable => this._onSkippableChanged.call(this, skippable))
     this._skipButton.onclick = e => this._onSkipPressed.call(this, e);
+    this._startButton.onclick = e => this._onStartPressed.call(this, e);
   }
 
   /**
@@ -36,5 +38,18 @@ export class TimerControlsView {
   _onSkipPressed(e) {
     e.preventDefault();
     this._pomoCounterController.skipLongBreak();
+  }
+
+  /**
+   * Called when the start button is pressed, to start the pomo process
+   * This includes starting the PomoCounterController.
+   * @param e {Event}
+   * @private
+   */
+  _onStartPressed(e) {
+    e.preventDefault();
+    // controller only starts cycle onClick
+    this._pomoCounterController.start();
+    this._startButton.style.visibility = 'hidden';
   }
 }
