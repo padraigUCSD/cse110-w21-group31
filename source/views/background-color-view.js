@@ -8,8 +8,7 @@ const longcolor = '#b6d7a8'; // color of dark green for long break stage
 */
 export class BackgroundColorView {
   /**
-   * 
-   * @param {PomoCounterController} PomoCounterController get the right stage of pomo 
+   * @param {PomoCounterController} PomoCounterController get the right stage of pomo
    */
   constructor(PomoCounterController) {
     this._PomoCounterController = PomoCounterController;

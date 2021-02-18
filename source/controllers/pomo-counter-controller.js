@@ -69,8 +69,7 @@ export class PomoCounterController {
     return () => delete this._skippableCallbacks[id];
   }
   /**
-   * 
-   * @param {string} id unique ID to refer to this callback 
+   * @param {string} id unique ID to refer to this callback
    * @param {function(boolean)} callback called with true if we need to change the background color
    * @return {function(): boolean} call to clear the callback
    */
@@ -80,7 +79,6 @@ export class PomoCounterController {
   }
 
   /**
-   * 
    * @param {string} id unique ID to refer to this callback
    * @param {function(boolean)} callback called with true if we need to change the bubble color
    * @return {function(): boolean} call to clear the call back
@@ -92,7 +90,7 @@ export class PomoCounterController {
 
   /**
    * Set the background color
-   * @param {stage} stage determine which stage to change to correct color 
+   * @param {stage} stage determine which stage to change to correct color
    */
   _setBackground(stage) {
     for (const callback of Object.values(this._changeBackground)) {

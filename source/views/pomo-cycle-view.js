@@ -27,14 +27,13 @@ const darkbubble = '#1155cc'; // color of blue bubble
 */
 export class PomoCycleView {
   /**
-   * 
    * @param {PomoCounterController} PomoCounterController get the right stage and pomo number
    */
   constructor(PomoCounterController) {
-    this._bubbles = ['document.getElementById(DOT + Indicator.ONE)',
-      'document.getElementById(DOT + Indicator.ONE)',
-      'document.getElementById(DOT + Indicator.ONE)',
-      'document.getElementById(DOT + Indicator.ONE)'];
+    this._bubbles = ['document.getElementById('/DOT/' + '/Indicator.ONE/')',
+      'document.getElementById('/DOT/' + '/Indicator.TWO/')',
+      'document.getElementById('/DOT/' + '/Indicator.THREE/')',
+      'document.getElementById('/DOT/' + '/Indicator.FOUR/')'];
     this._PomoCounterController = PomoCounterController;
   }
 
@@ -45,7 +44,7 @@ export class PomoCycleView {
     this._PomoCounterController.start();
     this._PomoCounterController.addChangeBubbles('pcv_setbubble', stage , currentpomo => this._setBubble.call(this, stage, currentpomo));
   }
-
+  
   /**
    * Update the color bubble for each stage
    * @param {stage} stage to define what stage are we on
