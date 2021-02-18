@@ -8,23 +8,23 @@ const darkbubble = '#1155cc'; // color of blue bubble
 */
 export class PomoCycleView {
   /**
-   * @param {PomoCounterController} PomoCounterController get the right stage and pomo number
+   * @param {PomoCounterController} pomoCounterController get the right stage and pomo number
    */
-  constructor(PomoCounterController) {
+  constructor(pomoCounterController) {
     this._bubbles = [];
-    for (let i = 1; i < 5; i++){
+    for (let i = 1; i < 5; i++) {
       let x = document.getElementById('dot' + i);
       this._bubbles.push(x);
     }
-    this._PomoCounterController = PomoCounterController;
+    this._pomoCounterController = pomoCounterController;
   }
 
   /**
    * Binds the right color to the right bubble at the right stage
    */
-  bind(){
-    this._PomoCounterController.start();
-    this._PomoCounterController.addChangeBubbles('pcv_setbubble', stage , currentpomo => this._setBubble.call(this, stage, currentpomo));
+  bind() {
+    this._pomoCounterController.start();
+    this._pomoCounterController.addChangeBubbles('pcv_setbubble', stage, currentpomo => this._setBubble.call(this, stage, currentpomo));
   }
 
   /**
@@ -33,10 +33,10 @@ export class PomoCycleView {
    * @param {currentpomo} currentpomo to define what lap are we on
    */
   _setBubble(stage, currentpomo) {
-    if (stage === 'break' || stage === 'long_break'){
+    if (stage === Stages.BREAK || stage === Stages.LONG_BREAK) {
       this._bubbles[currentpomo] = darkbubble;
-    } else if (state === 'pomo' && currentpomo === 1){
-      for (let i = 1; i < 5; i++){
+    } else if (state === Stages.POMO && currentpomo === 1) {
+      for (let i = 1; i < 5; i++) {
         this._bubbles[i] = emptybubble;
       }
     }
