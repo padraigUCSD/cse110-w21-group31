@@ -12,12 +12,6 @@ Private project repo for the UnhandledPromiseRejection (UPR) team. We are buildi
 ![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2F100minutes.netlify.app%2F)
 ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/100minutes.netlify.app)
 
-## Important Links:
-(1) QA Env: https://100minutes-qa.netlify.app/  
-(2) Live Env: https://100minutes.netlify.app/  
-(3) Docs: https://padraigucsd.github.io/cse110-w21-group31/docs/  
-(4) Team Wiki: https://github.com/padraigUCSD/cse110-w21-group31/wiki  
-
 ## How to commit to this repo
 ### (0) **Read the docs before u do anything else!** https://padraigucsd.github.io/cse110-w21-group31/docs/   
 
@@ -34,4 +28,9 @@ all commit messages must describe a change. Please try to avoid "non-messages" s
 
 (3) Important: we have deploy previews! Use them to view how your PR would affect the web app.
 
+## Important Links:
+(1) QA Env: https://100minutes-qa.netlify.app/  
+(2) Live Env: https://100minutes.netlify.app/  
+(3) Docs: https://padraigucsd.github.io/cse110-w21-group31/docs/  
+(4) Team Wiki: https://github.com/padraigUCSD/cse110-w21-group31/wiki  
 
