@@ -3,7 +3,10 @@ Private project repo for the UnhandledPromiseRejection (UPR) team. We are buildi
 
 ## How to commit to this repo
 (0) Read the docs before u do anything else! https://padraigucsd.github.io/cse110-w21-group31/docs/  
-(1) *Create a new branch from master before you start* DO NOT commit directly to master if contributing to source/. Direct commits are ok if for meeting notes, readme updates, etc. RULES FOR BRANCH NAMES: (1) branch names cannot be (2) spaces in branch names can only be stated with hypens (-). No underscores or any other characters are allowed.
+(1) *Create a new branch from master before you start* DO NOT commit directly to master if contributing to source/. Direct commits are ok if for meeting notes, readme updates, etc. 
+RULES FOR BRANCH NAMES: 
+(1) branch names cannot be longer than 30 characters. no exceptions. 
+(2) spaces in branch names can only be stated with hypens (-). No underscores or any other characters are allowed.
 (2) 
 
 RULES FOR COMMIT MESSAGES: all commit messages must describe a change. Please try to avoid "non-messages" such as: "e" "i hate this" "AAAAAAA" or "this is not poggers"
