@@ -104,7 +104,7 @@ export class PomoCounterController {
       callback(stage, bubble);
     }
   }
-  
+
   /**
    * Sets whether the current long break can be skipped or not, and notify callbacks
    * @param skippable true to allow the long break to be skipped, false to disallow

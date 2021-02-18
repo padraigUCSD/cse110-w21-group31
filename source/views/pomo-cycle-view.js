@@ -13,8 +13,8 @@ export class PomoCycleView {
   constructor(pomoCounterController) {
     this._bubbles = [];
     for (let i = 1; i < 5; i++) {
-      const x = document.getElementById('dot' + i + '');
-      this._bubbles.push(x);
+      const x = i + '';
+      this._bubbles.push(document.getElementById('dot' + x));
     }
     this._pomoCounterController = pomoCounterController;
   }
