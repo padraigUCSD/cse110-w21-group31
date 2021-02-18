@@ -16,13 +16,13 @@ export class BackgroundColorView {
   }
 
   bind() {
-    this._PomoCounterController.addChangeBackground('bcv_setbackground', stage => this._setBackground.call(this, stage));
+    this._PomoCounterController.addChangeBackground('bcv_setbackground', stage => this._set.call(this, stage));
   }
   /**
    * Set the background color base on the current stage
    * @param {stage} stage what stage are we on
    */
-  _setBackground(stage) {
+  _set(stage) {
     if (stage === Stages.POMO) {
       this._background = startcolor;
     } else if (stage === Stages.BREAK) {

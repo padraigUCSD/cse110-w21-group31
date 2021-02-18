@@ -13,7 +13,7 @@ export class PomoCycleView {
   constructor(pomoCounterController) {
     this._bubbles = [];
     for (let i = 1; i < 5; i++) {
-      let x = document.getElementById('dot' + i);
+      const x = document.getElementById('dot' + i);
       this._bubbles.push(x);
     }
     this._pomoCounterController = pomoCounterController;
@@ -24,7 +24,7 @@ export class PomoCycleView {
    */
   bind() {
     this._pomoCounterController.start();
-    this._pomoCounterController.addChangeBubbles('pcv_setbubble', stage, currentpomo => this._setBubble.call(this, stage, currentpomo));
+    this._pomoCounterController.addChangeBubbles('pcv_setbubble', (stage, currentpomo) => this._set.call(this, stage, currentpomo));
   }
 
   /**
@@ -32,10 +32,10 @@ export class PomoCycleView {
    * @param {stage} stage to define what stage are we on
    * @param {currentpomo} currentpomo to define what lap are we on
    */
-  _setBubble(stage, currentpomo) {
+  _set(stage, currentpomo) {
     if (stage === Stages.BREAK || stage === Stages.LONG_BREAK) {
       this._bubbles[currentpomo] = darkbubble;
-    } else if (state === Stages.POMO && currentpomo === 1) {
+    } else if (stage === Stages.POMO && currentpomo === 1) {
       for (let i = 1; i < 5; i++) {
         this._bubbles[i] = emptybubble;
       }
