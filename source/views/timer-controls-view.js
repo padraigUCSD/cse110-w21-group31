@@ -46,12 +46,14 @@ export class TimerControlsView {
 
   /**
    * Called when the start button is pressed, to start the pomo process
+   * This includes starting the PomoCounterController.
    * @param e {Event}
    * @private
    */
   _onStartPressed(e) {
     e.preventDefault();
-    this._pomoCounterController.start(); //!!!controller only starts cycle onClick!!!
+    //!!!controller only starts cycle onClick!!!
+    this._pomoCounterController.start(); 
     this._startButton.style.visibility = 'hidden';
   }
 }
