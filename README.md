@@ -20,8 +20,8 @@ Private project repo for the UnhandledPromiseRejection (UPR) team. We are buildi
 ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/100minutes.netlify.app)
 
 ## Important Links:
-(1) QA Env: https://100minutes-qa.netlify.app/
-(2) Live Env: https://100minutes.netlify.app/
-(3) Docs: https://padraigucsd.github.io/cse110-w21-group31/docs/
-(4) Team Wiki: https://github.com/padraigUCSD/cse110-w21-group31/wiki
-(5) Team Share Drive: https://drive.google.com/drive/u/0/folders/1ora4hP4hoGAgITjK1oq79J2m7dquQUap
+(1) QA Env: https://100minutes-qa.netlify.app/  
+(2) Live Env: https://100minutes.netlify.app/  
+(3) Docs: https://padraigucsd.github.io/cse110-w21-group31/docs/  
+(4) Team Wiki: https://github.com/padraigUCSD/cse110-w21-group31/wiki  
+
