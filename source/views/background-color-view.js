@@ -1,8 +1,5 @@
-export const Stages = {
-  POMO: 'pomo',
-  BREAK: 'break',
-  LONG_BREAK: 'long_break',
-}
+import { Stages } from '../controllers/pomo-counter-controller.js'
+
 const startcolor = '#cfe2f3'; // color of light blue for start stage
 const breakcolor = '#d9ead3'; // color of light green for short break stage
 const longcolor = '#b6d7a8'; // color of dark green for long break stage
@@ -11,23 +8,28 @@ const longcolor = '#b6d7a8'; // color of dark green for long break stage
 */
 export class BackgroundColorView {
   /**
-  * Create Pomo counter control
-  */
-  constructor() {
-    this.background = document.body.style.background;
+   * 
+   * @param {PomoCounterController} PomoCounterController get the right stage of pomo 
+   */
+  constructor(PomoCounterController) {
+    this._PomoCounterController = PomoCounterController;
+    this._background = document.body.style.background;
   }
 
+  bind() {
+    this._PomoCounterController.addChangeBackground('bcv_setbackground', stage => this._setBackground.call(this, stage));
+  }
   /**
    * Set the background color base on the current stage
    * @param {stage} stage what stage are we on
    */
   _setBackground(stage) {
     if (stage === Stages.POMO) {
-      this.background = startcolor;
+      this._background = startcolor;
     } else if (stage === Stages.BREAK) {
-      this.background = breakcolor;
+      this._background = breakcolor;
     } else if (stage === Stages.LONG_BREAK) {
-      this.background = longcolor;
+      this._background = longcolor;
     }
   }
 }

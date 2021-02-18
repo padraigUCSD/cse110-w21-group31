@@ -27,13 +27,23 @@ const darkbubble = '#1155cc'; // color of blue bubble
 */
 export class PomoCycleView {
   /**
-   * Create a PomoCycleView
+   * 
+   * @param {PomoCounterController} PomoCounterController get the right stage and pomo number
    */
-  constructor() {
-    this.Bubble1 = document.getElementById(DOT + Indicator.ONE);
-    this.Bubble2 = document.getElementById(DOT + Indicator.TWO);
-    this.Bubble3 = document.getElementById(DOT + Indicator.THREE);
-    this.Bubble4 = document.getElementById(DOT + Indicator.FOUR);
+  constructor(PomoCounterController) {
+    this._bubbles = ['document.getElementById(DOT + Indicator.ONE)',
+      'document.getElementById(DOT + Indicator.ONE)',
+      'document.getElementById(DOT + Indicator.ONE)',
+      'document.getElementById(DOT + Indicator.ONE)'];
+    this._PomoCounterController = PomoCounterController;
+  }
+
+  /**
+   * Binds the right color to the right bubble at the right stage
+   */
+  bind(){
+    this._PomoCounterController.start();
+    this._PomoCounterController.addChangeBubbles('pcv_setbubble', stage , currentpomo => this._setBubble.call(this, stage, currentpomo));
   }
 
   /**
@@ -42,19 +52,12 @@ export class PomoCycleView {
    * @param {currentpomo} currentpomo to define what lap are we on
    */
   _setBubble(stage, currentpomo) {
-    if (stage === Stages.BREAK && currentpomo === Indicator.ONE) {
-      this.Bubble1 = darkbubble;
-    } else if (stage === Stages.BREAK && currentpomo === Indicator.TWO) {
-      this.Bubble2 = darkbubble;
-    } else if (stage === Stages.BREAK && currentpomo === Indicator.THREE) {
-      this.Bubble3 = darkbubble;
-    } else if (stage === Stages.LONG_BREAK && currentpomo === Indicator.FOUR) {
-      this.Bubble4 = darkbubble;
-    } else if (stage === Stages.POMO && currentpomo === Indicator.ONE) {
-      this.Bubble1 = emptybubble;
-      this.Bubble2 = emptybubble;
-      this.Bubble3 = emptybubble;
-      this.Bubble4 = emptybubble;
+    if (stage === 'break' || stage === 'long_break'){
+      this._bubbles[currentpomo] = darkbubble;
+    } else if (state === 'pomo' && currentpomo === 1){
+      for (let i = 1; i < 5; i++){
+        this._bubbles[i] = emptybubble;
+      }
     }
   }
 }

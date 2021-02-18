@@ -1,5 +1,3 @@
-import { PomoCycleView } from '../views/pomo-cycle-view.js';
-import { BackgroundColorView } from '../views/background-color-view.js';
 /**
  * Enum of stages of the Pomodoro cycle
  * @readonly
@@ -32,8 +30,8 @@ export class PomoCounterController {
     this._currentPomo = 1;
     this._skippable = false;
     this._skippableCallbacks = {};
-    this._colorbubble = new PomoCycleView();
-    this._colorbackground = new BackgroundColorView();
+    this._changeBackground = {};
+    this._changeBubbles = {};
   }
 
   /**
@@ -70,7 +68,43 @@ export class PomoCounterController {
     this._skippableCallbacks[id] = callback;
     return () => delete this._skippableCallbacks[id];
   }
+  /**
+   * 
+   * @param {string} id unique ID to refer to this callback 
+   * @param {function(boolean)} callback called with true if we need to change the background color
+   * @return {function(): boolean} call to clear the callback
+   */
+  addChangeBackground(id, callback) {
+    this._changeBackground[id] = callback;
+    return () => delete this._changeBackground[id];
+  }
 
+  /**
+   * 
+   * @param {string} id unique ID to refer to this callback
+   * @param {function(boolean)} callback called with true if we need to change the bubble color
+   * @return {function(): boolean} call to clear the call back
+   */
+  addChangeBubbles(id, callback) {
+    this._changeBubbles[id] = callback;
+    return () => delete this._changeBubbles[id];
+  }
+
+  /**
+   * Set the background color
+   * @param {stage} stage determine which stage to change to correct color 
+   */
+  _setBackground(stage) {
+    for (const callback of Object.values(this._changeBackground)) {
+      callback(stage);
+    }
+  }
+
+  _setBubble(stage, bubble) {
+    for (const callback of Object.values(this._changeBubbles)) {
+      callback(stage, bubble);
+    }
+  }
   /**
    * Sets whether the current long break can be skipped or not, and notify callbacks
    * @param skippable true to allow the long break to be skipped, false to disallow
@@ -94,16 +128,16 @@ export class PomoCounterController {
         if (this._currentPomo === POMOS_PER_LONG_BREAK) {
           this._stage = Stages.LONG_BREAK;
 
-          this._colorbackground._setBackground(this._stage); // set to long break background
-          this._colorbubble._setBubble(this._stage, this._currentPomo); // set the bubble base on the current pomo
+          this.addChangeBackground('bcv_setbackground', () => this._setBackground.call(this, this._stage));
+          this.addChangeBubbles('pcv_setbubble', () => this._setBubble.call(this, this._stage, this._currentPomo));
 
           this._timerController.addAlarmCallback('pcc', () => this._allowSkip.call(this));
           this._timerController.set(LONG_BREAK_MIN_LENGTH_SEC);
         } else {
           this._stage = Stages.BREAK;
 
-          this._colorbackground._setBackground(this._stage); // set to short break background
-          this._colorbubble._setBubble(this._stage, this._currentPomo); // set the bubble base on the current pomo
+          this.addChangeBackground('bcv_setbackground', () => this._setBackground.call(this, this._stage));
+          this.addChangeBubbles('pcv_setbubble', () => this._setBubble.call(this, this._stage, this._currentPomo));
 
           this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
           this._timerController.set(BREAK_LENGTH_SEC);
@@ -112,7 +146,7 @@ export class PomoCounterController {
 
       case Stages.BREAK:
         this._stage = Stages.POMO;
-        this._colorbackground._setBackground(this._stage); // set to normal background color
+        this.addChangeBackground('bcv_setbackground', () => this._setBackground.call(this, this._stage));
         this._currentPomo++;
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this._timerController.set(POMO_LENGTH_SEC);
@@ -123,8 +157,8 @@ export class PomoCounterController {
         this._stage = Stages.POMO;
         this._currentPomo = 1;
 
-        this._colorbackground._setBackground(this._stage); // set to normal background color
-        this._colorbubble._setBubble(this._stage, this._currentPomo); // reset all the bubble to empty bubbles
+        this.addChangeBackground('bcv_setbackground', () => this._setBackground.call(this, this._stage));
+        this.addChangeBubbles('pcv_setbubble', () => this._setBubble.call(this, this._stage, this._currentPomo));
 
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this._timerController.set(POMO_LENGTH_SEC);
