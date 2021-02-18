@@ -68,6 +68,7 @@ export class PomoCounterController {
     this._skippableCallbacks[id] = callback;
     return () => delete this._skippableCallbacks[id];
   }
+
   /**
    * @param {string} id unique ID to refer to this callback
    * @param {function(boolean)} callback called with true if we need to change the background color
@@ -103,6 +104,7 @@ export class PomoCounterController {
       callback(stage, bubble);
     }
   }
+  
   /**
    * Sets whether the current long break can be skipped or not, and notify callbacks
    * @param skippable true to allow the long break to be skipped, false to disallow
