@@ -1,24 +1,5 @@
-/**
-* @readonly
-* @enum{int}
-*/
-export const Indicator = {
-  ONE: 1,
-  TWO: 2,
-  THREE: 3,
-  FOUR: 4,
-}
-/**
-* Enum of stages of the Pomodoro cycle
-* @readonly
-* @enum {string}
-*/
-export const Stages = {
-  POMO: 'pomo',
-  BREAK: 'break',
-  LONG_BREAK: 'long_break',
-}
-const DOT = 'dot'; // to get the name for the bubble
+import { Stages } from '../controllers/pomo-counter-controller.js'
+
 const emptybubble = '#bbb'; // color of normal bubble
 const darkbubble = '#1155cc'; // color of blue bubble
 
@@ -30,10 +11,11 @@ export class PomoCycleView {
    * @param {PomoCounterController} PomoCounterController get the right stage and pomo number
    */
   constructor(PomoCounterController) {
-    this._bubbles = ['document.getElementById('/DOT/' + '/Indicator.ONE/')',
-      'document.getElementById('/DOT/' + '/Indicator.TWO/')',
-      'document.getElementById('/DOT/' + '/Indicator.THREE/')',
-      'document.getElementById('/DOT/' + '/Indicator.FOUR/')'];
+    this._bubbles = [];
+    for (let i = 1; i < 5; i++){
+      let x = document.getElementById('dot' + i);
+      this._bubbles.push(x);
+    }
     this._PomoCounterController = PomoCounterController;
   }
 
@@ -44,7 +26,7 @@ export class PomoCycleView {
     this._PomoCounterController.start();
     this._PomoCounterController.addChangeBubbles('pcv_setbubble', stage , currentpomo => this._setBubble.call(this, stage, currentpomo));
   }
-  
+
   /**
    * Update the color bubble for each stage
    * @param {stage} stage to define what stage are we on
