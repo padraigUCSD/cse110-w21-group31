@@ -9,9 +9,7 @@ export class TimerControlsView {
   constructor(pomoCounterController) {
     this._pomoCounterController = pomoCounterController;
     this._skipButton = document.getElementById('skip-long-break-btn');
-    //
     this._startButton = document.getElementById('control');
-    //
   }
 
   /**
@@ -20,9 +18,7 @@ export class TimerControlsView {
   bind() {
     this._pomoCounterController.addSkippableCallback('tcv_display_button', skippable => this._onSkippableChanged.call(this, skippable))
     this._skipButton.onclick = e => this._onSkipPressed.call(this, e);
-    //
     this._startButton.onclick = e => this._onStartPressed.call(this, e);
-    //
   }
 
   /**
