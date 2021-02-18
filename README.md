@@ -22,9 +22,15 @@ RULES FOR BRANCH NAMES:
 - branch names cannot be longer than 30 characters. no exceptions.  
 - spaces in branch names can only be stated with hypens (-). No underscores or any other characters are allowed.
 
+### (2) Checkout your new branch on your local machine via VSCode. Push commits from VSCode.  
+Commit and push frequently using VSCode. Alternative editors are not acceptable and will not be supported.   
+
 RULES FOR COMMIT MESSAGES:   
 all commit messages must describe a change. Please try to avoid "non-messages" such as:   
 "e" "i hate this" "AAAAAAA" "F in the chat" or "this is not poggers"  
+
+### (3) 
+
 
 (3) Important: we have deploy previews! Use them to view how your PR would affect the web app.
 
