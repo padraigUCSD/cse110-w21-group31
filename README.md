@@ -1,7 +1,7 @@
 # cse110-w21-group31
 Private project repo for the UnhandledPromiseRejection (UPR) team. We are building a Pomodoro Timer. UPR holds CSE 110 Team No. 31.
 
-## How to Commit to this repo
+## How to commit to this repo
 
 (1) Read the docs before u do anything else! https://padraigucsd.github.io/cse110-w21-group31/docs/
 (2)
