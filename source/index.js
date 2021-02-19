@@ -5,7 +5,6 @@ import { TimerView } from './views/timer-view.js';
 import { BackgroundColorView } from './views/background-color-view.js';
 import { PomoCycleView } from './views/pomo-cycle-view.js';
 
-
 const timerController = new TimerController();
 const pomoCounterController = new PomoCounterController(timerController);
 
