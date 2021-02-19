@@ -12,7 +12,7 @@ export class BackgroundColorView {
    */
   constructor(PomoCounterController) {
     this._PomoCounterController = PomoCounterController;
-    this._background = document.body.style.background;
+    this._background = document.body;
   }
 
   bind() {
@@ -26,13 +26,13 @@ export class BackgroundColorView {
   _set(stage) {
     if (stage === Stages.POMO) {
       console.log('pomo');
-      document.body.style.backgroundColor = startcolor;
+      this._background.style.backgroundColor = startcolor;
     } else if (stage === Stages.BREAK) {
       console.log('break');
-      document.body.style.backgroundColor = breakcolor;
+      this._background.style.backgroundColor = breakcolor;
     } else if (stage === Stages.LONG_BREAK) {
       console.log('long break');
-      document.body.style.backgroundColor = longcolor;
+      this._background.style.backgroundColor = longcolor;
     }
   }
 }
