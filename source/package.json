@@ -7,7 +7,8 @@
     "start": "http-server",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest --coverage"
   },
   "author": "",
   "license": "ISC",
