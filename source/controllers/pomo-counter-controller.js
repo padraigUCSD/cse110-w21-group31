@@ -100,7 +100,6 @@ export class PomoCounterController {
   }
 
   /**
-   * 
    * @param {stage} stage current stage of the pomo
    * @param {currentPomo} currentPomo current pomo counter
    */
