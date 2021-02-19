@@ -16,6 +16,8 @@ export class PomoCycleView {
       this._bubbles.push(document.getElementById(`dot${i}`));
     }
     this._pomoCounterController = pomoCounterController;
+
+    //console.log(this._bubbles);
   }
 
   /**
@@ -33,7 +35,10 @@ export class PomoCycleView {
   _set(stage, currentpomo) {
     if (stage === Stages.BREAK || stage === Stages.LONG_BREAK) {
       console.log("break OR long break -- POMOCYCLEVIEW pcv");
-      this._bubbles[currentpomo].style.backgroundColor = darkbubble;
+      console.log("--> currentpomo: ");
+      console.log("--> " + currentpomo);
+      //currentpomo index comes in range [1,4] but we need [0,3] hence -1
+      this._bubbles[currentpomo-1].style.backgroundColor = darkbubble;
     } else if (stage === Stages.POMO && currentpomo === 1) {
       for (let i = 1; i < 5; i++) {
         console.log("pomo -- POMOCYCLEVIEW pcv");
