@@ -72,6 +72,7 @@ export class PomoCounterController {
   }
 
   /**
+   * Registers a callback to be called when a stage is changed
    * @param {string} id unique ID to refer to this callback
    * @param {function(boolean)} callback called with true if we need to change the background color
    * @return {function(): boolean} call to clear the callback
@@ -82,6 +83,7 @@ export class PomoCounterController {
   }
 
   /**
+   * Registers a callback to be called when a pomo is changed
    * @param {string} id unique ID to refer to this callback
    * @param {function(boolean)} callback called with true if we need to change the bubble color
    * @return {function(): boolean} call to clear the call back
@@ -92,8 +94,9 @@ export class PomoCounterController {
   }
 
   /**
-   * Set the background color
+   * Sets the current stage of the Pomodoro cycle
    * @param {stage} stage determine which stage to change to correct color
+   * @private
    */
   _setStage(stage) {
     for (const callback of Object.values(this._changeStageCallbacks)) {
@@ -102,8 +105,10 @@ export class PomoCounterController {
   }
 
   /**
+   * Sets the current Pomodoro (of 4) of the 100-minute Pomodoro cycle
    * @param {stage} stage current stage of the pomo
    * @param {currentPomo} currentPomo current pomo counter
+   * @private
    */
   _setPomo(stage, currentPomo) {
     for (const callback of Object.values(this._changePomosCallbacks)) {
