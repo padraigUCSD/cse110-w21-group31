@@ -35,9 +35,9 @@ all commit messages must describe a change. Please try to avoid "non-messages" s
 (3) Important: we have deploy previews! Use them to view how your PR would affect the web app.
 
 ## Product Roadmap (Hi-Fi):
-(1) Sprint 1 Views: https://drive.google.com/file/d/1pPchyB_blHhsJGV7e7nFmUehoGx1Opqe/view?usp=sharing
-(2) Sprint 2 Views: https://drive.google.com/file/d/1V58yWFfEhap5ClkY2sqZ5Ssu0G0QbTkW/view?usp=sharing
-(3) Sprint 3 Views (subject to change): https://drive.google.com/file/d/1V58yWFfEhap5ClkY2sqZ5Ssu0G0QbTkW/view?usp=sharing
+(1) Sprint 1 Views: https://drive.google.com/file/d/1pPchyB_blHhsJGV7e7nFmUehoGx1Opqe/view?usp=sharing  
+(2) Sprint 2 Views: https://drive.google.com/file/d/1V58yWFfEhap5ClkY2sqZ5Ssu0G0QbTkW/view?usp=sharing  
+(3) Sprint 3 Views (subject to change): https://drive.google.com/file/d/1V58yWFfEhap5ClkY2sqZ5Ssu0G0QbTkW/view?usp=sharing  
 
 ## Important Links:
 (1) QA Env: https://100minutes-qa.netlify.app/  
