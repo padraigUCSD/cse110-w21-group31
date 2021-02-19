@@ -99,6 +99,7 @@ export class PomoCounterController {
    * @private
    */
   _setStage(stage) {
+    this._stage = stage;
     for (const callback of Object.values(this._changeStageCallbacks)) {
       callback(stage);
     }
@@ -111,6 +112,7 @@ export class PomoCounterController {
    * @private
    */
   _setPomo(stage, currentPomo) {
+    //this._currentPomo = currentPomo;
     for (const callback of Object.values(this._changePomosCallbacks)) {
       callback(stage, currentPomo);
     }
@@ -137,18 +139,18 @@ export class PomoCounterController {
     switch (this._stage) {
       case Stages.POMO:
         if (this._currentPomo === POMOS_PER_LONG_BREAK) {
-          this._stage = Stages.LONG_BREAK;
+          this._setStage(Stages.LONG_BREAK);
           this._timerController.addAlarmCallback('pcc', () => this._allowSkip.call(this));
           this._timerController.set(LONG_BREAK_MIN_LENGTH_SEC);
         } else {
-          this._stage = Stages.BREAK;
+          this._setStage(Stages.BREAK);
           this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
           this._timerController.set(BREAK_LENGTH_SEC);
         }
         break;
 
       case Stages.BREAK:
-        this._stage = Stages.POMO;
+        this._setStage(Stages.POMO);
         this._currentPomo++;
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this._timerController.set(POMO_LENGTH_SEC);
@@ -156,7 +158,7 @@ export class PomoCounterController {
 
       case Stages.LONG_BREAK:
         this._setSkippable(false);
-        this._stage = Stages.POMO;
+        this._setStage(Stages.POMO);
         this._currentPomo = 1;
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this._timerController.set(POMO_LENGTH_SEC);
