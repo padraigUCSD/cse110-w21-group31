@@ -38,9 +38,11 @@ export class PomoCycleView {
       console.log("--> currentpomo: ");
       console.log("--> " + currentpomo);
       //currentpomo index comes in range [1,4] but we need [0,3] hence -1
-      this._bubbles[currentpomo-1].style.backgroundColor = darkbubble;
-    } else if (stage === Stages.POMO && currentpomo === 1) {
-      for (let i = 1; i < 5; i++) {
+      this._bubbles[currentpomo - 1].style.backgroundColor = darkbubble;
+    }
+    // this is the condition when we are starting over after the 4th pomo
+    else if (stage === Stages.POMO && currentpomo === 1) {
+      for (let i = 0; i < 4; i++) {
         console.log("pomo -- POMOCYCLEVIEW pcv");
         this._bubbles[i].style.backgroundColor = emptybubble;
       }
