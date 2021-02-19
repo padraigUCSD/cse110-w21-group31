@@ -30,8 +30,8 @@ export class PomoCounterController {
     this._currentPomo = 1;
     this._skippable = false;
     this._skippableCallbacks = {};
-    this._changeBackground = {};
-    this._changeBubbles = {};
+    this._changeStageCallbacks = {};
+    this._changePomosCallbacks = {};
   }
 
   /**
@@ -74,9 +74,9 @@ export class PomoCounterController {
    * @param {function(boolean)} callback called with true if we need to change the background color
    * @return {function(): boolean} call to clear the callback
    */
-  addChangeBackground(id, callback) {
-    this._changeBackground[id] = callback;
-    return () => delete this._changeBackground[id];
+  addChangeStageCallback(id, callback) {
+    this._changeStageCallbacks[id] = callback;
+    return () => delete this._changeStageCallbacks[id];
   }
 
   /**
@@ -84,23 +84,28 @@ export class PomoCounterController {
    * @param {function(boolean)} callback called with true if we need to change the bubble color
    * @return {function(): boolean} call to clear the call back
    */
-  addChangeBubbles(id, callback) {
-    this._changeBubbles[id] = callback;
-    return () => delete this._changeBubbles[id];
+  addChangePomoCallback(id, callback) {
+    this._changePomosCallbacks[id] = callback;
+    return () => delete this._changePomosCallbacks[id];
   }
 
   /**
    * Set the background color
    * @param {stage} stage determine which stage to change to correct color
    */
-  _setBackgroundRequest(stage) {
-    for (const callback of Object.values(this._changeBackground)) {
+  _setStageChangeRequest(stage) {
+    for (const callback of Object.values(this._changeStageCallbacks)) {
       callback(stage);
     }
   }
 
-  _setBubbleRequest(stage, currentPomo) {
-    for (const callback of Object.values(this._changeBubbles)) {
+  /**
+   * 
+   * @param {stage} stage current stage of the pomo
+   * @param {currentPomo} currentPomo current pomo counter
+   */
+  _setPomoChangeRequest(stage, currentPomo) {
+    for (const callback of Object.values(this._changePomosCallbacks)) {
       callback(stage, currentPomo);
     }
   }
@@ -154,8 +159,8 @@ export class PomoCounterController {
       default:
         throw new Error(`unable to advance, invalid stage ${this._stage}`);
     }
-    this.addChangeBackground('bcv_setbackground', () => this._setBackgroundRequest.call(this, this._stage));
-    this.addChangeBubbles('pcv_setbubble', () => this._setBubbleRequest.call(this, this._stage, this._currentPomo));
+    this._timerController.addAlarmCallback('bcv', () => this._setStageChangeRequest(this._stage));
+    this._timerController.addAlarmCallback('pcv', () => this._setPomoChangeRequest(this._stage, this._currentPomo));
   }
 
   /**
