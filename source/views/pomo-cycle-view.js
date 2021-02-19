@@ -22,7 +22,6 @@ export class PomoCycleView {
    * Binds the right color to the right bubble at the right stage
    */
   bind() {
-    this._pomoCounterController.start();
     this._pomoCounterController.addChangePomoCallback('pcv', (stage, currentpomo) => this._set.call(this, stage, currentpomo));
   }
 
@@ -33,10 +32,12 @@ export class PomoCycleView {
    */
   _set(stage, currentpomo) {
     if (stage === Stages.BREAK || stage === Stages.LONG_BREAK) {
-      this._bubbles[currentpomo] = darkbubble;
+      console.log("break OR long break -- POMOCYCLEVIEW pcv");
+      this._bubbles[currentpomo].style.backgroundColor = darkbubble;
     } else if (stage === Stages.POMO && currentpomo === 1) {
       for (let i = 1; i < 5; i++) {
-        this._bubbles[i] = emptybubble;
+        console.log("pomo -- POMOCYCLEVIEW pcv");
+        this._bubbles[i].style.backgroundColor = emptybubble;
       }
     }
   }
