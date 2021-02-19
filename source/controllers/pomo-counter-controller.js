@@ -42,8 +42,8 @@ export class PomoCounterController {
     this._stage = Stages.POMO;
     this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
     this._timerController.set(POMO_LENGTH_SEC);
-    this._timerController.addAlarmCallback('bcv', () => this._setStageChangeRequest(this._stage));
-    this._timerController.addAlarmCallback('pcv', () => this._setPomoChangeRequest(this._stage, this._currentPomo));
+    this._timerController.addAlarmCallback('bcv', () => this._setStage(this._stage));
+    this._timerController.addAlarmCallback('pcv', () => this._setPomo(this._stage, this._currentPomo));
   }
 
   /**
@@ -95,7 +95,7 @@ export class PomoCounterController {
    * Set the background color
    * @param {stage} stage determine which stage to change to correct color
    */
-  _setStageChangeRequest(stage) {
+  _setStage(stage) {
     for (const callback of Object.values(this._changeStageCallbacks)) {
       callback(stage);
     }
@@ -105,7 +105,7 @@ export class PomoCounterController {
    * @param {stage} stage current stage of the pomo
    * @param {currentPomo} currentPomo current pomo counter
    */
-  _setPomoChangeRequest(stage, currentPomo) {
+  _setPomo(stage, currentPomo) {
     for (const callback of Object.values(this._changePomosCallbacks)) {
       callback(stage, currentPomo);
     }
@@ -160,8 +160,8 @@ export class PomoCounterController {
       default:
         throw new Error(`unable to advance, invalid stage ${this._stage}`);
     }
-    this._timerController.addAlarmCallback('bcv', () => this._setStageChangeRequest(this._stage));
-    this._timerController.addAlarmCallback('pcv', () => this._setPomoChangeRequest(this._stage, this._currentPomo));
+    this._timerController.addAlarmCallback('bcv', () => this._setStage(this._stage));
+    this._timerController.addAlarmCallback('pcv', () => this._setPomo(this._stage, this._currentPomo));
   }
 
   /**
