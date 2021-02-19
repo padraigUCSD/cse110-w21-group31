@@ -19,7 +19,7 @@ Private project repo for the UnhandledPromiseRejection (UPR) team. We are buildi
 DO NOT commit directly to master if contributing to source/. Direct commits are ok if for meeting notes, readme updates, etc.  
 
 RULES FOR BRANCH NAMES:  
-- branch names cannot be longer than 30 characters. no exceptions.  
+- branch names cannot be longer than 30 characters. no exceptions.   
 - spaces in branch names can only be stated with hypens (-). No underscores or any other characters are allowed.
 
 ### (2) Checkout your new branch on your local machine via VSCode. Push commits from VSCode.  
