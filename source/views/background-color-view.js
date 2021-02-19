@@ -22,6 +22,7 @@ export class BackgroundColorView {
   /**
    * Set the background color base on the current stage
    * @param {stage} stage what stage are we on
+   * @private
    */
   _set(stage) {
     if (stage === Stages.POMO) {

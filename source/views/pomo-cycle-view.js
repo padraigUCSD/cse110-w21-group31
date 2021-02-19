@@ -29,6 +29,7 @@ export class PomoCycleView {
    * Update the color bubble for each stage
    * @param {stage} stage to define what stage are we on
    * @param {currentpomo} currentpomo to define what lap are we on
+   * @private
    */
   _set(stage, currentpomo) {
     if (stage === Stages.BREAK || stage === Stages.LONG_BREAK) {
