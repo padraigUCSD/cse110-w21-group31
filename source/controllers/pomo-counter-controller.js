@@ -93,15 +93,15 @@ export class PomoCounterController {
    * Set the background color
    * @param {stage} stage determine which stage to change to correct color
    */
-  _setBackground(stage) {
+  _setBackgroundRequest(stage) {
     for (const callback of Object.values(this._changeBackground)) {
       callback(stage);
     }
   }
 
-  _setBubble(stage, bubble) {
+  _setBubbleRequest(stage, currentPomo) {
     for (const callback of Object.values(this._changeBubbles)) {
-      callback(stage, bubble);
+      callback(stage, currentPomo);
     }
   }
 
@@ -127,18 +127,10 @@ export class PomoCounterController {
       case Stages.POMO:
         if (this._currentPomo === POMOS_PER_LONG_BREAK) {
           this._stage = Stages.LONG_BREAK;
-
-          this.addChangeBackground('bcv_setbackground', () => this._setBackground.call(this, this._stage));
-          this.addChangeBubbles('pcv_setbubble', () => this._setBubble.call(this, this._stage, this._currentPomo));
-
           this._timerController.addAlarmCallback('pcc', () => this._allowSkip.call(this));
           this._timerController.set(LONG_BREAK_MIN_LENGTH_SEC);
         } else {
           this._stage = Stages.BREAK;
-
-          this.addChangeBackground('bcv_setbackground', () => this._setBackground.call(this, this._stage));
-          this.addChangeBubbles('pcv_setbubble', () => this._setBubble.call(this, this._stage, this._currentPomo));
-
           this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
           this._timerController.set(BREAK_LENGTH_SEC);
         }
@@ -146,7 +138,6 @@ export class PomoCounterController {
 
       case Stages.BREAK:
         this._stage = Stages.POMO;
-        this.addChangeBackground('bcv_setbackground', () => this._setBackground.call(this, this._stage));
         this._currentPomo++;
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this._timerController.set(POMO_LENGTH_SEC);
@@ -156,10 +147,6 @@ export class PomoCounterController {
         this._setSkippable(false);
         this._stage = Stages.POMO;
         this._currentPomo = 1;
-
-        this.addChangeBackground('bcv_setbackground', () => this._setBackground.call(this, this._stage));
-        this.addChangeBubbles('pcv_setbubble', () => this._setBubble.call(this, this._stage, this._currentPomo));
-
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this._timerController.set(POMO_LENGTH_SEC);
         break;
@@ -167,6 +154,8 @@ export class PomoCounterController {
       default:
         throw new Error(`unable to advance, invalid stage ${this._stage}`);
     }
+    this.addChangeBackground('bcv_setbackground', () => this._setBackgroundRequest.call(this, this._stage));
+    this.addChangeBubbles('pcv_setbubble', () => this._setBubbleRequest.call(this, this._stage, this._currentPomo));
   }
 
   /**
