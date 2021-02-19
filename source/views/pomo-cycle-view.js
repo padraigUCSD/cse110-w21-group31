@@ -22,6 +22,7 @@ export class PomoCycleView {
    * Binds the right color to the right bubble at the right stage
    */
   bind() {
+    this._pomoCounterController.start();
     this._pomoCounterController.addChangePomoCallback('pcv', (stage, currentpomo) => this._set.call(this, stage, currentpomo));
   }
 

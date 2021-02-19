@@ -16,6 +16,7 @@ export class BackgroundColorView {
   }
 
   bind() {
+    this._PomoCounterController.start();
     this._PomoCounterController.addChangeStageCallback('bcv', stage => this._set.call(this, stage));
   }
 
