@@ -42,8 +42,11 @@ export class PomoCounterController {
     this._stage = Stages.POMO;
     this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
     this._timerController.set(POMO_LENGTH_SEC);
-    this._timerController.addAlarmCallback('bcv', () => this._setStage(this._stage));
-    this._timerController.addAlarmCallback('pcv', () => this._setPomo(this._stage, this._currentPomo));
+    //this._timerController.addAlarmCallback('bcv', () => this._setStage(this._stage));
+    
+    
+    //this._timerController.addAlarmCallback('pcv', () => this._setPomo(this._stage, this._currentPomo));
+    // when we goto alarm callback, will call back when the pomo
   }
 
   /**
@@ -140,10 +143,16 @@ export class PomoCounterController {
       case Stages.POMO:
         if (this._currentPomo === POMOS_PER_LONG_BREAK) {
           this._setStage(Stages.LONG_BREAK);
+          // do NOT advance a move moving from pomo to break
+          this._setPomo(Stages.LONG_BREAK, this._currentPomo);
+          //
           this._timerController.addAlarmCallback('pcc', () => this._allowSkip.call(this));
           this._timerController.set(LONG_BREAK_MIN_LENGTH_SEC);
         } else {
           this._setStage(Stages.BREAK);
+          // do NOT advance a move moving from pomo to break
+          this._setPomo(Stages.BREAK, this._currentPomo);
+          //
           this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
           this._timerController.set(BREAK_LENGTH_SEC);
         }
@@ -151,6 +160,7 @@ export class PomoCounterController {
 
       case Stages.BREAK:
         this._setStage(Stages.POMO);
+        // advance a pomo moving from break to pomo
         this._setPomo(Stages.POMO, this._currentPomo + 1);
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this._timerController.set(POMO_LENGTH_SEC);
