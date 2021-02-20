@@ -112,7 +112,9 @@ export class PomoCounterController {
    * @private
    */
   _setPomo(stage, currentPomo) {
-    //this._currentPomo = currentPomo;
+    this._currentPomo = currentPomo;
+
+    console.log("i am setPomo, with currentPomo = " + currentPomo);
     for (const callback of Object.values(this._changePomosCallbacks)) {
       callback(stage, currentPomo);
     }
@@ -151,7 +153,11 @@ export class PomoCounterController {
 
       case Stages.BREAK:
         this._setStage(Stages.POMO);
-        this._currentPomo++;
+        
+        // this._currentPomo++;
+        this._setPomo(Stages.POMO, this._currentPomo + 1);
+        //this._currentPomo = 2;
+
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this._timerController.set(POMO_LENGTH_SEC);
         break;
@@ -159,7 +165,11 @@ export class PomoCounterController {
       case Stages.LONG_BREAK:
         this._setSkippable(false);
         this._setStage(Stages.POMO);
-        this._currentPomo = 1;
+
+        console.log("yee");
+        //this._currentPomo = 1;
+        this._setPomo(Stages.POMO, Number(1));
+
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this._timerController.set(POMO_LENGTH_SEC);
         break;
