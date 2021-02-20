@@ -27,13 +27,10 @@ export class BackgroundColorView {
    */
   _set(stage) {
     if (stage === Stages.POMO) {
-      console.log('pomo bcv');
       this._background.style.backgroundColor = startcolor;
     } else if (stage === Stages.BREAK) {
-      console.log('break bcv');
       this._background.style.backgroundColor = breakcolor;
     } else if (stage === Stages.LONG_BREAK) {
-      console.log('long break bcv');
       this._background.style.backgroundColor = longcolor;
     }
   }
