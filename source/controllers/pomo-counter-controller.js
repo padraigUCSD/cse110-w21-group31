@@ -72,7 +72,7 @@ export class PomoCounterController {
   /**
    * Registers a callback to be called when a stage is changed
    * @param {string} id unique ID to refer to this callback
-   * @param {function(boolean)} callback called with true if we need to change the background color
+   * @param {function(boolean)} callback called with true if we need to change the stage
    * @return {function(): boolean} call to clear the callback
    */
   addChangeStageCallback(id, callback) {
