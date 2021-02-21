@@ -83,7 +83,7 @@ export class PomoCounterController {
   /**
    * Registers a callback to be called when a pomo is changed
    * @param {string} id unique ID to refer to this callback
-   * @param {function(boolean)} callback called with true if we need to change the bubble color
+   * @param {function(boolean)} callback called with true if we need to change the pomo 
    * @return {function(): boolean} call to clear the call back
    */
   addChangePomoCallback(id, callback) {
