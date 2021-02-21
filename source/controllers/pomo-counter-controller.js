@@ -105,14 +105,13 @@ export class PomoCounterController {
 
   /**
    * Sets the current Pomodoro (of 4) of the 100-minute Pomodoro cycle
-   * @param {stage} stage current stage of the pomo
-   * @param {currentPomo} currentPomo current pomo counter
+   * @param {int} currentPomo current pomo counter
    * @private
    */
-  _setPomo(stage, currentPomo) {
+  _setPomo(currentPomo) {
     this._currentPomo = currentPomo;
     for (const callback of Object.values(this._changePomosCallbacks)) {
-      callback(stage, currentPomo);
+      callback(this._stage, currentPomo);
     }
   }
 
@@ -139,13 +138,13 @@ export class PomoCounterController {
         if (this._currentPomo === POMOS_PER_LONG_BREAK) {
           this._setStage(Stages.LONG_BREAK);
           // do NOT advance a move moving from pomo to break
-          this._setPomo(Stages.LONG_BREAK, this._currentPomo);
+          this._setPomo(this._currentPomo);
           this._timerController.addAlarmCallback('pcc', () => this._allowSkip.call(this));
           this._timerController.set(LONG_BREAK_MIN_LENGTH_SEC);
         } else {
           this._setStage(Stages.BREAK);
           // do NOT advance a move moving from pomo to break
-          this._setPomo(Stages.BREAK, this._currentPomo);
+          this._setPomo(this._currentPomo);
           this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
           this._timerController.set(BREAK_LENGTH_SEC);
         }
@@ -154,7 +153,7 @@ export class PomoCounterController {
       case Stages.BREAK:
         this._setStage(Stages.POMO);
         // advance a pomo moving from break to pomo
-        this._setPomo(Stages.POMO, this._currentPomo + 1);
+        this._setPomo(this._currentPomo + 1);
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this._timerController.set(POMO_LENGTH_SEC);
         break;
@@ -162,7 +161,7 @@ export class PomoCounterController {
       case Stages.LONG_BREAK:
         this._setSkippable(false);
         this._setStage(Stages.POMO);
-        this._setPomo(Stages.POMO, Number(1));
+        this._setPomo(Number(1));
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this._timerController.set(POMO_LENGTH_SEC);
         break;
