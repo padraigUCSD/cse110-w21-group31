@@ -15,7 +15,7 @@ const LONG_BREAK_MIN_LENGTH_SEC = 15 * 60; // 15 minutes
 const LONG_BREAK_MAX_EXTENDED_LENGTH_SEC = 15 * 60; // 15 minutes, max amount of time to allow the long break to be extended past LONG_BREAK_MIN_LENGTH_SEC
 
 const POMOS_PER_LONG_BREAK = 4; // number of consecutive pomos before starting a long break
-var alarm = new Audio("audio/alarm.mp3"); //add alarm object
+const alarm = new Audio("audio/alarm.mp3"); // add alarm object
 
 /**
  * Tracks the current stage of the pomodoro process, and the number of consecutive pomos completed.
@@ -37,8 +37,8 @@ export class PomoCounterController {
    * Starts the Pomodoro cycle
    */
   start() {
-    //uncomment line below to test alarm on start 
-    //alarm.play(); 
+    // uncomment line below to test alarm on start
+    // alarm.play();
     this._currentPomo = 1;
     this._stage = Stages.POMO;
     this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
@@ -91,7 +91,7 @@ export class PomoCounterController {
     console.log("in advance");
     switch (this._stage) {
       case Stages.POMO:
-        alarm.play(); //state change, play alarm
+        alarm.play(); // state change, play alarm
         if (this._currentPomo === POMOS_PER_LONG_BREAK) {
           this._stage = Stages.LONG_BREAK;
 
@@ -105,7 +105,7 @@ export class PomoCounterController {
         break;
 
       case Stages.BREAK:
-        alarm.play(); //state change, play alarm
+        alarm.play(); // state change, play alarm
         this._stage = Stages.POMO;
         this._currentPomo++;
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
@@ -113,7 +113,7 @@ export class PomoCounterController {
         break;
 
       case Stages.LONG_BREAK:
-        alarm.play(); //state change, play alarm
+        alarm.play(); // state change, play alarm
         this._setSkippable(false);
         this._stage = Stages.POMO;
         this._currentPomo = 1;
