@@ -14,8 +14,9 @@ export class BackgroundColorView {
     this._PomoCounterController = PomoCounterController;
     this._background = document.body;
   }
+
   /**
-   * Binds the background color to state machine   
+   * Binds the background color to state machine
    */
   bind() {
     // change background color on stage change
