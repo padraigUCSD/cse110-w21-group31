@@ -170,8 +170,6 @@ export class PomoCounterController {
       default:
         throw new Error(`unable to advance, invalid stage ${this._stage}`);
     }
-    this._timerController.addAlarmCallback('bcv', () => this._setStage(this._stage));
-    this._timerController.addAlarmCallback('pcv', () => this._setPomo(this._stage, this._currentPomo));
   }
 
   /**
