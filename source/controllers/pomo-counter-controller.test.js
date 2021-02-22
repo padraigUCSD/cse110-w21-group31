@@ -73,26 +73,12 @@ test('After 4 pomos, transitions to a longer break', () => {
   //testing that all traits of a long break are true
   expect(counter._currentPomo).toBe(Number(4));
 
-  //?? - how do we catch a error. "minimum long break time has not passed"\\
-  //expect(counter.skipLongBreak()).toThrow(Error);
-  
-  //await 15min
-  //await sleep(15_010);
-
    //should not be able to skipLongBreak if not in a long break
    function slbErr(){
     counter.skipLongBreak();
   }
 
   expect(slbErr).toThrowError(/^Minimum long break time has not passed, unable to skip$/);
-
-  // test the roll-over condition (should rollover)
-  /*
-  expect(counter._timerController).toBe(timer); 
-  expect(counter._stage).toBe(Stages.POMO); 
-  expect(counter._currentPomo).toBe(Number(1)); 
-  expect(counter._skippable).toBe(false); 
-  */
 
 })
 
