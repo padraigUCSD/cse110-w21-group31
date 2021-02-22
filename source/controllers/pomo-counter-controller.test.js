@@ -58,7 +58,7 @@ test('Counter advances to a second break', () => {
   expect(counter._currentPomo).toBe(Number(2));
 })
 
-test('After 4 pomos, transitions to a longer break', () => {
+test('After 4 pomos, transitions to a longer break', async () => {
   // Setup
   const numAdvances = 4; //6;
   for (let i = 0; i < numAdvances; i++) {
