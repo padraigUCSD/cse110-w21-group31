@@ -4,6 +4,12 @@ import { PomoCounterController, Stages } from './pomo-counter-controller.js';
 const timer = new TimerController();
 const counter = new PomoCounterController(timer);
 
+const sleep = async (ms) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  })
+}
+
 test('Counter starts in a pomo', () => {
   // Assertions
   expect(counter._stage).toBe(Stages.POMO);
