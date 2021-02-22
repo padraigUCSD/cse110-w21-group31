@@ -30,6 +30,8 @@ export class PomoCounterController {
     this._currentPomo = 1;
     this._skippable = false;
     this._skippableCallbacks = {};
+    // eeeee i am #1
+    // eeeee i am #2
   }
 
   /**
