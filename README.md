@@ -1,6 +1,7 @@
 # cse110-w21-group31
 
 ![CodeFactor](https://www.codefactor.io/repository/github/padraigucsd/cse110-w21-group31/badge?s=8ac88a28fb782976326069cf183529a77833268d)
+https://img.shields.io/badge/coverage-92%25-green
 
 Private project repo for the UnhandledPromiseRejection (UPR) team. We are building a Pomodoro Timer. UPR holds CSE 110 Team No. 31.
 
@@ -46,5 +47,3 @@ all commit messages must describe a change. Please try to avoid "non-messages" s
 (2) Live Env: https://100minutes.netlify.app/  
 (3) Docs: https://padraigucsd.github.io/cse110-w21-group31/docs/  
 (4) Team Wiki: https://github.com/padraigUCSD/cse110-w21-group31/wiki  
-
-monke
