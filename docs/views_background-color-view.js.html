@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: views/timer-view.js</title>
+    <title>JSDoc: Source: views/background-color-view.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: views/timer-view.js</h1>
+    <h1 class="page-title">Source: views/background-color-view.js</h1>
 
     
 
@@ -26,36 +26,44 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * View-binding logic for the timer itself
- */
-export class TimerView {
+            <pre class="prettyprint source linenums"><code>import { Stages } from '../controllers/pomo-counter-controller.js'
+
+const startcolor = '#cfe2f3'; // color of light blue for start stage
+const breakcolor = '#d9ead3'; // color of light green for short break stage
+const longcolor = '#b6d7a8'; // color of dark green for long break stage
+/**
+* Set the background base on the stage
+*/
+export class BackgroundColorView {
   /**
-   * Creates a TimerView and binds the UI to controller events.
-   * @param timerController {TimerController}
+   * @param {PomoCounterController} PomoCounterController get the right stage of pomo
    */
-  constructor(timerController) {
-    this._timerController = timerController;
-    this._timeDisplay = document.getElementById('counter');
+  constructor(PomoCounterController) {
+    this._PomoCounterController = PomoCounterController;
+    this._background = document.body;
   }
 
   /**
-   * Binds the view to the actual HTML elements of the page.
+   * Binds the background color to state machine
    */
   bind() {
-    this._timerController.addTimeCallback('tv_tick_update', timeRemaining => this._onTick.call(this, timeRemaining));
+    // change background color on stage change
+    this._PomoCounterController.addChangeStageCallback('bcv', stage => this._set.call(this, stage));
   }
 
   /**
-   * Updates the HTML counter text in minutes:seconds format.
-   * @param timeRemaining {int}
+   * Set the background color base on the current stage
+   * @param {stage} stage what stage are we on
    * @private
    */
-  _onTick(timeRemaining) {
-    const minutes = parseInt(timeRemaining / 60, 10);
-    const seconds = (timeRemaining % 60).toString().padStart(2, '0');
-    const timeString = `${minutes}:${seconds}`;
-    this._timeDisplay.textContent = timeString;
+  _set(stage) {
+    if (stage === Stages.POMO) {
+      this._background.style.backgroundColor = startcolor;
+    } else if (stage === Stages.BREAK) {
+      this._background.style.backgroundColor = breakcolor;
+    } else if (stage === Stages.LONG_BREAK) {
+      this._background.style.backgroundColor = longcolor;
+    }
   }
 }
 </code></pre>
