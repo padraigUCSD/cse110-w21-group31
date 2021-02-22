@@ -58,7 +58,7 @@ test('Counter advances to a second break', () => {
   expect(counter._currentPomo).toBe(Number(2));
 })
 
-test('After 4 pomos, transitions to a longer break', async () => {
+test('After 4 pomos, transitions to a longer break', () => {
   // Setup
   const numAdvances = 4; //6;
   for (let i = 0; i < numAdvances; i++) {
@@ -74,7 +74,7 @@ test('After 4 pomos, transitions to a longer break', async () => {
   //expect(counter.skipLongBreak()).toThrow(Error);
   
   //await 15min
-  await sleep(15_010);
+  //await sleep(15_010);
 
   counter.skipLongBreak();
 
@@ -88,7 +88,6 @@ test('After 4 pomos, transitions to a longer break', async () => {
 
 
 test ('allowSkip', () => {
-  
   //Setup
   counter._allowSkip();
   
