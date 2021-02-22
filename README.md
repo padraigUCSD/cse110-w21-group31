@@ -6,11 +6,13 @@
 Private project repo for the UnhandledPromiseRejection (UPR) team. We are building a Pomodoro Timer. UPR holds CSE 110 Team No. 31.
 
 ## QA Stats
+![Website](https://img.shields.io/website?url=https%3A%2F%2F100minutes-qa.netlify.app%2F)
 ![W3C Validation](https://img.shields.io/w3c-validation/html?label=w3c%20%28QA%29&targetUrl=https%3A%2F%2F100minutes-qa.netlify.app%2F)
 ![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2F100minutes-qa.netlify.app%2F)
 ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/100minutes-qa.netlify.app)
 
 ## Production Stats
+![Website](https://img.shields.io/website?url=https%3A%2F%2F100minutes.netlify.app%2F)
 ![W3C Validation](https://img.shields.io/w3c-validation/html?label=w3c%20%28QA%29&targetUrl=https%3A%2F%2F100minutes-qa.netlify.app%2F)
 ![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2F100minutes.netlify.app%2F)
 ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/100minutes.netlify.app)
