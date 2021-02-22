@@ -11,11 +11,10 @@ test('Counter starts in a pomo', () => {
 
 test('constructor works properly', () => {
   // Assertions
-  expect(counter._timerController).toBe(timer); //hmm
+  expect(counter._timerController).toBe(timer); 
   expect(counter._stage).toBe(Stages.POMO);
   expect(counter._currentPomo).toBe(Number(1));
   expect(counter._skippable).toBe(false);
-  //expect(counter._skippableCallbacks).toBe({});
 })
 
 test('Counter advances to a break', () => {
@@ -31,12 +30,13 @@ test('Counter advances to a break', () => {
 
 })
 
-test('Counter advances to 2nd pomo', () => {
+test('Counter advances to 2nd break', () => {
   //Setup 
+  counter._advance();
   counter._advance();
 
   //Assertions
-  expect(counter.stage).toBe(Stages.POMO);
+  expect(counter.stage).toBe(Stages.BREAK);
 
   //should be 2 now that we have advances
   //todo
