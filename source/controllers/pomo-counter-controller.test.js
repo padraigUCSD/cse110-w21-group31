@@ -28,3 +28,24 @@ test('After 4 pomos, transitions to a longer break', () => {
   expect(counter._stage).toBe(Stages.LONG_BREAK);
 })
 
+
+test ('allowSkip', () => {
+  //S
+  counter._allowSkip();
+  
+  //A
+  expect(counter._skippable).toBe(true);
+  //T
+})
+
+/*
+test ('set skippable true', () => {
+  //S
+  var skip = true;
+  counter._setSkippable(true);
+  
+  //A
+
+  //T
+})
+*/
