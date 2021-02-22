@@ -28,15 +28,3 @@ test('After 4 pomos, transitions to a longer break', () => {
   expect(counter._stage).toBe(Stages.LONG_BREAK);
 })
 
-//stephen was here 
-//padraig was here
-test('After 4 pomos, transitions to a longer break COPY', () => {
-  // Setup
-  const numAdvances = 6;
-  for (let i = 0; i < numAdvances; i++) {
-    counter._advance();
-  }
-
-  // Assertions
-  expect(counter._stage).toBe(Stages.LONG_BREAK);
-})
