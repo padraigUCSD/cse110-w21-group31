@@ -93,3 +93,13 @@ test ('set skippable false', () => {
   // Assertions
   expect(counter._skippable).toBe(false);
 })
+
+test('start works properly', () => ){
+  //Setup
+  counter.start();
+
+  //Assertions
+  expect(counter._stage).toBe(Stages.POMO);
+  expect(counter._currentPomo).toBe(Number(1));
+  expect(counter._skippable).toBe(false);
+}
