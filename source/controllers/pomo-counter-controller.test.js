@@ -74,14 +74,20 @@ test ('allowSkip', () => {
   
 })
 
-/*
 test ('set skippable true', () => {
-  //S
+  // Setup
   var skip = true;
-  counter._setSkippable(true);
+  counter._setSkippable(skip);
   
-  //A
-
-  //T
+  // Assertions
+  expect(counter._skippable).toBe(true);
 })
-*/
+
+test ('set skippable false', () => {
+  // Setup
+  var skip = false;
+  counter._setSkippable(skip);
+  
+  // Assertions
+  expect(counter._skippable).toBe(false);
+})
