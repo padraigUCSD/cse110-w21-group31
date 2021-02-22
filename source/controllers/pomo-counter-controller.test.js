@@ -45,7 +45,11 @@ test('Counter advances to a pomo', () => {
   expect(counter._currentPomo).toBe(Number(2));
 
   //should not be able to skipLongBreak if not in a long break
-  //expect(counter.skipLongBreak).toThrow(Error);
+  function slbErr(){
+    counter.skipLongBreak();
+  }
+
+  expect(slbErr).toThrowError(/^Not in a long break, unable to skip$/);
 
 })
 
@@ -56,6 +60,12 @@ test('Counter advances to a second break', () => {
   // Assertions
   expect(counter._stage).toBe(Stages.BREAK);
   expect(counter._currentPomo).toBe(Number(2));
+
+  function slbErr(){
+    counter.skipLongBreak();
+  }
+
+  expect(slbErr).toThrowError(/^Minimum long break time has not passed, unable to skip$/);
 })
 
 test('After 4 pomos, transitions to a longer break', () => {
@@ -76,13 +86,17 @@ test('After 4 pomos, transitions to a longer break', () => {
   //await 15min
   //await sleep(15_010);
 
-  counter.skipLongBreak();
+  function slbErr(){
+    counter.skipLongBreak();
+  }
+
+  expect(slbErr).toThrowError(/^Not in a long break, unable to skip$/);
 
   // test the roll-over condition (should rollover)
   expect(counter._timerController).toBe(timer); 
-  expect(counter._stage).toBe(Stages.POMO);
-  expect(counter._currentPomo).toBe(Number(1));
-  expect(counter._skippable).toBe(false);
+  expect(counter._stage).toBe(Stages.POMO); 
+  expect(counter._currentPomo).toBe(Number(1)); 
+  expect(counter._skippable).toBe(false); 
   
 })
 
