@@ -30,6 +30,7 @@ test('Counter advances to a break', () => {
 
 })
 
+/*
 test('Counter advances to 2nd break', () => {
   //Setup 
   counter._advance();
@@ -42,10 +43,11 @@ test('Counter advances to 2nd break', () => {
   //todo
 
 })
+*/
 
 test('After 4 pomos, transitions to a longer break', () => {
   // Setup
-  const numAdvances = 4; //6;
+  const numAdvances = 6;
   for (let i = 0; i < numAdvances; i++) {
     counter._advance();
   }
