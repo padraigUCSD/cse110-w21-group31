@@ -36,6 +36,7 @@ test('Counter advances to a pomo', () => {
 
   // Assertions
   expect(counter._stage).toBe(Stages.POMO);
+  expect(counter._currentPomo).toBe(Number(2));
 
 
 })
@@ -46,6 +47,7 @@ test('Counter advances to a second break', () => {
 
   // Assertions
   expect(counter._stage).toBe(Stages.BREAK);
+  expect(counter._currentPomo).toBe(Number(2));
 })
 
 test('After 4 pomos, transitions to a longer break', () => {
