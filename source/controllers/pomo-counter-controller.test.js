@@ -48,21 +48,6 @@ test('Counter advances to a second break', () => {
   expect(counter._stage).toBe(Stages.BREAK);
 })
 
-/*
-test('Counter advances to 2nd break', () => {
-  //Setup 
-  counter._advance();
-  counter._advance();
-
-  //Assertions
-  expect(counter.stage).toBe(Stages.BREAK);
-
-  //should be 2 now that we have advances
-  //todo
-
-})
-*/
-
 test('After 4 pomos, transitions to a longer break', () => {
   // Setup
   const numAdvances = 4; //6;
@@ -80,12 +65,13 @@ test('After 4 pomos, transitions to a longer break', () => {
 
 
 test ('allowSkip', () => {
-  //S
+  
+  //Setup
   counter._allowSkip();
   
-  //A
+  //Assertions
   expect(counter._skippable).toBe(true);
-  //T
+  
 })
 
 /*
