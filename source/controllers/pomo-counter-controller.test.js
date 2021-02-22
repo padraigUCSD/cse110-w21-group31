@@ -27,3 +27,5 @@ test('After 4 pomos, transitions to a longer break', () => {
   // Assertions
   expect(counter._stage).toBe(Stages.LONG_BREAK);
 })
+
+//stephen was here 
