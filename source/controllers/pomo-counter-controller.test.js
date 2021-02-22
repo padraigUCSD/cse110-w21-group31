@@ -64,7 +64,7 @@ test('After 4 pomos, transitions to a longer break', () => {
   // testing that all traits of a long break are true
   expect(counter._currentPomo).toBe(Number(4));
 
-   // should not be able to skipLongBreak if not in a long break
+  // should not be able to skipLongBreak if not in a long break
   function slbErr() {
     counter.skipLongBreak();
   }
