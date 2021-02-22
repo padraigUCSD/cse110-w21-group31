@@ -30,6 +30,24 @@ test('Counter advances to a break', () => {
 
 })
 
+test('Counter advances to a pomo', () => {
+  // Setup
+  counter._advance();
+
+  // Assertions
+  expect(counter._stage).toBe(Stages.POMO);
+
+
+})
+
+test('Counter advances to a second break', () => {
+  // Setup
+  counter._advance();
+
+  // Assertions
+  expect(counter._stage).toBe(Stages.BREAK);
+})
+
 /*
 test('Counter advances to 2nd break', () => {
   //Setup 
@@ -47,7 +65,7 @@ test('Counter advances to 2nd break', () => {
 
 test('After 4 pomos, transitions to a longer break', () => {
   // Setup
-  const numAdvances = 6;
+  const numAdvances = 4; //6;
   for (let i = 0; i < numAdvances; i++) {
     counter._advance();
   }
