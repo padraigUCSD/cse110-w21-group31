@@ -25,7 +25,7 @@ test('Counter advances to a break', () => {
   expect(counter._stage).toBe(Stages.BREAK);
 
   //should be 1 because we have not started the 2nd pomo yet
-  //todo
+  expect(counter._currentPomo).toBe(Number(1));
 
 
 })
