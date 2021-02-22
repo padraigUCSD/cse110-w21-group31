@@ -17,6 +17,10 @@ test('constructor works properly', () => {
   expect(counter._skippable).toBe(false);
 })
 
+test('skip long break - not in long break err', () => {
+
+})
+
 test('Counter advances to a break', () => {
   // Setup
   counter._advance();
@@ -38,6 +42,8 @@ test('Counter advances to a pomo', () => {
   expect(counter._stage).toBe(Stages.POMO);
   expect(counter._currentPomo).toBe(Number(2));
 
+  //should not be able to skipLongBreak if not in a long break
+  expect(counter.skipLongBreak).toThrow(Error);
 
 })
 
@@ -62,6 +68,19 @@ test('After 4 pomos, transitions to a longer break', () => {
   //testing that all traits of a long break are true
   expect(counter._currentPomo).toBe(Number(4));
 
+  //?? - how do we catch a error. "minimum long break time has not passed"\\
+  expect(counter.skipLongBreak()).toThrow(Error);
+  
+  //await 15min
+  await sleep(15_010);
+
+  counter.skipLongBreak();
+
+  // test the roll-over condition (should rollover)
+  expect(counter._timerController).toBe(timer); 
+  expect(counter._stage).toBe(Stages.POMO);
+  expect(counter._currentPomo).toBe(Number(1));
+  expect(counter._skippable).toBe(false);
   
 })
 
@@ -103,3 +122,4 @@ test('start works properly', () => {
   expect(counter._currentPomo).toBe(Number(1));
   expect(counter._skippable).toBe(false);
 })
+
