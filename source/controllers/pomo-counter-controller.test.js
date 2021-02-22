@@ -53,7 +53,7 @@ test('After 4 pomos, transitions to a longer break', () => {
   // Assertions
   expect(counter._stage).toBe(Stages.LONG_BREAK);
   //testing that all traits of a long break are true
-  expect(counter._currentPomo).toBe(Number(1));
+  expect(counter._currentPomo).toBe(Number(4));
 
   
 })
