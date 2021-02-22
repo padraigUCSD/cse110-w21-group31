@@ -11,7 +11,7 @@ test('Counter starts in a pomo', () => {
 
 test('constructor works properly', () => {
   // Assertions
-  expect(counter._timerController).toBe(timer); 
+  expect(counter._timerController).toBe(timer);
   expect(counter._stage).toBe(Stages.POMO);
   expect(counter._currentPomo).toBe(Number(1));
   expect(counter._skippable).toBe(false);
@@ -24,10 +24,8 @@ test('Counter advances to a break', () => {
   // Assertions
   expect(counter._stage).toBe(Stages.BREAK);
 
-  //should be 1 because we have not started the 2nd pomo yet
+  // should be 1 because we have not started the 2nd pomo yet
   expect(counter._currentPomo).toBe(Number(1));
-
-
 })
 
 test('Counter advances to a pomo', () => {
@@ -37,7 +35,6 @@ test('Counter advances to a pomo', () => {
   // Assertions
   expect(counter._stage).toBe(Stages.POMO);
   expect(counter._currentPomo).toBe(Number(2));
-
 })
 
 test('Counter advances to a second break', () => {
@@ -48,7 +45,7 @@ test('Counter advances to a second break', () => {
   expect(counter._stage).toBe(Stages.BREAK);
   expect(counter._currentPomo).toBe(Number(2));
 
-  function slbErr(){
+  function slbErr() {
     counter.skipLongBreak();
   }
 
@@ -57,49 +54,46 @@ test('Counter advances to a second break', () => {
 
 test('After 4 pomos, transitions to a longer break', () => {
   // Setup
-  const numAdvances = 4; //6;
+  const numAdvances = 4; // 6;
   for (let i = 0; i < numAdvances; i++) {
     counter._advance();
   }
 
   // Assertions
   expect(counter._stage).toBe(Stages.LONG_BREAK);
-  //testing that all traits of a long break are true
+  // testing that all traits of a long break are true
   expect(counter._currentPomo).toBe(Number(4));
 
-   //should not be able to skipLongBreak if not in a long break
-   function slbErr(){
+   // should not be able to skipLongBreak if not in a long break
+   function slbErr() {
     counter.skipLongBreak();
   }
 
   expect(slbErr).toThrowError(/^Minimum long break time has not passed, unable to skip$/);
-
 })
 
-
-test ('allowSkip', () => {
-  //Setup
-  counter._allowSkip();
-  
-  //Assertions
-  expect(counter._skippable).toBe(true);
-  
-})
-
-test ('set skippable true', () => {
+test('allowSkip', () => {
   // Setup
-  var skip = true;
-  counter._setSkippable(skip);
-  
+  counter._allowSkip();
+
   // Assertions
   expect(counter._skippable).toBe(true);
 })
 
-test ('set skippable false', () => {
+test('set skippable true', () => {
   // Setup
-  var skip = false;
+  const skip = true;
   counter._setSkippable(skip);
-  
+
+  // Assertions
+  expect(counter._skippable).toBe(true);
+})
+
+test('set skippable false', () => {
+  // Setup
+  const skip = false;
+  counter._setSkippable(skip);
+
   // Assertions
   expect(counter._skippable).toBe(false);
 })
@@ -113,4 +107,3 @@ test('start works properly', () => {
   expect(counter._currentPomo).toBe(Number(1));
   expect(counter._skippable).toBe(false);
 })
-
