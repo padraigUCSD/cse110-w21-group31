@@ -26,7 +26,7 @@ export class NotificationController {
 
   /**
    * Sets the sound to be played when events occur
-   * @param {Sounds} sound - determine which notification sound to set 
+   * @param {Sounds} sound - determine which notification sound to set
    */
   setSound(sound) {
     this._sound = sound;

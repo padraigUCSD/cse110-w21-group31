@@ -32,7 +32,7 @@ export class SettingsView {
    * @param e {Event}
    * @private
    */
-  _onAutoPomoPressed(e){
+  _onAutoPomoPressed(e) {
     if (e.target.checked) {
       // AutoPomo Checkbox is checked
       // TODO implementation: this._pomoCounterController.TODO
@@ -47,7 +47,7 @@ export class SettingsView {
    * @param e {Event}
    * @private
    */
-  _onAutoBreakPressed(e){
+  _onAutoBreakPressed(e) {
     if (e.target.checked) {
       // AutoBreak Checkbox is checked
       // TODO implementation: this._pomoCounterController.TODO
@@ -62,7 +62,7 @@ export class SettingsView {
    * @param e {Event}
    * @private
    */
-  _onNoMercyPressed(e){
+  _onNoMercyPressed(e) {
     if (e.target.checked) {
       // NoMercy Checkbox is checked
       this._notificationController.setSound(Sounds.SCREAMING);
@@ -71,6 +71,4 @@ export class SettingsView {
       this._notificationController.setSound(Sounds.NORMAL);
     }
   }
-  
-
 }

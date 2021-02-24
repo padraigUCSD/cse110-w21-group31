@@ -23,7 +23,7 @@ export class PomoCounterController {
   /**
    * Create a PomoCounterController
    * @param {TimerController} timerController - the source of wall-clock time
-   * @param {NotificationController} notificationController - plays sounds when events happen 
+   * @param {NotificationController} notificationController - plays sounds when events happen
    */
   constructor(timerController, notificationController) {
     this._timerController = timerController;
@@ -139,7 +139,7 @@ export class PomoCounterController {
       case Stages.POMO:
         if (this._currentPomo === POMOS_PER_LONG_BREAK) {
           this._setStage(Stages.LONG_BREAK);
-          //state change, play alarm
+          // state change, play alarm
           this._notificationController.playSound();
           // do NOT advance a move moving from pomo to break
           this._setPomo(this._currentPomo);
@@ -147,7 +147,7 @@ export class PomoCounterController {
           this._timerController.set(LONG_BREAK_MIN_LENGTH_SEC);
         } else {
           this._setStage(Stages.BREAK);
-          //state change, play alarm
+          // state change, play alarm
           this._notificationController.playSound();
           // do NOT advance a move moving from pomo to break
           this._setPomo(this._currentPomo);
@@ -158,7 +158,7 @@ export class PomoCounterController {
 
       case Stages.BREAK:
         this._setStage(Stages.POMO);
-        //state change, play alarm
+        // state change, play alarm
         this._notificationController.playSound();
         // advance a pomo moving from break to pomo
         this._setPomo(this._currentPomo + 1);
@@ -169,7 +169,7 @@ export class PomoCounterController {
       case Stages.LONG_BREAK:
         this._setSkippable(false);
         this._setStage(Stages.POMO);
-        //state change, play alarm
+        // state change, play alarm
         this._notificationController.playSound();
         this._setPomo(Number(1));
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
