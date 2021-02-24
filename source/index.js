@@ -5,6 +5,7 @@ import { TimerControlsView } from './views/timer-controls-view.js';
 import { TimerView } from './views/timer-view.js';
 import { BackgroundColorView } from './views/background-color-view.js';
 import { PomoCycleView } from './views/pomo-cycle-view.js';
+import { SettingsView } from './views/settings-view.js';
 
 const timerController = new TimerController();
 const notificationController = new NotificationController();
@@ -21,3 +22,6 @@ backgroundColorView.bind();
 
 const pomoCycleView = new PomoCycleView(pomoCounterController);
 pomoCycleView.bind();
+
+const settingsView = new SettingsView(pomoCounterController, notificationController);
+settingsView.bind();
