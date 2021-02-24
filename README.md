@@ -51,7 +51,8 @@ all commit messages must describe a change. Please try to avoid "non-messages" s
 - (3) Sprint 3 Views (subject to change): https://drive.google.com/file/d/1V58yWFfEhap5ClkY2sqZ5Ssu0G0QbTkW/view?usp=sharing   
 
 ## Important Links:
-(1) QA Env: https://100minutes-qa.netlify.app/  
-(2) Live Env: https://100minutes.netlify.app/  
-(3) Docs: https://padraigucsd.github.io/cse110-w21-group31/docs/  
-(4) Team Wiki: https://github.com/padraigUCSD/cse110-w21-group31/wiki  
+(1) DEV Env: https://100minutes-dev.netlify.app/  
+(2) QA Env: https://100minutes-qa.netlify.app/  
+(3) Live Env: https://100minutes.netlify.app/  
+(4) Docs: https://padraigucsd.github.io/cse110-w21-group31/docs/  
+(5) Team Wiki: https://github.com/padraigUCSD/cse110-w21-group31/wiki  
