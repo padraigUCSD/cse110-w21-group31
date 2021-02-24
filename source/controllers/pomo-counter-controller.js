@@ -4,7 +4,9 @@
  * @enum {string}
  */
 // import notification controller functions
-import * as notifControl from "/source/controllers/notification-controller.js";
+import {NotifController} from './notification-controller.js';
+//create new notification object
+var notifControl = new NotifController(); 
 
 export const Stages = {
   POMO: 'pomo',
@@ -18,7 +20,6 @@ const LONG_BREAK_MIN_LENGTH_SEC = 15 * 60; // 15 minutes
 const LONG_BREAK_MAX_EXTENDED_LENGTH_SEC = 15 * 60; // 15 minutes, max amount of time to allow the long break to be extended past LONG_BREAK_MIN_LENGTH_SEC
 
 const POMOS_PER_LONG_BREAK = 4; // number of consecutive pomos before starting a long break
-const alarm = new Audio("audio/alarm.mp3"); // add alarm object
 
 /**
  * Tracks the current stage of the pomodoro process, and the number of consecutive pomos completed.
@@ -43,8 +44,9 @@ export class PomoCounterController {
    */
   start() {
     // uncomment line below to test alarm on start
-    // notifControl.soundAlarm("normal");
-    // notifControl.soundAlarm("alt");
+    //console.log("start");
+    //notifControl.soundAlarm("normal");
+    //notifControl.soundAlarm("alt");
     this._currentPomo = 1;
     this._stage = Stages.POMO;
     this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
@@ -140,10 +142,10 @@ export class PomoCounterController {
    * @private
    */
   _advance() {
-    console.log("in advance");
+    console.log('in advance');
     switch (this._stage) {
       case Stages.POMO:
-        notifControl.soundAlarm("normal"); // state change, play alarm
+        notifControl.soundAlarm('normal'); // state change, play alarm
         if (this._currentPomo === POMOS_PER_LONG_BREAK) {
           this._setStage(Stages.LONG_BREAK);
           // do NOT advance a move moving from pomo to break
@@ -160,7 +162,7 @@ export class PomoCounterController {
         break;
 
       case Stages.BREAK:
-        notifControl.soundAlarm("normal"); // state change, play alarm
+        notifControl.soundAlarm('normal'); // state change, play alarm
         this._setStage(Stages.POMO);
         // advance a pomo moving from break to pomo
         this._setPomo(this._currentPomo + 1);
@@ -169,7 +171,7 @@ export class PomoCounterController {
         break;
 
       case Stages.LONG_BREAK:
-        notifControl.soundAlarm("normal"); // state change, play alarm
+        notifControl.soundAlarm('normal'); // state change, play alarm
         this._setSkippable(false);
         this._setStage(Stages.POMO);
         this._setPomo(Number(1));

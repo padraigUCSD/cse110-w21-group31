@@ -1,10 +1,15 @@
-const normalAlarm = new Audio("audio/alarm.mp3");
-const altAlarm = new Audio("audio/alarm2.mp3");
+const normalAlarm = new Audio('audio/alarm.mp3');
+const altAlarm = new Audio('audio/alarm2.mp3');
 
-export function soundAlarm(type) {
-    if (type === "normal") {
-        normalAlarm.play();
-    } else {
-        altAlarm.play();
+export class NotifController{
+    soundAlarm(type) {
+        if (type === 'normal') {
+            console.log('normal');
+            normalAlarm.play();
+        } else {
+            console.log('alt');
+            altAlarm.play();
+        }
     }
 }
+
