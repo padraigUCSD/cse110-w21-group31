@@ -12,9 +12,8 @@ export class SettingsView {
   constructor(pomoCounterController, notificationController) {
     this._pomoCounterController = pomoCounterController;
     this._notificationController = notificationController;
-    // TODO - get toggle switches by ID once they are HTML'd 
-    // this._autoPomoToggle = document.getElementById('TODO')
-    // this._autoBreakToggle = document.getElementById('TODO')
+    this._autoPomoToggle = document.getElementById('auto-pomo-toggle');
+    this._autoBreakToggle = document.getElementById('auto-break-toggle');
     this._noMercyToggle = document.getElementById('no-mercy-toggle');
   }
 
@@ -22,54 +21,56 @@ export class SettingsView {
    * Binds the view to the actual HTML elements of the page.
    */
   bind() {
-    // TODO - set bindings for event calls
     // NOTE - the toggle switches are really just styles checkboxes
-    // this._autoPomoToggle.onclick = e => this._onAutoPomoPressed.call(this, e);
-    // this._autoBreakToggle.onclick = e => this.onAutoBreakPressed.call(this, e);
+    this._autoPomoToggle.onchange = e => this._onAutoPomoPressed.call(this, e);
+    this._autoBreakToggle.onchange = e => this._onAutoBreakPressed.call(this, e);
     this._noMercyToggle.onchange = e => this._onNoMercyPressed.call(this, e);
-  }
-
-  _onNoMercyPressed(e){
-    if (e.target.checked) {
-      console.log("NoMercy Checkbox is checked..");
-      this._notificationController.setSound(Sounds.SCREAMING);
-    } else {
-      console.log("NoMercy Checkbox is not checked..");
-      this._notificationController.setSound(Sounds.NORMAL);
-    }
   }
 
   /**
    * Called when the autoPomoToggle switch is thrown, to change the autoPomo behavior
-   * @param autoPomo {boolean}
+   * @param e {Event}
    * @private
    */
-  _onAutoPomoChanged(autoPomo){
-    // TODO implement
+  _onAutoPomoPressed(e){
+    if (e.target.checked) {
+      // AutoPomo Checkbox is checked
+      // TODO implementation: this._pomoCounterController.TODO
+    } else {
+      // AutoPomo Checkbox is NOT checked
+      // TODO implementation: this._pomoCounterController.TODO
+    }
   }
 
   /**
    * Called when the autoPBreakToggle switch is thrown, to change the autoBreak behavior
-   * @param autoBreak {boolean}
+   * @param e {Event}
    * @private
    */
-  _onAutoBreakChanged(autoBreak){
-    // TODO implement
-  }
-
-  /**
-   * Called when the noMercyToggle switch is thrown, to change the autoPomo behavior
-   * @param noMercy {boolean}
-   * @private
-   */
-  _onNoMercyChanged(noMercy){
-    if(noMercy){
-      this._notificationController.setSound(Sounds.SCREAMING);
-    }else{
-      this._notificationController.setSound(Sounds.NORMAL);
+  _onAutoBreakPressed(e){
+    if (e.target.checked) {
+      // AutoBreak Checkbox is checked
+      // TODO implementation: this._pomoCounterController.TODO
+    } else {
+      // AutoBreak Checkbox is NOT checked
+      // TODO implementation: this._pomoCounterController.TODO
     }
   }
 
+  /**
+   * Called when the noMercyToggle switch is thrown, to change the noMercy behavior
+   * @param e {Event}
+   * @private
+   */
+  _onNoMercyPressed(e){
+    if (e.target.checked) {
+      // NoMercy Checkbox is checked
+      this._notificationController.setSound(Sounds.SCREAMING);
+    } else {
+      // NoMercy Checkbox is NOT checked
+      this._notificationController.setSound(Sounds.NORMAL);
+    }
+  }
   
 
 }
