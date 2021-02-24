@@ -3,6 +3,9 @@
  * @readonly
  * @enum {string}
  */
+//import notification controller functions
+import * as notifControl from "/source/controllers/notification-controller.js";
+
 export const Stages = {
   POMO: 'pomo',
   BREAK: 'break',
@@ -38,7 +41,8 @@ export class PomoCounterController {
    */
   start() {
     // uncomment line below to test alarm on start
-    // alarm.play();
+    //notifControl.soundAlarm("normal");
+    //notifControl.soundAlarm("alt");
     this._currentPomo = 1;
     this._stage = Stages.POMO;
     this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
@@ -91,7 +95,7 @@ export class PomoCounterController {
     console.log("in advance");
     switch (this._stage) {
       case Stages.POMO:
-        alarm.play(); // state change, play alarm
+        notifControl.soundAlarm("normal"); // state change, play alarm
         if (this._currentPomo === POMOS_PER_LONG_BREAK) {
           this._stage = Stages.LONG_BREAK;
 
@@ -105,7 +109,7 @@ export class PomoCounterController {
         break;
 
       case Stages.BREAK:
-        alarm.play(); // state change, play alarm
+        notifControl.soundAlarm("normal"); // state change, play alarm
         this._stage = Stages.POMO;
         this._currentPomo++;
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
@@ -113,7 +117,7 @@ export class PomoCounterController {
         break;
 
       case Stages.LONG_BREAK:
-        alarm.play(); // state change, play alarm
+        notifControl.soundAlarm("normal"); // state change, play alarm
         this._setSkippable(false);
         this._stage = Stages.POMO;
         this._currentPomo = 1;
