@@ -1,10 +1,11 @@
 import { TimerControlsView } from './timer-controls-view.js';
-import { PomoCounterController, Stages } from '../source/pomo-counter-controller.js';
+import { PomoCounterController } from '../controllers/pomo-counter-controller.js';
 
-const counter = new PomoCounterController(timer);
-const timerControl=new TimerControlsView(counter);
+
 test('Start hides', () => {
-    timerControl._startButton.click();
-    // Assertions
-    expect(timerControl._startButton.style.visibility).toBe('hidden');;
-  })
+  const counter = new PomoCounterController();
+  const timerControl = new TimerControlsView(counter);
+  timerControl._onStartPressed(new Event(onclick));
+  // Assertions
+  expect(timerControl._startButton.style.visibility).toBe('hidden');
+})
