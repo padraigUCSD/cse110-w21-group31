@@ -3,7 +3,7 @@
  * @readonly
  * @enum {string}
  */
-//import notification controller functions
+// import notification controller functions
 import * as notifControl from "/source/controllers/notification-controller.js";
 
 export const Stages = {
@@ -41,8 +41,8 @@ export class PomoCounterController {
    */
   start() {
     // uncomment line below to test alarm on start
-    //notifControl.soundAlarm("normal");
-    //notifControl.soundAlarm("alt");
+    // notifControl.soundAlarm("normal");
+    // notifControl.soundAlarm("alt");
     this._currentPomo = 1;
     this._stage = Stages.POMO;
     this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
