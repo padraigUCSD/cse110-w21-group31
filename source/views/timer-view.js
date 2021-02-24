@@ -21,6 +21,7 @@ export class TimerView {
   /**
    * Updates the HTML counter text in minutes:seconds format.
    * @param timeRemaining {int}
+   * @private
    */
   _onTick(timeRemaining) {
     const minutes = parseInt(timeRemaining / 60, 10);
