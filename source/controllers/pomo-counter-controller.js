@@ -170,7 +170,7 @@ export class PomoCounterController {
         this._setSkippable(false);
         this._setStage(Stages.POMO);
         //state change, play alarm
-        this._notificationController.soundAlarm();
+        this._notificationController.playSound();
         this._setPomo(Number(1));
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this._timerController.set(POMO_LENGTH_SEC);

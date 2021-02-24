@@ -1,5 +1,6 @@
 import { TimerController } from './timer-controller.js';
 import { PomoCounterController, Stages } from './pomo-counter-controller.js';
+import { NotificationController } from './notification-controller.js';
 
 const timer = new TimerController();
 const counter = new PomoCounterController(timer);
