@@ -11,7 +11,7 @@ export const Stages = {
 
 // BEGIN TEMP FIXME
 //import notification controller functions
-import * as notifControl from "/source/controllers/notification-controller.js";
+//import * as notifControl from "/source/controllers/notification-controller.js";
 // END TEMP FIXME
 
 const POMO_LENGTH_SEC = 25 * 60; // 25 minutes
@@ -28,9 +28,11 @@ export class PomoCounterController {
   /**
    * Create a PomoCounterController
    * @param {TimerController} timerController - the source of wall-clock time
+   * @param {NotificationController} notificationController - plays sounds when events happen 
    */
-  constructor(timerController) {
+  constructor(timerController, notificationController) {
     this._timerController = timerController;
+    this._notificationController = notificationController;
     this._stage = Stages.POMO;
     this._currentPomo = 1;
     this._skippable = false;
@@ -98,7 +100,7 @@ export class PomoCounterController {
 
   /**
    * Sets the current stage of the Pomodoro cycle
-   * @param {stage} stage determine which stage to change to correct color
+   * @param {Stages} stage determine which stage to change to correct color
    * @private
    */
   _setStage(stage) {
@@ -143,7 +145,8 @@ export class PomoCounterController {
         if (this._currentPomo === POMOS_PER_LONG_BREAK) {
           this._setStage(Stages.LONG_BREAK);
           //state change, play alarm
-          notifControl.soundAlarm("alt");
+          //notifControl.soundAlarm("alt");
+          this._notificationController.playSound();
           // do NOT advance a move moving from pomo to break
           this._setPomo(this._currentPomo);
           this._timerController.addAlarmCallback('pcc', () => this._allowSkip.call(this));
@@ -151,7 +154,8 @@ export class PomoCounterController {
         } else {
           this._setStage(Stages.BREAK);
           //state change, play alarm
-          notifControl.soundAlarm("alt");
+          //notifControl.soundAlarm("alt");
+          this._notificationController.playSound();
           // do NOT advance a move moving from pomo to break
           this._setPomo(this._currentPomo);
           this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
@@ -162,7 +166,8 @@ export class PomoCounterController {
       case Stages.BREAK:
         this._setStage(Stages.POMO);
         //state change, play alarm
-        notifControl.soundAlarm("alt");
+        //notifControl.soundAlarm("alt");
+        this._notificationController.playSound();
         // advance a pomo moving from break to pomo
         this._setPomo(this._currentPomo + 1);
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
@@ -173,7 +178,8 @@ export class PomoCounterController {
         this._setSkippable(false);
         this._setStage(Stages.POMO);
         //state change, play alarm
-        notifControl.soundAlarm("alt");
+        //notifControl.soundAlarm("alt");
+        this._notificationController.soundAlarm();
         this._setPomo(Number(1));
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this._timerController.set(POMO_LENGTH_SEC);
