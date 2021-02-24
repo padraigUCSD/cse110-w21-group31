@@ -27,8 +27,12 @@ Stephen Wang:
 Nhat Nguyen:
 - Implemented the bubbles indicator and background changing.
 
-Padraig Macgabann 
+Padraig MacGabann: 
 - Implemented code review system to clear any code submissions into the repo
+- Defined project directory structure
+- Architected CI/CD workflow and set up deployment environments, first with IBM Cloud Foundry and later with Netlify Edge
+- Provided coaching & primary implementation support for E1S3 (bubbles/indicators) and E1S4 (background color change), ensuring proper separation of view and controller
+- Provided coaching & implementation support for controller unit tests
 - Managed pull requests and merged test branches
 
 <img src='https://i.imgur.com/XTvwvw0.gif' title='Current Preview' width='' alt='Video Walkthrough' />
