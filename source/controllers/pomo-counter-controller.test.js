@@ -3,7 +3,8 @@ import { PomoCounterController, Stages } from './pomo-counter-controller.js';
 import { NotificationController } from './notification-controller.js';
 
 const timer = new TimerController();
-const counter = new PomoCounterController(timer);
+const notif = new NotificationController();
+const counter = new PomoCounterController(timer, notif);
 
 test('Counter starts in a pomo', () => {
   // Assertions
@@ -13,6 +14,7 @@ test('Counter starts in a pomo', () => {
 test('constructor works properly', () => {
   // Assertions
   expect(counter._timerController).toBe(timer);
+  expect(counter._notificationController).toBe(notif);
   expect(counter._stage).toBe(Stages.POMO);
   expect(counter._currentPomo).toBe(Number(1));
   expect(counter._skippable).toBe(false);
