@@ -9,11 +9,6 @@ export const Stages = {
   LONG_BREAK: 'long_break',
 }
 
-// BEGIN TEMP FIXME
-//import notification controller functions
-//import * as notifControl from "/source/controllers/notification-controller.js";
-// END TEMP FIXME
-
 const POMO_LENGTH_SEC = 25 * 60; // 25 minutes
 const BREAK_LENGTH_SEC = 5 * 60; // 5 minutes
 const LONG_BREAK_MIN_LENGTH_SEC = 15 * 60; // 15 minutes
@@ -145,7 +140,6 @@ export class PomoCounterController {
         if (this._currentPomo === POMOS_PER_LONG_BREAK) {
           this._setStage(Stages.LONG_BREAK);
           //state change, play alarm
-          //notifControl.soundAlarm("alt");
           this._notificationController.playSound();
           // do NOT advance a move moving from pomo to break
           this._setPomo(this._currentPomo);
@@ -154,7 +148,6 @@ export class PomoCounterController {
         } else {
           this._setStage(Stages.BREAK);
           //state change, play alarm
-          //notifControl.soundAlarm("alt");
           this._notificationController.playSound();
           // do NOT advance a move moving from pomo to break
           this._setPomo(this._currentPomo);
@@ -166,7 +159,6 @@ export class PomoCounterController {
       case Stages.BREAK:
         this._setStage(Stages.POMO);
         //state change, play alarm
-        //notifControl.soundAlarm("alt");
         this._notificationController.playSound();
         // advance a pomo moving from break to pomo
         this._setPomo(this._currentPomo + 1);
@@ -178,7 +170,6 @@ export class PomoCounterController {
         this._setSkippable(false);
         this._setStage(Stages.POMO);
         //state change, play alarm
-        //notifControl.soundAlarm("alt");
         this._notificationController.soundAlarm();
         this._setPomo(Number(1));
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
