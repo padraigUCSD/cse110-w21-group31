@@ -160,15 +160,10 @@ export class PomoCounterController {
         break;
 
       case Stages.BREAK:
-<<<<<<< HEAD
         notifControl.soundAlarm("normal"); // state change, play alarm
-        this._stage = Stages.POMO;
-        this._currentPomo++;
-=======
         this._setStage(Stages.POMO);
         // advance a pomo moving from break to pomo
         this._setPomo(this._currentPomo + 1);
->>>>>>> master
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this._timerController.set(POMO_LENGTH_SEC);
         break;
