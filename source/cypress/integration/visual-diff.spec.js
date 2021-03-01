@@ -17,6 +17,8 @@ describe('Visual Diff Testing', () => {
   });
 
   it('Starts the timer', () => {
+    // Turn off the clock for consistency, we're only looking for the start button being hidden
+    cy.clock();
     cy.get('#control').click();
     cy.matchImageSnapshot('timer-started');
   });
