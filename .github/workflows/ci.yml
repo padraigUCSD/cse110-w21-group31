@@ -40,6 +40,7 @@ jobs:
         with:
           start: npm start
           working-directory: source
+          browser: chrome
       - name: Upload visual diffs
         uses: actions/upload-artifact@v2
         if: failure()
