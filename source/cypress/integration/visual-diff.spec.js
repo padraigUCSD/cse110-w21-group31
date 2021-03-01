@@ -1,4 +1,4 @@
-describe('Visual Diff Testing', () => {
+xdescribe('Visual Diff Testing', () => {
   before(() => {
     cy.prepare();
   });
