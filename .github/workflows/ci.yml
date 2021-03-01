@@ -30,3 +30,12 @@ jobs:
       - name: Test
         working-directory: source
         run: "npm run test:coverage"
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v2
+      - name: Run Cypress
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm start
