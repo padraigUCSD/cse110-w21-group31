@@ -40,3 +40,9 @@ jobs:
         with:
           start: npm start
           working-directory: source
+      - name: Upload visual diffs
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: visual-diffs
+          path: source/cypress/snapshots/visual-diff.spec.js/__diff_output__/**
