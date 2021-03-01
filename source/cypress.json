@@ -1,3 +1,5 @@
 {
-  "pluginsFile": "./cypress/plugins/index.cjs"
+  "pluginsFile": "./cypress/plugins/index.cjs",
+  "viewportWidth": 1000,
+  "viewportHeight": 660
 }
