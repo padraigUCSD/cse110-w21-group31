@@ -72,12 +72,26 @@ test('After 4 pomos, transitions to a longer break', () => {
   expect(slbErr).toThrowError(/^Minimum long break time has not passed, unable to skip$/);
 })
 
-test('allowSkip', () => {
-  // Setup
-  counter._allowSkip();
+describe('checkSkippable', () => {
+  test('30 minutes', () => {
+    counter._checkSkippable(30 * 60);
+    expect(counter._skippable).toBe(false);
+  });
 
-  // Assertions
-  expect(counter._skippable).toBe(true);
+  test('15 minutes + 1 sec', () => {
+    counter._checkSkippable(15 * 60 + 1);
+    expect(counter._skippable).toBe(false);
+  });
+
+  test('15 minutes', () => {
+    counter._checkSkippable(15 * 60);
+    expect(counter._skippable).toBe(true);
+  });
+
+  test('0 seconds', () => {
+    counter._checkSkippable(0);
+    expect(counter._skippable).toBe(true);
+  });
 })
 
 test('set skippable true', () => {

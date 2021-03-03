@@ -11,8 +11,8 @@ export const Stages = {
 
 const POMO_LENGTH_SEC = 25 * 60; // 25 minutes
 const BREAK_LENGTH_SEC = 5 * 60; // 5 minutes
-const LONG_BREAK_MIN_LENGTH_SEC = 15 * 60; // 15 minutes
-const LONG_BREAK_MAX_EXTENDED_LENGTH_SEC = 15 * 60; // 15 minutes, max amount of time to allow the long break to be extended past LONG_BREAK_MIN_LENGTH_SEC
+const LONG_BREAK_LENGTH_SEC = 30 * 60; // 30 minutes
+const LONG_BREAK_ALLOW_SKIP_SEC = 15 * 60; // 15 minutes
 
 const POMOS_PER_LONG_BREAK = 4; // number of consecutive pomos before starting a long break
 
@@ -93,7 +93,7 @@ export class PomoCounterController {
 
   /**
    * Sets the current stage of the Pomodoro cycle
-   * @param {stage} stage determine which stage to change to correct color
+   * @param {Stages} stage determine which stage to change to correct color
    * @private
    */
   _setStage(stage) {
@@ -139,8 +139,9 @@ export class PomoCounterController {
           this._setStage(Stages.LONG_BREAK);
           // do NOT advance a move moving from pomo to break
           this._setPomo(this._currentPomo);
-          this._timerController.addAlarmCallback('pcc', () => this._allowSkip.call(this));
-          this._timerController.set(LONG_BREAK_MIN_LENGTH_SEC);
+          this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
+          this._timerController.addTimeCallback('pcc', t => this._checkSkippable.call(this, t));
+          this._timerController.set(LONG_BREAK_LENGTH_SEC);
         } else {
           this._setStage(Stages.BREAK);
           // do NOT advance a move moving from pomo to break
@@ -172,12 +173,13 @@ export class PomoCounterController {
   }
 
   /**
-   * Callback to unlock the "skip long break" functionality after 15 minutes.
+   * Callback to check time on the timer, and unlock the "skip long break" functionality after 15 minutes.
+   * @param time {number} Time left on the timer
    * @private
    */
-  _allowSkip() {
-    this._setSkippable(true);
-    this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
-    this._timerController.set(LONG_BREAK_MAX_EXTENDED_LENGTH_SEC);
+  _checkSkippable(time) {
+    if (time <= LONG_BREAK_LENGTH_SEC - LONG_BREAK_ALLOW_SKIP_SEC) {
+      this._setSkippable(true);
+    }
   }
 }
