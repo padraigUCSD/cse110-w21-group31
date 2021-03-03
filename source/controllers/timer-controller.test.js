@@ -37,6 +37,7 @@ test('check constructor correctly', () => {
   const timer = new TimerController();
 
   expect(timer._timeRemaining).toBe(0);
-  expect(timer._timeCallbacks.length).toBe(0);
-  expect(timer._alarmCallbacks.length).toBe(0);
+  const expected = {};
+  expect(timer._timeCallbacks).toEqual(expected);
+  expect(timer._alarmCallbacks).toEqual(expected);
 });
