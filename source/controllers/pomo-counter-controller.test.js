@@ -1,5 +1,6 @@
 import { TimerController } from './timer-controller.js';
 import { PomoCounterController, Stages } from './pomo-counter-controller.js';
+import { jest } from '@jest/globals';
 
 const timer = new TimerController();
 const counter = new PomoCounterController(timer);
@@ -106,4 +107,11 @@ test('start works properly', () => {
   expect(counter._stage).toBe(Stages.POMO);
   expect(counter._currentPomo).toBe(Number(1));
   expect(counter._skippable).toBe(false);
+})
+
+test('Add stage change callback', () => {
+  const changed=jest.fn();
+  counter.addChangeStageCallback('test',changed);
+  counter._advance();
+  expect(changed).toHaveBeenCalledWith(Stages.BREAK);
 })
