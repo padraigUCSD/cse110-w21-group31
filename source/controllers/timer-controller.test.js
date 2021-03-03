@@ -29,7 +29,7 @@ test('check alarm call back in 2s', async () => {
     count = 2;
   });
   timer.set(2);
-  
+
   expect(count).toBe(2);
 });
 
