@@ -20,4 +20,23 @@ test('Timer can count to 10 seconds', async () => {
 
   // Assertions
   expect(seconds).toBe(2);
-})
+});
+
+test('check alarm call back in 2s', async () => {
+  const timer = new TimerController();
+  let count = 0;
+  timer.addAlarmCallback('test', () => {
+    count = 2;
+  });
+  timer.set(2);
+  
+  expect(count).toBe(2);
+});
+
+test('check constructor correctly', () => {
+  const timer = new TimerController();
+
+  expect(timer._timeRemaining).toBe(0);
+  expect(timer._timeCallbacks).toContain('');
+  expect(timer._alarmCallbacks).toContain('');
+});
