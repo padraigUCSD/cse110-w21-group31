@@ -190,4 +190,12 @@ export class PomoCounterController {
     this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
     this._timerController.set(LONG_BREAK_MAX_EXTENDED_LENGTH_SEC);
   }
+
+  _setAutoBreak(){
+
+  }
+  
+  _setAutoPomo(){
+    
+  }
 }
