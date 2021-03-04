@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: views/timer-view.js</title>
+    <title>JSDoc: Source: controllers/notification-controller.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: views/timer-view.js</h1>
+    <h1 class="page-title">Source: controllers/notification-controller.js</h1>
 
     
 
@@ -27,35 +27,59 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * View-binding logic for the timer itself
+ * Enum of labels for notifcation sounds that can be played
+ * @readonly
+ * @enum {string}
  */
-export class TimerView {
+export const Sounds = {
+  NORMAL: 'normal',
+  ALT: 'alt',
+  SCREAMING: 'screaming',
+}
+
+const NORMAL_ALARM = new Audio('audio/alarm2.mp3');
+const ALT_ALARM = new Audio('audio/alarm.mp3');
+const SCREAMING_ALARM = new Audio('audio/wilhelm.mp3');
+
+/**
+ * Plays a sound when an event happens
+ */
+export class NotificationController {
   /**
-   * Creates a TimerView and binds the UI to controller events.
-   * @param timerController {TimerController}
+   * Creates a NotificationController
    */
-  constructor(timerController) {
-    this._timerController = timerController;
-    this._timeDisplay = document.getElementById('counter');
+  constructor() {
+    this._sound = Sounds.NORMAL;
   }
 
   /**
-   * Binds the view to the actual HTML elements of the page.
+   * Sets the sound to be played when events occur
+   * @param {Sounds} sound - determine which notification sound to set
    */
-  bind() {
-    this._timerController.addTimeCallback('tv_tick_update', timeRemaining => this._onTick.call(this, timeRemaining));
+  setSound(sound) {
+    this._sound = sound;
   }
 
   /**
-   * Updates the HTML counter text in minutes:seconds format.
-   * @param timeRemaining {int}
-   * @private
+   * Plays a sound based on the current configuration
    */
-  _onTick(timeRemaining) {
-    const minutes = parseInt(timeRemaining / 60, 10);
-    const seconds = (timeRemaining % 60).toString().padStart(2, '0');
-    const timeString = `${minutes}:${seconds}`;
-    this._timeDisplay.textContent = timeString;
+  playSound() {
+    switch (this._sound) {
+      case Sounds.NORMAL:
+        NORMAL_ALARM.play();
+        break;
+
+      case Sounds.ALT:
+        ALT_ALARM.play();
+        break;
+
+      case Sounds.SCREAMING:
+        SCREAMING_ALARM.play();
+        break;
+
+      default:
+        ALT_ALARM.play();
+    }
   }
 }
 </code></pre>
