@@ -28,7 +28,7 @@ test('check alarm call back in 2s', async () => {
   const timer = new TimerController();
   const alarm = jest.fn();
   timer.addAlarmCallback('test', alarm);
-  expect(alarm).toHaveBeenCalled();
+  expect(alarm).toBeCalled();
 });
 
 test('check constructor correctly', () => {
