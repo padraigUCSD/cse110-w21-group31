@@ -191,11 +191,12 @@ export class PomoCounterController {
     this._timerController.set(LONG_BREAK_MAX_EXTENDED_LENGTH_SEC);
   }
 
-  _setAutoBreak(){
+  setAutoBreak() {
 
   }
-  
-  _setAutoPomo(){
-    
+
+  setAutoPomo() {
+
   }
 }
+

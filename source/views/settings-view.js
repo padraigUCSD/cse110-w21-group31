@@ -35,10 +35,12 @@ export class SettingsView {
   _onAutoPomoPressed(e) {
     if (e.target.checked) {
       // AutoPomo Checkbox is checked
-      // TODO implementation: this._pomoCounterController.TODO
+      // TODO implementation: 
+      this._pomoCounterController.setAutoPomo();
     } else {
       // AutoPomo Checkbox is NOT checked
       // TODO implementation: this._pomoCounterController.TODO
+      this._pomoCounterController.setAutoPomo();
     }
   }
 
@@ -50,10 +52,12 @@ export class SettingsView {
   _onAutoBreakPressed(e) {
     if (e.target.checked) {
       // AutoBreak Checkbox is checked
-      // TODO implementation: this._pomoCounterController.TODO
+      // TODO implementation: 
+      this._pomoCounterController.setAutoBreak();
     } else {
       // AutoBreak Checkbox is NOT checked
       // TODO implementation: this._pomoCounterController.TODO
+      this._pomoCounterController.setAutoBreak();
     }
   }
 
