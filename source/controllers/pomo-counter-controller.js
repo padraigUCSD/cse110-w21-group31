@@ -210,4 +210,3 @@ export class PomoCounterController {
     this._allowAutoPomo = autopomo;
   }
 }
-
