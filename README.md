@@ -8,20 +8,20 @@ Private project repo for the UnhandledPromiseRejection (UPR) team. We are buildi
 ## DEV Stats
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4ac8e6ce-df62-4783-9eca-9adab31fe087/deploy-status)](https://app.netlify.com/sites/100minutes-dev/deploys)
 ![Website](https://img.shields.io/website?url=https%3A%2F%2F100minutes-dev.netlify.app%2F)
-![W3C Validation](https://img.shields.io/w3c-validation/html?label=w3c%20%28QA%29&targetUrl=https%3A%2F%2F100minutes-dev.netlify.app%2F)
+![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2F100minutes-dev.netlify.app%2F)
 ![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2F100minutes-qa.netlify.app%2F)
 ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/100minutes-qa.netlify.app)
 
 ## QA Stats
 [![Netlify Status](https://api.netlify.com/api/v1/badges/bbac308d-31fb-4158-a2a1-b2386387785c/deploy-status)](https://app.netlify.com/sites/100minutes-qa/deploys)
 ![Website](https://img.shields.io/website?url=https%3A%2F%2F100minutes-qa.netlify.app%2F)
-![W3C Validation](https://img.shields.io/w3c-validation/html?label=w3c%20%28QA%29&targetUrl=https%3A%2F%2F100minutes-qa.netlify.app%2F)
+![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2F100minutes-qa.netlify.app%2F)
 ![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2F100minutes-qa.netlify.app%2F)
 ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/100minutes-qa.netlify.app)
 
 ## Production Stats
 ![Website](https://img.shields.io/website?url=https%3A%2F%2F100minutes.netlify.app%2F)
-![W3C Validation](https://img.shields.io/w3c-validation/html?label=w3c%20%28QA%29&targetUrl=https%3A%2F%2F100minutes-qa.netlify.app%2F)
+![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2F100minutes.netlify.app%2F)
 ![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2F100minutes.netlify.app%2F)
 ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/100minutes.netlify.app)
 
