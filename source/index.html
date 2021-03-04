@@ -11,26 +11,47 @@
 </head>
 
 <!--make sure to make padding and margin for body = 0 !!!-->
+
 <body>
-  <div class="sidebar">
-            <div class="header"></div>
-            <!--hamburger menu-->
-            <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-            <label for="openSidebarMenu" class="sidebarIconToggle">
-                <div class="hamburger part1"></div>
-                <div class="hamburger part2"></div>
-                <div class="hamburger part3"></div>
-            </label>
-            <!--the side bar menu-->
-            <div id="sidebarMenu">
-                <ul class="sidebarMenuInner">
-                    <li>Settings</li>
-                    <li>Task Tracker</li>
-                </ul>
-            </div>
+    <div class="sidebar">
+        <div class="header"></div>
+        <!--hamburger menu-->
+        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+        <label for="openSidebarMenu" class="sidebarIconToggle">
+            <div class="hamburger part1"></div>
+            <div class="hamburger part2"></div>
+            <div class="hamburger part3"></div>
+        </label>
+        <!--the side bar menu-->
+        <div id="sidebarMenu">
+            <ul class="sidebarMenuInner">
+                <li>Settings</li>
+
+                <!-- NoMercy "toggle" checkboxes -->
+                <!-- TODO @christine: add text labels to left of toggle switches -->
+                <label class="switch">
+                    <input type="checkbox" id="auto-break-toggle">
+                    <span class="slider"></span>
+                </label>
+
+                <br />
+
+                <label class="switch">
+                    <input type="checkbox" id="auto-pomo-toggle">
+                    <span class="slider"></span>
+                </label>
+
+                <br />
+
+                <label class="switch">
+                    <input type="checkbox" id="no-mercy-toggle">
+                    <span class="slider"></span>
+                </label>
+            </ul>
         </div>
-  
-  <div class="pomo-timer">
+    </div>
+
+    <div class="pomo-timer">
         <div style="text-align:center">
             <h1 id="counter">25:00</h1>
             <span class="dot" id="dot1"></span>
@@ -46,27 +67,6 @@
             <!-- skip button hidden until needed -->
             <button id="skip-long-break-btn" style="visibility:hidden">Skip</button>
 
-            <!-- experimental NoMercy "toggle" checkbox -->
-            <label class="switch">
-                <input type="checkbox" id="auto-break-toggle">
-                <span class="slider"></span>
-            </label>
-
-            <br />
-
-            <label class="switch">
-                <input type="checkbox" id="auto-pomo-toggle">
-                <span class="slider"></span>
-            </label>
-
-            <br />
-            
-            <label class="switch">
-                <input type="checkbox" id="no-mercy-toggle">
-                <span class="slider"></span>
-            </label>
-            <!-- TODO @christine: move above toggles to settings-->
-              
         </div>
 
     </div>
