@@ -1,5 +1,5 @@
+import { jest } from '@jest/globals';
 import { TimerController } from './timer-controller.js';
-import {jest} from '@jest/globals'
 
 const sleep = async (ms) => {
   return new Promise((resolve) => {
