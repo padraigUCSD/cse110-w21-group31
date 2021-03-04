@@ -24,7 +24,7 @@ test('Counter advances to a break', () => {
 
   // Assertions
   expect(counter._stage).toBe(Stages.BREAK);
-
+  expect(counter._timerController._timeRemaining).toBe(5 * 60);
   // should be 1 because we have not started the 2nd pomo yet
   expect(counter._currentPomo).toBe(Number(1));
 })
@@ -64,7 +64,7 @@ test('After 4 pomos, transitions to a longer break', () => {
   expect(counter._stage).toBe(Stages.LONG_BREAK);
   // testing that all traits of a long break are true
   expect(counter._currentPomo).toBe(Number(4));
-
+  expect(counter._timerController._timeRemaining).toBe(15 * 60);
   // should not be able to skipLongBreak if not in a long break
   function slbErr() {
     counter.skipLongBreak();
@@ -110,8 +110,31 @@ test('start works properly', () => {
 })
 
 test('Add stage change callback', () => {
+  // Setup
   const changed=jest.fn();
   counter.addChangeStageCallback('test',changed);
   counter._advance();
+  
+  // Assertions
   expect(changed).toHaveBeenCalledWith(Stages.BREAK);
+})
+
+test('Add skippable change callback', () => {
+  // Setup
+  const skipped=jest.fn();
+  counter.addSkippableCallback('test',skipped);
+  counter._setSkippable(true);
+
+  // Assertions
+  expect(skipped).toHaveBeenCalled();
+})
+
+test('Add change pomo callback', () => {
+  // Setup
+  const changedPomo=jest.fn();
+  counter.addChangePomoCallback('test',changedPomo);
+  counter._advance();
+  
+  // Assertions
+  expect(changedPomo).toHaveBeenCalledWith(Stages.POMO, 2);
 })
