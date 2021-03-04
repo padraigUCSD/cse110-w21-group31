@@ -34,6 +34,9 @@ export class PomoCounterController {
     this._skippableCallbacks = {};
     this._changeStageCallbacks = {};
     this._changePomosCallbacks = {};
+
+    this._allowAutoBreak = false;
+    this._allowAutoPomo = false;
   }
 
   /**
@@ -191,12 +194,20 @@ export class PomoCounterController {
     this._timerController.set(LONG_BREAK_MAX_EXTENDED_LENGTH_SEC);
   }
 
-  setAutoBreak() {
-
+  /**
+   * Toggle whether autoBreak should occur
+   * @param {boolean} autobreak is whether transition to break should be auto or manual
+   */
+  setAutoBreak(autobreak) {
+    this._allowAutoBreak = autobreak;
   }
 
-  setAutoPomo() {
-
+  /**
+   * Toggle whether autoPomo should occur
+   * @param {*} autopomo is whether transition to pomo should be auto or manual
+   */
+  setAutoPomo(autopomo) {
+    this._allowAutoPomo = autopomo;
   }
 }
 
