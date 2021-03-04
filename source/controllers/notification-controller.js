@@ -9,9 +9,9 @@ export const Sounds = {
   SCREAMING: 'screaming',
 }
 
-const NORMAL_ALARM = new Audio("audio/alarm2.mp3");
-const ALT_ALARM = new Audio("audio/alarm.mp3");
-const SCREAMING_ALARM = new Audio("audio/wilhelm.mp3");
+const NORMAL_ALARM = new Audio('audio/alarm2.mp3');
+const ALT_ALARM = new Audio('audio/alarm.mp3');
+const SCREAMING_ALARM = new Audio('audio/wilhelm.mp3');
 
 /**
  * Plays a sound when an event happens
