@@ -25,15 +25,14 @@ test('Timer can count to 10 seconds', async () => {
 test('check alarm call back in 2s', async () => {
   // Setup
   const timer = new TimerController();
-  let count = 0;
-  timer.addAlarmCallback('test', () => {
-    count = 2;
-  });
-  timer.set(2);
-  await sleep(2_010);
+  const checker = jest.fn(() => {
+    timer.addAlarmCallback('test', () => {
 
+    });
+  });
+  
   // Assertions
-  expect(count).toBe(2);
+  expect(checker).toHaveBeenCalled();
 });
 
 test('check constructor correctly', () => {
