@@ -1,3 +1,5 @@
+import { Stages } from "../controllers/pomo-counter-controller.js";
+
 /**
  * View-binding logic for timer controls such as buttons
  */
@@ -65,8 +67,19 @@ export class TimerControlsView {
    * @private
    */
   _onStageChanged(){
-    console.log('yeet');
-    this._transitionButton.style.visibility = 'visible';
+    console.log(this._pomoCounterController._stage);
+    if(this._pomoCounterController._stage == Stages.POMO && this._pomoCounterController._allowAutoPomo == false){
+      this._transitionButton.style.visibility = 'visible';
+    }
+    else if(this._pomoCounterController._stage == Stages.BREAK && this._pomoCounterController._allowAutoBreak == false){
+      this._transitionButton.style.visibility = 'visible';
+    }
+    else if(this._pomoCounterController._stage == Stages.LONG_BREAK && this._pomoCounterController._allowAutoBreak == false){
+      this._transitionButton.style.visibility = 'visible';
+    }
+    else{
+      this._transitionButton.style.visibility = 'hidden';
+    }
   }
 
  /**

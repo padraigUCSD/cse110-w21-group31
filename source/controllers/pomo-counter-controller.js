@@ -138,6 +138,7 @@ export class PomoCounterController {
    * @private
    */
   _advance() {
+    console.log('skippable: ' + this._skippable);
     switch (this._stage) {
       case Stages.POMO:
         if (this._currentPomo === POMOS_PER_LONG_BREAK) {
@@ -194,12 +195,16 @@ export class PomoCounterController {
       case Stages.LONG_BREAK:
         this._setSkippable(false);
         this._setStage(Stages.POMO);
+        
+
+        
         // -- TEST
         // pause right before state change if AutoBreak disabled
         if (this._allowAutoPomo == false) {
           this._timerController.pause();
         }
         // -- END TEST
+        
         
         // state change, play alarm
         this._notificationController.playSound();

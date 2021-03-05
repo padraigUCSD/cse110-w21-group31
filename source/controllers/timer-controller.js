@@ -1,4 +1,4 @@
-const MS_PER_SECOND = 5;
+const MS_PER_SECOND = 1;
 
 /**
  * Provides wall-clock time, and callbacks for timed events
