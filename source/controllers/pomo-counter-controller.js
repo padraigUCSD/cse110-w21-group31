@@ -142,6 +142,13 @@ export class PomoCounterController {
       case Stages.POMO:
         if (this._currentPomo === POMOS_PER_LONG_BREAK) {
           this._setStage(Stages.LONG_BREAK);
+          // -- TEST
+          // pause right before state change if AutoBreak disabled
+          if (this._allowAutoBreak == false) {
+            this._timerController.pause();
+          }
+          // -- END TEST
+
           // state change, play alarm
           this._notificationController.playSound();
           // do NOT advance a move moving from pomo to break
@@ -151,6 +158,13 @@ export class PomoCounterController {
           this._timerController.set(LONG_BREAK_LENGTH_SEC);
         } else {
           this._setStage(Stages.BREAK);
+          // -- TEST
+          // pause right before state change if AutoBreak disabled
+          if (this._allowAutoBreak == false) {
+            this._timerController.pause();
+          }
+          // -- END TEST
+
           // state change, play alarm
           this._notificationController.playSound();
           // do NOT advance a move moving from pomo to break
@@ -162,6 +176,13 @@ export class PomoCounterController {
 
       case Stages.BREAK:
         this._setStage(Stages.POMO);
+        // -- TEST
+        // pause right before state change if AutoBreak disabled
+        if (this._allowAutoPomo == false) {
+          this._timerController.pause();
+        }
+        // -- END TEST
+
         // state change, play alarm
         this._notificationController.playSound();
         // advance a pomo moving from break to pomo
@@ -173,6 +194,13 @@ export class PomoCounterController {
       case Stages.LONG_BREAK:
         this._setSkippable(false);
         this._setStage(Stages.POMO);
+        // -- TEST
+        // pause right before state change if AutoBreak disabled
+        if (this._allowAutoPomo == false) {
+          this._timerController.pause();
+        }
+        // -- END TEST
+        
         // state change, play alarm
         this._notificationController.playSound();
         this._setPomo(Number(1));

@@ -10,6 +10,9 @@ export class TimerControlsView {
     this._pomoCounterController = pomoCounterController;
     this._skipButton = document.getElementById('skip-long-break-btn');
     this._startButton = document.getElementById('control');
+    
+    //
+    this._transitionButton = document.getElementById('transition-btn');
   }
 
   /**
@@ -19,6 +22,10 @@ export class TimerControlsView {
     this._pomoCounterController.addSkippableCallback('tcv_display_button', skippable => this._onSkippableChanged.call(this, skippable))
     this._skipButton.onclick = e => this._onSkipPressed.call(this, e);
     this._startButton.onclick = e => this._onStartPressed.call(this, e);
+
+    //
+    this._pomoCounterController.addChangeStageCallback('tcv_display_transition_button', () => this._onStageChanged.call(this))
+    this._transitionButton.onclick = e => this._onTransitionPressed.call(this, e);
   }
 
   /**
@@ -52,4 +59,25 @@ export class TimerControlsView {
     this._pomoCounterController.start();
     this._startButton.style.visibility = 'hidden';
   }
+
+  /**
+   * Called when the stage button is pressed, to show the transition button if allowed
+   * @private
+   */
+  _onStageChanged(){
+    console.log('yeet');
+    this._transitionButton.style.visibility = 'visible';
+  }
+
+ /**
+   * Called when the transition button is pressed, to transition states manually, if enabled.
+   * @param e {Event}
+   * @private
+   */
+  _onTransitionPressed(e){
+    e.preventDefault();
+    this._pomoCounterController._timerController.resume();
+    this._transitionButton.style.visibility = 'hidden';
+  }
+
 }

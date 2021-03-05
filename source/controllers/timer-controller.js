@@ -1,4 +1,4 @@
-const MS_PER_SECOND = 1000;
+const MS_PER_SECOND = 5;
 
 /**
  * Provides wall-clock time, and callbacks for timed events
@@ -11,6 +11,9 @@ export class TimerController {
     this._timeRemaining = 0;
     this._timeCallbacks = {};
     this._alarmCallbacks = {};
+    
+    //
+    this._isPaused = false;
   }
 
   /**
@@ -50,16 +53,33 @@ export class TimerController {
    * @private
    */
   _tick() {
-    this._timeRemaining--;
-    for (const callback of Object.values(this._timeCallbacks)) {
-      callback(this._timeRemaining);
-    }
-
-    if (this._timeRemaining === 0) {
-      clearInterval(this._ticker);
-      for (const callback of Object.values(this._alarmCallbacks)) {
-        callback();
+    // TODO testing if this is ok
+    if(!this._isPaused){
+      this._timeRemaining--;
+      for (const callback of Object.values(this._timeCallbacks)) {
+        callback(this._timeRemaining);
+      }
+  
+      if (this._timeRemaining === 0) {
+        clearInterval(this._ticker);
+        for (const callback of Object.values(this._alarmCallbacks)) {
+          callback();
+        }
       }
     }
+  }
+
+  /**
+   * Pause the clock (only used for toggling AutoBreak/AutoPomo)
+   */
+  pause(){
+    this._isPaused = true;
+  }
+
+  /**
+   * Resume the clock (only used for toggling AutoBreak/AutoPomo)
+   */
+  resume(){
+    this._isPaused = false;
   }
 }
