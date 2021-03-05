@@ -1,6 +1,6 @@
+import { jest } from '@jest/globals';
 import { TimerController } from './timer-controller.js';
 import { PomoCounterController, Stages } from './pomo-counter-controller.js';
-import { jest } from '@jest/globals';
 
 const timer = new TimerController();
 const counter = new PomoCounterController(timer);
@@ -111,18 +111,18 @@ test('start works properly', () => {
 
 test('Add stage change callback', () => {
   // Setup
-  const changed=jest.fn();
-  counter.addChangeStageCallback('test',changed);
+  const changed = jest.fn();
+  counter.addChangeStageCallback('test', changed);
   counter._advance();
-  
+
   // Assertions
   expect(changed).toHaveBeenCalledWith(Stages.BREAK);
 })
 
 test('Add skippable change callback', () => {
   // Setup
-  const skipped=jest.fn();
-  counter.addSkippableCallback('test',skipped);
+  const skipped = jest.fn();
+  counter.addSkippableCallback('test', skipped);
   counter._setSkippable(true);
 
   // Assertions
@@ -131,10 +131,10 @@ test('Add skippable change callback', () => {
 
 test('Add change pomo callback', () => {
   // Setup
-  const changedPomo=jest.fn();
-  counter.addChangePomoCallback('test',changedPomo);
+  const changedPomo = jest.fn();
+  counter.addChangePomoCallback('test', changedPomo);
   counter._advance();
-  
+
   // Assertions
   expect(changedPomo).toHaveBeenCalledWith(Stages.POMO, 2);
 })
