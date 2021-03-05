@@ -32,7 +32,7 @@ test('check alarm call back in 2s', async () => {
   await sleep(2_010);
 
   // Assertions
-  expect(alarm).ToHaveBeenCalled();
+  expect(alarm).toHaveBeenCalled();
 });
 
 test('check constructor correctly', () => {
