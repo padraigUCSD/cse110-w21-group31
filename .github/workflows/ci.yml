@@ -40,7 +40,7 @@ jobs:
         with:
           start: npm start
           working-directory: source
-          browser: chrome
+          browser: electron
           headless: true
       - name: Upload visual diffs
         uses: actions/upload-artifact@v2

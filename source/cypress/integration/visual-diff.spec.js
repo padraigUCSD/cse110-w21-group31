@@ -1,6 +1,8 @@
-xdescribe('Visual Diff Testing', () => {
+describe('Visual Diff Testing', () => {
   before(() => {
     cy.prepare();
+    // Fix for https://github.com/jaredpalmer/cypress-image-snapshot/issues/82
+    cy.viewport(1000, 660);
   });
 
   it('Initial load', () => {
