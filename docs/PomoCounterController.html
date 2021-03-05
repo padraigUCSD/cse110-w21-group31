@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>PomoCounterController<span class="signature">(timerController)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>PomoCounterController<span class="signature">(timerController, notificationController)</span><span class="type-signature"></span></h2>
         
             <div class="class-description">Tracks the current stage of the pomodoro process, and the number of consecutive pomos completed.</div>
         
@@ -45,7 +45,7 @@
     
 
     
-    <h4 class="name" id="PomoCounterController"><span class="type-signature"></span>new PomoCounterController<span class="signature">(timerController)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="PomoCounterController"><span class="type-signature"></span>new PomoCounterController<span class="signature">(timerController, notificationController)</span><span class="type-signature"></span></h4>
     
 
     
@@ -109,6 +109,29 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>notificationController</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="NotificationController.html">NotificationController</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">plays sounds when events happen</td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -146,7 +169,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_pomo-counter-controller.js.html">controllers/pomo-counter-controller.js</a>, <a href="controllers_pomo-counter-controller.js.html#line27">line 27</a>
+        <a href="controllers_pomo-counter-controller.js.html">controllers/pomo-counter-controller.js</a>, <a href="controllers_pomo-counter-controller.js.html#line28">line 28</a>
     </li></ul></dd>
     
 
@@ -333,7 +356,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_pomo-counter-controller.js.html">controllers/pomo-counter-controller.js</a>, <a href="controllers_pomo-counter-controller.js.html#line89">line 89</a>
+        <a href="controllers_pomo-counter-controller.js.html">controllers/pomo-counter-controller.js</a>, <a href="controllers_pomo-counter-controller.js.html#line94">line 94</a>
     </li></ul></dd>
     
 
@@ -515,7 +538,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_pomo-counter-controller.js.html">controllers/pomo-counter-controller.js</a>, <a href="controllers_pomo-counter-controller.js.html#line78">line 78</a>
+        <a href="controllers_pomo-counter-controller.js.html">controllers/pomo-counter-controller.js</a>, <a href="controllers_pomo-counter-controller.js.html#line83">line 83</a>
     </li></ul></dd>
     
 
@@ -697,7 +720,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_pomo-counter-controller.js.html">controllers/pomo-counter-controller.js</a>, <a href="controllers_pomo-counter-controller.js.html#line67">line 67</a>
+        <a href="controllers_pomo-counter-controller.js.html">controllers/pomo-counter-controller.js</a>, <a href="controllers_pomo-counter-controller.js.html#line72">line 72</a>
     </li></ul></dd>
     
 
@@ -744,6 +767,280 @@
 </dl>
 
     
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="setAutoBreak"><span class="type-signature"></span>setAutoBreak<span class="signature">(autobreak)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Toggle whether autoBreak should occur
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>autobreak</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">is whether transition to break should be auto or manual</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="controllers_pomo-counter-controller.js.html">controllers/pomo-counter-controller.js</a>, <a href="controllers_pomo-counter-controller.js.html#line203">line 203</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="setAutoPomo"><span class="type-signature"></span>setAutoPomo<span class="signature">(autopomo)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Toggle whether autoPomo should occur
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>autopomo</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">is whether transition to pomo should be auto or manual</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="controllers_pomo-counter-controller.js.html">controllers/pomo-counter-controller.js</a>, <a href="controllers_pomo-counter-controller.js.html#line211">line 211</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -807,7 +1104,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_pomo-counter-controller.js.html">controllers/pomo-counter-controller.js</a>, <a href="controllers_pomo-counter-controller.js.html#line50">line 50</a>
+        <a href="controllers_pomo-counter-controller.js.html">controllers/pomo-counter-controller.js</a>, <a href="controllers_pomo-counter-controller.js.html#line55">line 55</a>
     </li></ul></dd>
     
 
@@ -895,7 +1192,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_pomo-counter-controller.js.html">controllers/pomo-counter-controller.js</a>, <a href="controllers_pomo-counter-controller.js.html#line40">line 40</a>
+        <a href="controllers_pomo-counter-controller.js.html">controllers/pomo-counter-controller.js</a>, <a href="controllers_pomo-counter-controller.js.html#line45">line 45</a>
     </li></ul></dd>
     
 
@@ -941,13 +1238,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BackgroundColorView.html">BackgroundColorView</a></li><li><a href="PomoCounterController.html">PomoCounterController</a></li><li><a href="PomoCycleView.html">PomoCycleView</a></li><li><a href="TimerController.html">TimerController</a></li><li><a href="TimerControlsView.html">TimerControlsView</a></li><li><a href="TimerView.html">TimerView</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Stages">Stages</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BackgroundColorView.html">BackgroundColorView</a></li><li><a href="NotificationController.html">NotificationController</a></li><li><a href="PomoCounterController.html">PomoCounterController</a></li><li><a href="PomoCycleView.html">PomoCycleView</a></li><li><a href="SettingsView.html">SettingsView</a></li><li><a href="TimerController.html">TimerController</a></li><li><a href="TimerControlsView.html">TimerControlsView</a></li><li><a href="TimerView.html">TimerView</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Sounds">Sounds</a></li><li><a href="global.html#Stages">Stages</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Fri Feb 26 2021 01:10:21 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Thu Mar 04 2021 23:16:07 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

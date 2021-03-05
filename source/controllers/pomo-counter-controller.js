@@ -11,8 +11,8 @@ export const Stages = {
 
 const POMO_LENGTH_SEC = 25 * 60; // 25 minutes
 const BREAK_LENGTH_SEC = 5 * 60; // 5 minutes
-const LONG_BREAK_MIN_LENGTH_SEC = 15 * 60; // 15 minutes
-const LONG_BREAK_MAX_EXTENDED_LENGTH_SEC = 15 * 60; // 15 minutes, max amount of time to allow the long break to be extended past LONG_BREAK_MIN_LENGTH_SEC
+const LONG_BREAK_LENGTH_SEC = 30 * 60; // 30 minutes
+const LONG_BREAK_ALLOW_SKIP_SEC = 15 * 60; // 15 minutes
 
 const POMOS_PER_LONG_BREAK = 4; // number of consecutive pomos before starting a long break
 
@@ -23,15 +23,20 @@ export class PomoCounterController {
   /**
    * Create a PomoCounterController
    * @param {TimerController} timerController - the source of wall-clock time
+   * @param {NotificationController} notificationController - plays sounds when events happen
    */
-  constructor(timerController) {
+  constructor(timerController, notificationController) {
     this._timerController = timerController;
+    this._notificationController = notificationController;
     this._stage = Stages.POMO;
     this._currentPomo = 1;
     this._skippable = false;
     this._skippableCallbacks = {};
     this._changeStageCallbacks = {};
     this._changePomosCallbacks = {};
+
+    this._allowAutoBreak = false;
+    this._allowAutoPomo = false;
   }
 
   /**
@@ -93,7 +98,7 @@ export class PomoCounterController {
 
   /**
    * Sets the current stage of the Pomodoro cycle
-   * @param {stage} stage determine which stage to change to correct color
+   * @param {Stages} stage determine which stage to change to correct color
    * @private
    */
   _setStage(stage) {
@@ -137,12 +142,17 @@ export class PomoCounterController {
       case Stages.POMO:
         if (this._currentPomo === POMOS_PER_LONG_BREAK) {
           this._setStage(Stages.LONG_BREAK);
+          // state change, play alarm
+          this._notificationController.playSound();
           // do NOT advance a move moving from pomo to break
           this._setPomo(this._currentPomo);
-          this._timerController.addAlarmCallback('pcc', () => this._allowSkip.call(this));
-          this._timerController.set(LONG_BREAK_MIN_LENGTH_SEC);
+          this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
+          this._timerController.addTimeCallback('pcc', t => this._checkSkippable.call(this, t));
+          this._timerController.set(LONG_BREAK_LENGTH_SEC);
         } else {
           this._setStage(Stages.BREAK);
+          // state change, play alarm
+          this._notificationController.playSound();
           // do NOT advance a move moving from pomo to break
           this._setPomo(this._currentPomo);
           this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
@@ -152,6 +162,8 @@ export class PomoCounterController {
 
       case Stages.BREAK:
         this._setStage(Stages.POMO);
+        // state change, play alarm
+        this._notificationController.playSound();
         // advance a pomo moving from break to pomo
         this._setPomo(this._currentPomo + 1);
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
@@ -161,6 +173,8 @@ export class PomoCounterController {
       case Stages.LONG_BREAK:
         this._setSkippable(false);
         this._setStage(Stages.POMO);
+        // state change, play alarm
+        this._notificationController.playSound();
         this._setPomo(Number(1));
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
         this._timerController.set(POMO_LENGTH_SEC);
@@ -172,12 +186,29 @@ export class PomoCounterController {
   }
 
   /**
-   * Callback to unlock the "skip long break" functionality after 15 minutes.
+   * Callback to check time on the timer, and unlock the "skip long break" functionality after 15 minutes.
+   * @param time {number} Time left on the timer
    * @private
    */
-  _allowSkip() {
-    this._setSkippable(true);
-    this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
-    this._timerController.set(LONG_BREAK_MAX_EXTENDED_LENGTH_SEC);
+  _checkSkippable(time) {
+    if (time <= LONG_BREAK_LENGTH_SEC - LONG_BREAK_ALLOW_SKIP_SEC) {
+      this._setSkippable(true);
+    }
+  }
+
+  /**
+   * Toggle whether autoBreak should occur
+   * @param {boolean} autobreak is whether transition to break should be auto or manual
+   */
+  setAutoBreak(autobreak) {
+    this._allowAutoBreak = autobreak;
+  }
+
+  /**
+   * Toggle whether autoPomo should occur
+   * @param {*} autopomo is whether transition to pomo should be auto or manual
+   */
+  setAutoPomo(autopomo) {
+    this._allowAutoPomo = autopomo;
   }
 }
