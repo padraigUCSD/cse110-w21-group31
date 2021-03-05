@@ -7,7 +7,7 @@ const sleep = async (ms) => {
   })
 }
 
-test('Timer can count to 10 seconds', async () => {
+test('Timer can count to 2 seconds', async () => {
   // Setup
   const timer = new TimerController();
   timer.set(2);
@@ -17,7 +17,7 @@ test('Timer can count to 10 seconds', async () => {
     seconds++;
   });
 
-  await sleep(2_010);
+  await sleep(3_010);
 
   // Assertions
   expect(seconds).toBe(2);
@@ -28,7 +28,7 @@ test('check alarm call back in 2s', async () => {
   const timer = new TimerController();
   const alarm = jest.fn();
   timer.addAlarmCallback('test', alarm);
-  timer.set(2);
+  timer.set(1);
   await sleep(2_010);
 
   // Assertions
