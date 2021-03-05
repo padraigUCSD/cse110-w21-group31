@@ -1,4 +1,4 @@
-import { jest } from '@jest/globals';
+import { expect, jest } from '@jest/globals';
 import { TimerController } from './timer-controller.js';
 
 const sleep = async (ms) => {
@@ -33,6 +33,14 @@ test('check alarm call back in 2s', async () => {
 
   // Assertions
   expect(alarm).toHaveBeenCalled();
+});
+
+test('check addTimeCallback function', () => {
+  const timer = new TimerController();
+  const time = jest.fn();
+  timer.addTimeCallback('test', time);
+  timer._tick();
+  expect(time).toHaveBeenCalled();
 });
 
 test('check constructor correctly', () => {
