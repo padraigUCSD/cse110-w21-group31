@@ -1,8 +1,10 @@
 import { TimerController } from './timer-controller.js';
 import { PomoCounterController, Stages } from './pomo-counter-controller.js';
+import { NotificationController } from './notification-controller.js';
 
 const timer = new TimerController();
-const counter = new PomoCounterController(timer);
+const notif = new NotificationController();
+const counter = new PomoCounterController(timer, notif);
 
 test('Counter starts in a pomo', () => {
   // Assertions
@@ -12,6 +14,7 @@ test('Counter starts in a pomo', () => {
 test('constructor works properly', () => {
   // Assertions
   expect(counter._timerController).toBe(timer);
+  expect(counter._notificationController).toBe(notif);
   expect(counter._stage).toBe(Stages.POMO);
   expect(counter._currentPomo).toBe(Number(1));
   expect(counter._skippable).toBe(false);
@@ -72,12 +75,26 @@ test('After 4 pomos, transitions to a longer break', () => {
   expect(slbErr).toThrowError(/^Minimum long break time has not passed, unable to skip$/);
 })
 
-test('allowSkip', () => {
-  // Setup
-  counter._allowSkip();
+describe('checkSkippable', () => {
+  test('30 minutes', () => {
+    counter._checkSkippable(30 * 60);
+    expect(counter._skippable).toBe(false);
+  });
 
-  // Assertions
-  expect(counter._skippable).toBe(true);
+  test('15 minutes + 1 sec', () => {
+    counter._checkSkippable(15 * 60 + 1);
+    expect(counter._skippable).toBe(false);
+  });
+
+  test('15 minutes', () => {
+    counter._checkSkippable(15 * 60);
+    expect(counter._skippable).toBe(true);
+  });
+
+  test('0 seconds', () => {
+    counter._checkSkippable(0);
+    expect(counter._skippable).toBe(true);
+  });
 })
 
 test('set skippable true', () => {
