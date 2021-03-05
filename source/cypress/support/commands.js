@@ -4,7 +4,8 @@ import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command.js'
 addMatchImageSnapshotCommand({
   failureThreshold: 0.5, // allow up to 0.5% discrepancy between snapshots to account for inconsistent text rendering across environments
   failureThresholdType: 'percent',
-  capture: 'fullPage',
+  customDiffConfig: { threshold: 0.1 },
+  capture: 'viewport',
 });
 
 /**
