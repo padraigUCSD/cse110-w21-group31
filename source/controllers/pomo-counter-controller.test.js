@@ -126,7 +126,7 @@ test('Add skippable change callback', () => {
   counter._setSkippable(true);
 
   // Assertions
-  expect(skipped).toHaveBeenCalled();
+  expect(skipped).toHaveBeenCalledWith(true);
 })
 
 test('Add change pomo callback', () => {
