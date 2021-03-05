@@ -1,4 +1,5 @@
 import { TimerController } from './timer-controller.js';
+import { jest } from '@jest/globals';
 
 const sleep = async (ms) => {
   return new Promise((resolve) => {
@@ -25,14 +26,13 @@ test('Timer can count to 10 seconds', async () => {
 test('check alarm call back in 2s', async () => {
   // Setup
   const timer = new TimerController();
-  let checker = 0;
-  timer.addAlarmCallback('test', () => {
-    checker = 2;
-  });
+  const alarm = jest.fn();
+  timer.addAlarmCallback('test', alarm);
   timer.set(2);
-  expect(checker).toBe(0);
   await sleep(2_010);
-  expect(checker).toBe(2);
+
+  // Assertions
+  expect(alarm).ToHaveBeenCalled();
 });
 
 test('check constructor correctly', () => {
