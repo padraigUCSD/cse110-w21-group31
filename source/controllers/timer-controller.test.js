@@ -1,4 +1,3 @@
-import { expect, jest } from '@jest/globals';
 import { TimerController } from './timer-controller.js';
 
 const sleep = async (ms) => {
@@ -31,9 +30,7 @@ test('check alarm call back in 2s', async () => {
     checker = 2;
   });
   timer.set(2);
-  
   expect(checker).toBe(0);
-
   await sleep(2_010);
   expect(checker).toBe(2);
 });
