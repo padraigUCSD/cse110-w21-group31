@@ -210,6 +210,7 @@ export class PomoCounterController {
         this._notificationController.playSound();
         this._setPomo(Number(1));
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
+        this._timerController.clearTimeCallbacks();
         this._timerController.set(POMO_LENGTH_SEC);
         break;
 
