@@ -41,8 +41,8 @@ export class TimerController {
   /**
    * Clears all callbacks that would be called on every tick of the timer
    */
-  clearTimeCallbacks() {
-    this._timeCallbacks = {};
+  deleteTimeCallback(id) {
+    delete this._timeCallbacks[id];
   }
 
   /**
