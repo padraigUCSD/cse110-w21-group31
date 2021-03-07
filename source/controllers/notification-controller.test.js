@@ -1,6 +1,4 @@
 import { NotificationController } from './notification-controller.js';
-import { PomoCounterController } from './pomo-counter-controller.js';
-import { TimerController } from './timer-controller.js';
 
 const notif = new NotificationController();
 
