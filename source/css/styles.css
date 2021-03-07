@@ -223,7 +223,8 @@ input[type=checkbox] {
     transition: all 0.3s;
     box-sizing: border-box;
     cursor: pointer;
-    position: absolute;
+    /*position: absolute;*/
+    position: fixed;
     z-index: 99;
     top: 22px;
     left: 15px;
@@ -236,8 +237,9 @@ input[type=checkbox] {
     content: "Pomodoro";
     font-size: large;
     padding-left: 40px;
-    position: relative;
-    top: -17px;
+    /* position: relative; */
+    position: fixed;
+    /*top: -17px;*/
     color: white;
 }
 
@@ -245,7 +247,7 @@ input[type=checkbox] {
 .hamburger {
     transition: all 0.3s;
     box-sizing: border-box;
-    position: absolute;
+    position: absolute; /* keep it this way*/
     height: 3px;
     width: 100%;
     background-color: #fff;
@@ -253,10 +255,12 @@ input[type=checkbox] {
 
 /* first line of the hamburger */
 .part1 {
-    position: relative;
+    
     transition: all 0.3s;
     box-sizing: border-box;
+    position: relative; 
     float: left;
+    margin-top: 3px;
 }
 
 /* second line of the hamburger */
