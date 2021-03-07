@@ -60,7 +60,7 @@ export class PomoCounterController {
       throw new Error('Minimum long break time has not passed, unable to skip');
     }
 
-    this._advance();
+    this._timerController.set(Number(0));
   }
 
   /**
@@ -138,20 +138,20 @@ export class PomoCounterController {
    * @private
    */
   _advance() {
-    console.log('skippable: ' + this._skippable);
+    console.log(`skippable: ${this._skippable}`);
     switch (this._stage) {
       case Stages.POMO:
         if (this._currentPomo === POMOS_PER_LONG_BREAK) {
           this._setStage(Stages.LONG_BREAK);
-          // -- TEST
+
           // pause right before state change if AutoBreak disabled
-          if (this._allowAutoBreak == false) {
+          if (this._allowAutoBreak === false) {
             this._timerController.pause();
           }
-          // -- END TEST
 
           // state change, play alarm
           this._notificationController.playSound();
+
           // do NOT advance a move moving from pomo to break
           this._setPomo(this._currentPomo);
           this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
@@ -159,15 +159,15 @@ export class PomoCounterController {
           this._timerController.set(LONG_BREAK_LENGTH_SEC);
         } else {
           this._setStage(Stages.BREAK);
-          // -- TEST
+
           // pause right before state change if AutoBreak disabled
-          if (this._allowAutoBreak == false) {
+          if (this._allowAutoBreak === false) {
             this._timerController.pause();
           }
-          // -- END TEST
 
           // state change, play alarm
           this._notificationController.playSound();
+
           // do NOT advance a move moving from pomo to break
           this._setPomo(this._currentPomo);
           this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
@@ -177,15 +177,15 @@ export class PomoCounterController {
 
       case Stages.BREAK:
         this._setStage(Stages.POMO);
-        // -- TEST
+
         // pause right before state change if AutoBreak disabled
         if (this._allowAutoPomo == false) {
           this._timerController.pause();
         }
-        // -- END TEST
 
         // state change, play alarm
         this._notificationController.playSound();
+
         // advance a pomo moving from break to pomo
         this._setPomo(this._currentPomo + 1);
         this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
@@ -195,17 +195,12 @@ export class PomoCounterController {
       case Stages.LONG_BREAK:
         this._setSkippable(false);
         this._setStage(Stages.POMO);
-        
 
-        
-        // -- TEST
         // pause right before state change if AutoBreak disabled
-        if (this._allowAutoPomo == false) {
+        if (this._allowAutoPomo === false) {
           this._timerController.pause();
         }
-        // -- END TEST
-        
-        
+
         // state change, play alarm
         this._notificationController.playSound();
         this._setPomo(Number(1));

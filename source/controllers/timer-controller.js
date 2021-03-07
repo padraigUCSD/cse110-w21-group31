@@ -11,8 +11,6 @@ export class TimerController {
     this._timeRemaining = 0;
     this._timeCallbacks = {};
     this._alarmCallbacks = {};
-    
-    //
     this._isPaused = false;
   }
 
@@ -39,7 +37,7 @@ export class TimerController {
   }
 
   /**
-   * Clears all callbacks that would be called on every tick of the timer
+   * Clears specified callback called on every tick of the timer
    */
   deleteTimeCallback(id) {
     delete this._timeCallbacks[id];
@@ -50,8 +48,12 @@ export class TimerController {
    * @param timeSeconds - time in seconds
    */
   set(timeSeconds) {
-    this._timeRemaining = timeSeconds;
     clearInterval(this._ticker);
+    this._timeRemaining = timeSeconds;
+    if (this._timeRemaining === 0) { //immediately call tick callbacks if time set to 0
+      this._timeRemaining++;
+      this._tick();
+    }
     this._ticker = setInterval(() => this._tick.call(this), MS_PER_SECOND);
   }
 
@@ -60,8 +62,7 @@ export class TimerController {
    * @private
    */
   _tick() {
-    // TODO testing if this is ok
-    if(!this._isPaused){
+    if (!this._isPaused) {
       this._timeRemaining--;
       for (const callback of Object.values(this._timeCallbacks)) {
         callback(this._timeRemaining);
@@ -79,14 +80,14 @@ export class TimerController {
   /**
    * Pause the clock (only used for toggling AutoBreak/AutoPomo)
    */
-  pause(){
+  pause() {
     this._isPaused = true;
   }
 
   /**
    * Resume the clock (only used for toggling AutoBreak/AutoPomo)
    */
-  resume(){
+  resume() {
     this._isPaused = false;
   }
 }

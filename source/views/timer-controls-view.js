@@ -1,4 +1,4 @@
-import { Stages } from "../controllers/pomo-counter-controller.js";
+import { Stages } from '../controllers/pomo-counter-controller.js';
 
 /**
  * View-binding logic for timer controls such as buttons
@@ -12,8 +12,6 @@ export class TimerControlsView {
     this._pomoCounterController = pomoCounterController;
     this._skipButton = document.getElementById('skip-long-break-btn');
     this._startButton = document.getElementById('control');
-    
-    //
     this._transitionButton = document.getElementById('transition-btn');
   }
 
@@ -25,7 +23,6 @@ export class TimerControlsView {
     this._skipButton.onclick = e => this._onSkipPressed.call(this, e);
     this._startButton.onclick = e => this._onStartPressed.call(this, e);
 
-    //
     this._pomoCounterController.addChangeStageCallback('tcv_display_transition_button', () => this._onStageChanged.call(this))
     this._transitionButton.onclick = e => this._onTransitionPressed.call(this, e);
   }
@@ -66,31 +63,27 @@ export class TimerControlsView {
    * Called when the stage button is pressed, to show the transition button if allowed
    * @private
    */
-  _onStageChanged(){
+  _onStageChanged() {
     console.log(this._pomoCounterController._stage);
-    if(this._pomoCounterController._stage == Stages.POMO && this._pomoCounterController._allowAutoPomo == false){
+    if (this._pomoCounterController._stage === Stages.POMO && this._pomoCounterController._allowAutoPomo === false) {
       this._transitionButton.style.visibility = 'visible';
-    }
-    else if(this._pomoCounterController._stage == Stages.BREAK && this._pomoCounterController._allowAutoBreak == false){
+    } else if (this._pomoCounterController._stage === Stages.BREAK && this._pomoCounterController._allowAutoBreak === false) {
       this._transitionButton.style.visibility = 'visible';
-    }
-    else if(this._pomoCounterController._stage == Stages.LONG_BREAK && this._pomoCounterController._allowAutoBreak == false){
+    } else if (this._pomoCounterController._stage === Stages.LONG_BREAK && this._pomoCounterController._allowAutoBreak === false) {
       this._transitionButton.style.visibility = 'visible';
-    }
-    else{
+    } else {
       this._transitionButton.style.visibility = 'hidden';
     }
   }
 
- /**
+  /**
    * Called when the transition button is pressed, to transition states manually, if enabled.
    * @param e {Event}
    * @private
    */
-  _onTransitionPressed(e){
+  _onTransitionPressed(e) {
     e.preventDefault();
     this._pomoCounterController._timerController.resume();
     this._transitionButton.style.visibility = 'hidden';
   }
-
 }
