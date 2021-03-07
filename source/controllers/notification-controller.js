@@ -39,18 +39,19 @@ export class NotificationController {
     switch (this._sound) {
       case Sounds.NORMAL:
         NORMAL_ALARM.play();
-        break;
+        return Sounds.NORMAL;
 
       case Sounds.ALT:
         ALT_ALARM.play();
-        break;
+        return Sounds.ALT;
 
       case Sounds.SCREAMING:
         SCREAMING_ALARM.play();
-        break;
+        return Sounds.SCREAMING;
 
       default:
         ALT_ALARM.play();
+        return Sounds.ALT;
     }
   }
 }
