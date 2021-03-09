@@ -1,0 +1,1 @@
+![stand-up](https://i.imgur.com/41Ve7SY.png)
