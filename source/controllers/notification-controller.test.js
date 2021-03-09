@@ -33,11 +33,8 @@ describe('tests setSound', () => {
 
   test('set sound to error', () => {
     notif.setSound('error sound');
-    notif.setSound(notif.playSound());
-
     // Assertions
     expect(notif._sound).toBe('error sound');
-    expect(notif._sound).toBe('alt');
   });
 });
 
