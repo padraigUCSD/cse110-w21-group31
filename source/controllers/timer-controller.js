@@ -67,7 +67,6 @@ export class TimerController {
       for (const callback of Object.values(this._timeCallbacks)) {
         callback(this._timeRemaining);
       }
-  
       if (this._timeRemaining === 0) {
         clearInterval(this._ticker);
         for (const callback of Object.values(this._alarmCallbacks)) {
