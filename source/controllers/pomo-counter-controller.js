@@ -180,7 +180,7 @@ export class PomoCounterController {
         this._setStage(Stages.POMO);
 
         // pause right before state change if AutoBreak disabled
-        if (this._allowAutoPomo == false) {
+        if (this._allowAutoPomo === false) {
           this._timerController.pause();
         }
 

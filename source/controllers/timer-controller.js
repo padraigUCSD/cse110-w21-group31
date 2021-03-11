@@ -50,7 +50,7 @@ export class TimerController {
   set(timeSeconds) {
     clearInterval(this._ticker);
     this._timeRemaining = timeSeconds;
-    if (this._timeRemaining === 0) { //immediately call tick callbacks if time set to 0
+    if (this._timeRemaining === 0) { // immediately call tick callbacks if time set to 0
       this._timeRemaining++;
       this._tick();
     }
