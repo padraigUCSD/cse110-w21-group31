@@ -60,6 +60,7 @@ export class PomoCounterController {
       throw new Error('Minimum long break time has not passed, unable to skip');
     }
 
+    // We need to update the timer to show 0:00 manually when autopomo is disabled
     this._timerController.set(Number(0));
   }
 
