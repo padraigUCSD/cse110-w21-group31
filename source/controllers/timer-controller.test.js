@@ -17,7 +17,7 @@ test('Timer can count to 2 seconds', async () => {
     seconds++;
   });
 
-  await sleep(2_010);
+  await sleep(2_100);
 
   // Assertions
   expect(seconds).toBe(2);
@@ -39,8 +39,9 @@ test('check addTimeCallback function', () => {
   const timer = new TimerController();
   const time = jest.fn();
   timer.addTimeCallback('test', time);
-  timer._tick();
-  expect(time).toHaveBeenCalled();
+  timer.set(2);
+  await sleep(2_010);
+  expect(time).toHaveBeenCalledTimes(2);
 });
 
 test('check constructor correctly', () => {
