@@ -41,6 +41,8 @@ test('check addTimeCallback function', () => {
   timer.addTimeCallback('test', time);
   timer.set(2);
   await sleep(2_010);
+
+  // Assertions
   expect(time).toHaveBeenCalledTimes(2);
 });
 
