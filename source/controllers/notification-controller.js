@@ -51,6 +51,7 @@ export class NotificationController {
 
       default:
         ALT_ALARM.play();
+        break;
     }
   }
 }
