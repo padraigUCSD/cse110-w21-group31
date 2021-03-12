@@ -62,6 +62,10 @@ export class PomoCounterController {
 
     // We need to update the timer to show 0:00 manually when autopomo is disabled
     this._timerController.set(Number(0));
+
+    // Ordinarily we would call advance here, but are overloading _tick to get it called
+    // TODO - that will be shortly fixed and this function restored.
+    // this._advance();
   }
 
   /**
