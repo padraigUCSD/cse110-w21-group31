@@ -5,6 +5,8 @@
 
 Private project repo for the UnhandledPromiseRejection (UPR) team. We are building a Pomodoro Timer. UPR holds CSE 110 Team No. 31.
 
+Important: we use a pubsub arch (TODO onboarding) - https://github.com/padraigUCSD/cse110-w21-group31/blob/master/specs/adrs/0011-pubsub-architecture.md pubsub ADR
+
 ## DEV Stats
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4ac8e6ce-df62-4783-9eca-9adab31fe087/deploy-status)](https://app.netlify.com/sites/100minutes-dev/deploys)
 ![Website](https://img.shields.io/website?url=https%3A%2F%2F100minutes-dev.netlify.app%2F)
