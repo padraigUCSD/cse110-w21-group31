@@ -37,37 +37,3 @@ describe('tests setSound', () => {
     expect(notif._sound).toBe('error sound');
   });
 });
-
-describe('tests playSound', () => {
-  test('test case Sounds.NORMAL', () => {
-    notif.setSound('normal');
-    const sound = notif.playSound();
-
-    // Assertions
-    expect(sound).toBe('normal');
-  });
-
-  test('test case Sounds.ALT', () => {
-    notif.setSound('alt');
-    const sound = notif.playSound();
-
-    // Assertions
-    expect(sound).toBe('alt');
-  });
-
-  test('test case Sounds.SCREAMING', () => {
-    notif.setSound('screaming');
-    const sound = notif.playSound();
-
-    // Assertions
-    expect(sound).toBe('screaming');
-  });
-
-  test('test case Sounds default', () => {
-    notif.setSound('error sound');
-    const sound = notif.playSound();
-
-    // Assertions
-    expect(sound).toBe('alt');
-  });
-});
