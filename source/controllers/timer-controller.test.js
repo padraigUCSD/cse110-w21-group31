@@ -35,7 +35,7 @@ test('check alarm call back in 2s', async () => {
   expect(alarm).toHaveBeenCalled();
 });
 
-test('check addTimeCallback function', () => {
+test('check addTimeCallback function', async () => {
   const timer = new TimerController();
   const time = jest.fn();
   timer.addTimeCallback('test', time);
