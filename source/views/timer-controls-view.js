@@ -13,6 +13,7 @@ export class TimerControlsView {
     this._skipButton = document.getElementById('skip-long-break-btn');
     this._startButton = document.getElementById('control');
     this._transitionButton = document.getElementById('transition-btn');
+    this._stageIndicator = document.getElementById('stage-indicator');
   }
 
   /**
@@ -60,11 +61,19 @@ export class TimerControlsView {
   }
 
   /**
-   * Called when the stage button is pressed, to show the transition button if allowed
+   * Called when the stage button is pressed, to show the transition button if allowed,
+   * and change the text content of the stageIndicator
    * @private
    */
   _onStageChanged() {
-    console.log(this._pomoCounterController._stage);
+    // work around for presenting Stages.LONG_BREAK as long_break
+    if(this._pomoCounterController._stage === Stages.LONG_BREAK){
+      this._stageIndicator.innerText = 'stage: long break';
+    }
+    else{
+      this._stageIndicator.innerText = 'stage: ' + this._pomoCounterController._stage;
+    }
+
     if (this._pomoCounterController._stage === Stages.POMO && this._pomoCounterController._allowAutoPomo === false) {
       this._transitionButton.style.visibility = 'visible';
     } else if (this._pomoCounterController._stage === Stages.BREAK && this._pomoCounterController._allowAutoBreak === false) {

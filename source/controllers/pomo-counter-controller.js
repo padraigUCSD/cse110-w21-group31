@@ -143,7 +143,6 @@ export class PomoCounterController {
    * @private
    */
   _advance() {
-    console.log(`skippable: ${this._skippable}`);
     switch (this._stage) {
       case Stages.POMO:
         if (this._currentPomo === POMOS_PER_LONG_BREAK) {
