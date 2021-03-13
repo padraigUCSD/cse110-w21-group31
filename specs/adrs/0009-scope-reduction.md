@@ -13,7 +13,7 @@ Should we kill the task tracker feature? This means we would stop work on issues
 ## Decision Drivers <!-- optional -->
 
 * Schedule Risk
-* Mentor Feedback & Change Request (that most customers in our segment use other methods of task tracking like notebooks, learning management systems or project management softwares)
+* Mentor Feedback & Change Request 
 * Customer Research
 
 ## Considered Options
@@ -25,19 +25,19 @@ Should we kill the task tracker feature? This means we would stop work on issues
 
 ## Decision Outcome
 
-Chosen option: "Kill the all task tracker features", because XXX and it reduces clicks-per-action for end users, improving customer experience. 
+Chosen option: "Kill the all task tracker features", because it substantially reduces schedule risk, prevents us from shipping lower-quality features, and improves customer experience by reducing clicks-per-action for end users. 
 
-Change order:
-that we will completely kill the tasktracker feature
+Change order: that we will completely kill the tasktracker feature  
 Thus, Kill:
-- e2s8
-- e2s9
-- e2t2
+- E2S8
+- E2S9
+- E2T2
 
 ### Positive Consequences <!-- optional -->
 
 * Substantially reduces schedule risk
-* Coincides with mentor advice/reccomendation
+* Coincides with mentor advice/reccomendation (that most customers in our segment use other methods of task tracking like notebooks, learning management systems or project management softwares)
+* Prevents us from shipping low-quality, half-baked features
 * Improves CX by reducing clicks-per-action for end users for important settings configurations
 
 ### Negative Consequences <!-- optional -->
@@ -49,20 +49,17 @@ Thus, Kill:
 
 ### Kill the all task tracker features
 
-Example:
-![]()
+Example - eliminating the feature removes a navigation layer from the hamburger menu, which would now open directly to the Settings view, which is more efficient for most of our customer base.
 
 * Good, because it would decrease clicks per action for end users, improving CX
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+* Good, because doing this would substantially reduce schedule risk
+* Good, because it coincides with mentor advice/reccomendation (that most customers in our segment use other methods of task tracking like notebooks, learning management systems or project management softwares)
 
 ### Kill the requested features, and implement new features that leverage local storage
 
 At the team's meeting, it was proposed that new features that leverage local storage would be implemented instead of the task tracker. 
 
-Example - when you refresh the page, these settings would stay as you left them:
-![]()
+Example - when you refresh the page, the toggle switch settings would stay as you left them:
 
 * Good, because it helps customers if they happen to refresh the page and want to keep their original settings
 * Bad, because it increases complexity (this feature was never accounted for in the design docs per se, and as such schedule risk could have an unlimited upside)
@@ -70,21 +67,17 @@ Example - when you refresh the page, these settings would stay as you left them:
 
 ### Kill only some of the task tracker features or sub-features
 
-Example:
-![]()
+Example: we might drop the feature that allows users to grab and re-order tasks after they have been created.
 
 * Good, because it would allow us to deliver on the core promises of our task tracker for certain customer segments
-* Good, because [argument b]
 * Bad, because it would increase clicks-per-action
-* Bad, because it would result in tracker features that are low-quality and detrimental to UX. There is no point in shipping a half-baked feature; at that point it is better that such a feature does not exist at all.
+* Bad, because it would result in tracker features that are lower-quality and detrimental to UX. There is no point in shipping a half-baked feature that has eliminated key elements that make a task intuitive and easy to use; at that point it is better that such a feature does not exist at all.
 
 ### Proceed as planned and do not stop work on any planned features 
 
-Example:
-![]()
-
 * Good, because it would keep our project faithful to the original pitch and scope
 * Good, because it would solve a problem that is nontrivial for a vocal minority of our potential end users
+* Bad, because we have not broken down all of the various components needed to deliver on the tracker described in the design doc (changing/dragging order of tasks, editing a task name BEFORE creating it, etc.)
 * Bad, because it would likely be delivered late or not even ship on time at all
 * Bad, because it would not be the best use of reach time even if we did have such time and goes against mentor advice (i.e. Chad asserts that a user tutorial/walkthrough or accessibility changes would be more useful or relevant to our customers).
 
