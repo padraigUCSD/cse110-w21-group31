@@ -2,7 +2,7 @@
 
 * Status: accepted
 * Deciders: Padraig MacGabann, David Cruz
-* Date: [YYYY-MM-DD when the decision was last updated] <!-- optional -->
+* Date: 2021-02-15 
 
 ## Context and Problem Statement
 
