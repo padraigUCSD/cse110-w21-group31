@@ -156,12 +156,33 @@ h1{
   font-size: 60px;
 }
 
-button{
+button {
   height: 3rem;
   width: 6rem;
   font-family: 'IBM Plex Sans Semibold', sans-serif;
   font-size: 16px;
+
+  /* COPIED button styling below to standardize cross-platform. */
+  /* Source: https://css-tricks.com/overriding-default-button-styles/ */  
+  /* COPIED Buttons styles start */
+  border: 0.1px solid rgb(133, 133, 133);
+  margin: 0;
+  text-decoration: none;
+  background: #efefef;
+  color: #282828;
+  line-height: 1;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
+
+button:hover,
+button:focus {
+  background: #e4e3e3;
+}
+/* COPIED Button styles end */
 
 .sidebar {
     overflow-x: hidden;
