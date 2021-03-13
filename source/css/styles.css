@@ -153,9 +153,6 @@ body {
 }
 
 h1{
-  /* trying to make timer look less awful on mobile */
-  font-family: 'IBM Plex Sans Semibold';  
-
   font-size: 60px;
 }
 
