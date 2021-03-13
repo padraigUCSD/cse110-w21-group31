@@ -1,6 +1,4 @@
-
-
-# [short title of solved problem and solution]
+# Should we reduce the scope of our delivery and kill the task tracker feature?
 
 * Status:  accepted
 * Deciders: All-team (1..8) 
@@ -12,7 +10,7 @@ NOTE: This ADR was syncronized on March 12, 2021, but has been mantained in our 
 
 [Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.]
 
-Should we kill the task tracker feature? This means we would stop work on E2S8, E2S9, and E2T2 and. 
+Should we kill the task tracker feature? This means we would stop work on issues E2S8, E2S9, and E2T2 and. 
 
 ## Decision Drivers <!-- optional -->
 
@@ -22,14 +20,14 @@ Should we kill the task tracker feature? This means we would stop work on E2S8, 
 
 ## Considered Options
 
-* [option 1]
-* [option 2]
-* [option 3]
-* … <!-- numbers of options can vary -->
+* Kill the all task tracker features
+* Kill the requested features, and implement new features that leverage local storage
+* Kill only some of the task tracker features or sub-features
+* Proceed as planned and do not stop work on any planned features 
 
 ## Decision Outcome
 
-Chosen option: "[option 1]", because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | … | comes out best (see below)].
+Chosen option: "Kill the all task tracker features", because XXX and it reduces clicks-per-action for end users, improving customer experience. 
 
 Change order:
 toggle labels (for sure)
@@ -38,11 +36,6 @@ Thus, Kill:
 - e2s8
 - e2s9
 - e2t2
-
-
-
-
-doucment why we chose our arch (biz reason: modularity/oop lets us integrate many ancillary features around a state-based core. this is similar to how ADT works in EHR software, the core of many ERP system etc)
 
 ### Positive Consequences <!-- optional -->
 
