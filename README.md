@@ -27,6 +27,9 @@ Important: we use a pubsub arch (TODO onboarding) - https://github.com/padraigUC
 ![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2F100minutes.netlify.app%2F)
 ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/100minutes.netlify.app)
 
+## How to navigate this repo
+### TODO
+
 ## How to commit to this repo
 ### (0) **Read the docs before u do anything else!** https://padraigucsd.github.io/cse110-w21-group31/docs/   
 
