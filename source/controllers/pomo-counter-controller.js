@@ -60,7 +60,7 @@ export class PomoCounterController {
       throw new Error('Minimum long break time has not passed, unable to skip');
     }
 
-    this.timerController.set(Number(0));
+    this._timerController.set(Number(0));
 
     this._advance();
   }
