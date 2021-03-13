@@ -70,7 +70,7 @@ export class TimerControlsView {
     if (this._pomoCounterController._stage === Stages.LONG_BREAK) {
       this._stageIndicator.innerText = 'stage: long break';
     } else {
-      this._stageIndicator.innerText = 'stage: ' + this._pomoCounterController._stage;
+      this._stageIndicator.innerText = `stage: ${this._pomoCounterController._stage}`;
     }
 
     if (this._pomoCounterController._stage === Stages.POMO && this._pomoCounterController._allowAutoPomo === false) {
