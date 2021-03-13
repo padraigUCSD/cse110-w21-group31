@@ -1,4 +1,4 @@
-# Should we reduce the scope of our delivery and kill the task tracker feature?
+# Reduce the scope of our delivery and kill the task tracker feature
 
 * Status:  accepted
 * Deciders: All-team (1..8) 
