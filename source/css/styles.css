@@ -153,7 +153,10 @@ body {
 }
 
 h1{
-    font-size: 60px;
+  /* trying to make timer look less awful on mobile */
+  font-family: 'IBM Plex Sans Semibold', sans-serif;  
+
+  font-size: 60px;
 }
 
 button{
@@ -324,11 +327,6 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .part3 {
 
 .pomo-timer {
     padding-top: 20vh;
-}
-
-#counter {
-  /* trying to make timer look less awful on mobile */
-  font-family: 'IBM Plex Sans Semibold', sans-serif;   
 }
 
 /*
