@@ -37,7 +37,7 @@ export class TimerController {
   }
 
   /**
-   * Clears specified callback called on every tick of the timer
+   * Clears specified callback which was called on every tick of the timer
    */
   deleteTimeCallback(id) {
     delete this._timeCallbacks[id];
@@ -50,10 +50,6 @@ export class TimerController {
   set(timeSeconds) {
     clearInterval(this._ticker);
     this._timeRemaining = timeSeconds;
-    if (this._timeRemaining === 0) { // immediately call tick callbacks if time set to 0
-      this._timeRemaining++;
-      this._tick();
-    }
     this._ticker = setInterval(() => this._tick.call(this), MS_PER_SECOND);
   }
 

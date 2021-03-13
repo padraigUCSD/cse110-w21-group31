@@ -60,12 +60,21 @@ export class PomoCounterController {
       throw new Error('Minimum long break time has not passed, unable to skip');
     }
 
-    // We need to update the timer to show 0:00 manually when autopomo is disabled
-    this._timerController.set(Number(0));
+    this.addChangeStageCallback('pcc-long-skip-update', stage => this._manualTimerReset.call(this, stage))
+    
+    this._advance();
+  }
 
-    // Ordinarily we would call advance here, but are overloading _tick to get it called
-    // TODO - that will be shortly fixed and this function restored.
-    // this._advance();
+  /**
+   * Manually reset the timer and its display on first pomo of new cycle.
+   * @param {Stages} stage determine whether beginning new cycle 
+   * @private
+   */
+  _manualTimerReset(stage) {
+    if (stage === Stages.POMO && this._currentPomo === 1) {
+      this.timerController.set(Number(0));
+      document.getElementById('counter').textContent = '0:00';
+    }
   }
 
   /**
