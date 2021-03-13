@@ -193,13 +193,13 @@ button {
   -moz-appearance: none;
 }
 
+
+
 button:hover,
 button:focus {
-  border: none;
-  background: #0053ba;
-  color:#fff;
+  background: #e4e3e3;
 }
-
+/* kill the fancy stuff, looks worse on desktop and DNE on mobile
 button:focus {
   outline: 1px solid #fff;
   outline-offset: -4px;
@@ -208,6 +208,8 @@ button:focus {
 button:active {
   transform: scale(0.99);
 }
+*/
+
 /* COPIED Button styles end */
 
 
