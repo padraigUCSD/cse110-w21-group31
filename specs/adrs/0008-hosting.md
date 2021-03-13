@@ -1,4 +1,4 @@
-# How should we host our DEV, QA, and Production/Live Environments?
+# Use Netlify to host our DEV, QA, and Production/Live Environments?
 
 * Status: accepted
 * Deciders: Padraig MacGabann, David Cruz
