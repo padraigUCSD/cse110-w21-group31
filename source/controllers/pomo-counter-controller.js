@@ -60,14 +60,14 @@ export class PomoCounterController {
       throw new Error('Minimum long break time has not passed, unable to skip');
     }
 
-    this.addChangeStageCallback('pcc-long-skip-update', stage => this._manualTimerReset.call(this, stage))
-    
+    this.addChangeStageCallback('pcc-long-skip-update', stage => this._manualTimerReset.call(this, stage));
+
     this._advance();
   }
 
   /**
    * Manually reset the timer and its display on first pomo of new cycle.
-   * @param {Stages} stage determine whether beginning new cycle 
+   * @param {Stages} stage determine whether beginning new cycle
    * @private
    */
   _manualTimerReset(stage) {
