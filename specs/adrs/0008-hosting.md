@@ -1,4 +1,4 @@
-# Use Netlify to host our DEV, QA, and Production/Live Environments?
+# Use Netlify to host our DEV, QA, and Production/Live environments
 
 * Status: accepted
 * Deciders: Padraig MacGabann, David Cruz
