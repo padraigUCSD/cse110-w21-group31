@@ -67,10 +67,9 @@ export class TimerControlsView {
    */
   _onStageChanged() {
     // work around for presenting Stages.LONG_BREAK as long_break
-    if(this._pomoCounterController._stage === Stages.LONG_BREAK){
+    if (this._pomoCounterController._stage === Stages.LONG_BREAK) {
       this._stageIndicator.innerText = 'stage: long break';
-    }
-    else{
+    } else {
       this._stageIndicator.innerText = 'stage: ' + this._pomoCounterController._stage;
     }
 
