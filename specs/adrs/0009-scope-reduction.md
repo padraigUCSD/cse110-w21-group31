@@ -1,7 +1,7 @@
 # Reduce the scope of our delivery and kill the task tracker feature
 
 * Status:  accepted
-* Deciders: All-team (1..8) 
+* Deciders: Padraig MacGabann, Josh Chou, Nhat (Nick) Nguyen, David Cruz, Stephen Wang, Christine Phan, Dexter Hamilton, Diego Alfaro
 * Date: 2021-02-25
 
 NOTE: This ADR was syncronized on March 12, 2021, but has been mantained in our knowledge base since Feb. 25, 2021. See the team's meeting on Feb 25, 2021 for a citation of this.
