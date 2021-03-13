@@ -45,8 +45,8 @@ export class PomoCounterController {
   start() {
     this._currentPomo = 1;
     this._stage = Stages.POMO;
-    this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
     this._timerController.set(POMO_LENGTH_SEC);
+    this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
   }
 
   /**
