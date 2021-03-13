@@ -165,18 +165,11 @@ button {
   /* COPIED button styling below to standardize cross-platform. */
   /* Source: https://css-tricks.com/overriding-default-button-styles/ */  
   /* COPIED Buttons styles start */
-
-  /**/
-  /* display: inline-block; */ /* to stop text style errors*/
   border: 0.1px solid rgb(133, 133, 133);
-
-  /*padding: 1rem 2rem;*/ /* to stop text style errors*/
   margin: 0;
   text-decoration: none;
-  background: #efefef; /* #0069ed;*/
+  background: #efefef;
   color: #282828;
-
-  font-size: 1rem;
   line-height: 1;
   cursor: pointer;
   text-align: center;
