@@ -195,8 +195,14 @@ button{
     background: white;
 }
 
+.sidebarMenuInner {
+    /**/
+    padding-inline-start: 40px;
+    /**/
+}
+
 /* style for the content inside of the sidebar menu*/
-.sidebarMenuInner li{
+.sidebarTitle{
     list-style: none;
     color: black;
     font-family: 'IBM Plex Sans', sans-serif;
