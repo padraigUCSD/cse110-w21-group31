@@ -323,6 +323,9 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .part3 {
 }
 
 .pomo-timer {
+    /* trying to make timer look less awful on mobile */
+    font-family: 'IBM Plex Sans Semibold', sans-serif;
+    
     padding-top: 20vh;
 }
 
