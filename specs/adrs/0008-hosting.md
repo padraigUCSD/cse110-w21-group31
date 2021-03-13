@@ -1,4 +1,4 @@
-# [short title of solved problem and solution]
+# How should we host our DEV, QA, and Production/Live Environments?
 
 * Status: accepted
 * Deciders: Padraig MacGabann, David Cruz
