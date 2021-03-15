@@ -22,6 +22,7 @@ Important: we use a pubsub arch (TODO onboarding) - https://github.com/padraigUC
 ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/100minutes-qa.netlify.app)
 
 ## Production Stats
+[![Netlify Status](https://api.netlify.com/api/v1/badges/00c5b8ef-931d-4b25-8652-6db3b4bf1531/deploy-status)](https://app.netlify.com/sites/100minutes/deploys)
 ![Website](https://img.shields.io/website?url=https%3A%2F%2F100minutes.netlify.app%2F)
 ![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2F100minutes.netlify.app%2F)
 ![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2F100minutes.netlify.app%2F)
