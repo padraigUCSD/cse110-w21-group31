@@ -75,17 +75,20 @@ export class TimerControlsView {
   }
 
   /**
-   * Called when the stage button is pressed, to show the transition button if allowed
+   * Called when the stage is changed, to show the transition button if allowed
    * @private
    */
   _onStageChanged() {
     console.log(this._pomoCounterController._stage);
     if (this._pomoCounterController._stage === Stages.POMO && this._pomoCounterController._allowAutoPomo === false) {
       this._transitionButton.style.visibility = 'visible';
+      this._transitionButton.innerText = 'Start Pomo'
     } else if (this._pomoCounterController._stage === Stages.BREAK && this._pomoCounterController._allowAutoBreak === false) {
       this._transitionButton.style.visibility = 'visible';
+      this._transitionButton.innerText = 'Start Break'
     } else if (this._pomoCounterController._stage === Stages.LONG_BREAK && this._pomoCounterController._allowAutoBreak === false) {
       this._transitionButton.style.visibility = 'visible';
+      this._transitionButton.innerText = 'Start Long Break'
     } else {
       this._transitionButton.style.visibility = 'hidden';
     }
