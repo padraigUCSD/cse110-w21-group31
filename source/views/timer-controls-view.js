@@ -20,12 +20,27 @@ export class TimerControlsView {
    * Binds the view to the actual HTML elements of the page.
    */
   bind() {
+    this._startButton.style.visibility = 'visible';
     this._pomoCounterController.addSkippableCallback('tcv_display_button', skippable => this._onSkippableChanged.call(this, skippable))
     this._skipButton.onclick = e => this._onSkipPressed.call(this, e);
     this._startButton.onclick = e => this._onStartPressed.call(this, e);
 
     this._pomoCounterController.addChangeStageCallback('tcv_display_transition_button', () => this._onStageChanged.call(this))
     this._transitionButton.onclick = e => this._onTransitionPressed.call(this, e);
+
+    // Add keyboard shortcut for buttons
+    document.addEventListener('keydown', e => {
+      if (e.code === 'Space') {
+        // Find the currently visible button and call its callback
+        if (this._skipButton.style.visibility === 'visible') {
+          this._onSkipPressed(e);
+        } else if (this._startButton.style.visibility === 'visible') {
+          this._onStartPressed(e);
+        } else if (this._transitionButton.style.visibility === 'visible') {
+          this._onTransitionPressed(e);
+        }
+      }
+    })
   }
 
   /**
