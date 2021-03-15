@@ -27,6 +27,9 @@ Important: we use a pubsub arch (TODO onboarding) - https://github.com/padraigUC
 ![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2F100minutes.netlify.app%2F)
 ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/100minutes.netlify.app)
 
+## Architecture
+### TODO
+
 ## How to navigate this repo
 ### TODO
 
