@@ -82,7 +82,7 @@ export class TimerControlsView {
    * @private
    */
   _onStageChanged(stage) {
-    // stageIndicator: set the innerText 
+    // stageIndicator: set the innerText
     if (stage === Stages.LONG_BREAK) {
       // work around for presenting Stages.LONG_BREAK as long_break
       this._stageIndicator.innerText = 'Long Break';
@@ -91,7 +91,6 @@ export class TimerControlsView {
       this._stageIndicator.innerText = `${stage}`.charAt(0).toUpperCase() +
       `${stage}`.slice(1);
     }
-    
     // transitonButton: set the inner text
     if (stage === Stages.POMO && !this._pomoCounterController.autoPomo) {
       this._transitionButton.style.visibility = 'visible';
