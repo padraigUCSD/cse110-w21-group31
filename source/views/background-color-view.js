@@ -1,6 +1,6 @@
 import { Stages } from '../controllers/pomo-counter-controller.js'
 
-const startcolor = '#cfe2f3'; // color of light blue for start stage
+const startcolor = '#f08080'; // color of light blue for start stage
 const breakcolor = '#d9ead3'; // color of light green for short break stage
 const longcolor = '#b6d7a8'; // color of dark green for long break stage
 /**
