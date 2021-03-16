@@ -25,7 +25,7 @@ export class TimerControlsView {
     this._skipButton.onclick = e => this._onSkipPressed.call(this, e);
     this._startButton.onclick = e => this._onStartPressed.call(this, e);
 
-    this._pomoCounterController.addChangeStageCallback('tcv_display_transition_button', () => this._onStageChanged.call(this))
+    this._pomoCounterController.addChangeStageCallback('tcv_display_transition_button', stage => this._onStageChanged.call(this, stage))
     this._transitionButton.onclick = e => this._onTransitionPressed.call(this, e);
 
     // Add keyboard shortcut for buttons
@@ -78,24 +78,30 @@ export class TimerControlsView {
   /**
    * Called when the stage button is pressed, to show the transition button if allowed,
    * and change the text content of the stageIndicator
+   * @param {Stages} stage - new stage of the cycle
    * @private
    */
-  _onStageChanged() {
-    // work around for presenting Stages.LONG_BREAK as long_break
-    if (this._pomoCounterController._stage === Stages.LONG_BREAK) {
+  _onStageChanged(stage) {
+    // stageIndicator: set the innerText 
+    if (stage === Stages.LONG_BREAK) {
+      // work around for presenting Stages.LONG_BREAK as long_break
       this._stageIndicator.innerText = 'Long Break';
     } else {
       // Capitalize stage
-      this._stageIndicator.innerText = `${this._pomoCounterController._stage}`.charAt(0).toUpperCase() +
-      `${this._pomoCounterController._stage}`.slice(1);
+      this._stageIndicator.innerText = `${stage}`.charAt(0).toUpperCase() +
+      `${stage}`.slice(1);
     }
-
-    if (this._pomoCounterController._stage === Stages.POMO && this._pomoCounterController._allowAutoPomo === false) {
+    
+    // transitonButton: set the inner text
+    if (stage === Stages.POMO && !this._pomoCounterController.autoPomo) {
       this._transitionButton.style.visibility = 'visible';
-    } else if (this._pomoCounterController._stage === Stages.BREAK && this._pomoCounterController._allowAutoBreak === false) {
+      this._transitionButton.innerText = 'Start Pomo'
+    } else if (stage === Stages.BREAK && !this._pomoCounterController.autoBreak) {
       this._transitionButton.style.visibility = 'visible';
-    } else if (this._pomoCounterController._stage === Stages.LONG_BREAK && this._pomoCounterController._allowAutoBreak === false) {
+      this._transitionButton.innerText = 'Start Break'
+    } else if (stage === Stages.LONG_BREAK && !this._pomoCounterController.autoBreak) {
       this._transitionButton.style.visibility = 'visible';
+      this._transitionButton.innerText = 'Start Long Break'
     } else {
       this._transitionButton.style.visibility = 'hidden';
     }
