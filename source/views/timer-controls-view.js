@@ -24,7 +24,7 @@ export class TimerControlsView {
     this._skipButton.onclick = e => this._onSkipPressed.call(this, e);
     this._startButton.onclick = e => this._onStartPressed.call(this, e);
 
-    this._pomoCounterController.addChangeStageCallback('tcv_display_transition_button', () => this._onStageChanged.call(this))
+    this._pomoCounterController.addChangeStageCallback('tcv_display_transition_button', stage => this._onStageChanged.call(this, stage))
     this._transitionButton.onclick = e => this._onTransitionPressed.call(this, e);
 
     // Add keyboard shortcut for buttons
@@ -76,17 +76,17 @@ export class TimerControlsView {
 
   /**
    * Called when the stage is changed, to show the transition button if allowed
+   * @param {Stages} stage - new stage of the cycle
    * @private
    */
-  _onStageChanged() {
-    console.log(this._pomoCounterController._stage);
-    if (this._pomoCounterController._stage === Stages.POMO && this._pomoCounterController._allowAutoPomo === false) {
+  _onStageChanged(stage) {
+    if (stage === Stages.POMO && !this._pomoCounterController.autoPomo) {
       this._transitionButton.style.visibility = 'visible';
       this._transitionButton.innerText = 'Start Pomo'
-    } else if (this._pomoCounterController._stage === Stages.BREAK && this._pomoCounterController._allowAutoBreak === false) {
+    } else if (stage === Stages.BREAK && !this._pomoCounterController.autoBreak) {
       this._transitionButton.style.visibility = 'visible';
       this._transitionButton.innerText = 'Start Break'
-    } else if (this._pomoCounterController._stage === Stages.LONG_BREAK && this._pomoCounterController._allowAutoBreak === false) {
+    } else if (stage === Stages.LONG_BREAK && !this._pomoCounterController.autoBreak) {
       this._transitionButton.style.visibility = 'visible';
       this._transitionButton.innerText = 'Start Long Break'
     } else {
