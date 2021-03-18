@@ -38,8 +38,8 @@ test('check alarm call back in 2s', async () => {
 test('check addTimeCallback function', async () => {
   const timer = new TimerController();
   const time = jest.fn();
-  timer.addTimeCallback('test', time);
   timer.set(2);
+  timer.addTimeCallback('test', time);
   await sleep(2_010);
 
   // Assertions

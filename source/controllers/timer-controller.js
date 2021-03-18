@@ -37,13 +37,6 @@ export class TimerController {
   }
 
   /**
-   * Clears specified callback which was called on every tick of the timer
-   */
-  deleteTimeCallback(id) {
-    delete this._timeCallbacks[id];
-  }
-
-  /**
    * Sets the timer (and its display) to some number of seconds
    * @param timeSeconds - time in seconds
    */
