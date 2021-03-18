@@ -62,6 +62,11 @@ Visual diff testing allows us to programatically control the application, take s
 If you change the appearance of the application and a visual diff test fails, you can regenerate the reference screenshot by removing it from cypress/snapshots/visual-diff.spec.js/, then running `npm run cypress:headless` to regenerate it.
 Manually verify that the screenshot looks correct then commit it to the repo.
 
+## Documentation
+
+Please document all public functions (especially those in controllers) following standard [JSDoc](https://jsdoc.app/) conventions.
+Documentation is rendered to HTML and deployed to https://padraigucsd.github.io/cse110-w21-group31/docs/ on each merge to master.
+
 ## Continuous Integration
 
 All pull requests and merges to master are run against our CI pipeline.
