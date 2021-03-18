@@ -37,15 +37,14 @@ export class TimerController {
   }
 
   /**
-   * Sets the timer to some number of seconds
+   * Sets the timer (and its display) to some number of seconds
    * @param timeSeconds - time in seconds
    */
   set(timeSeconds) {
     clearInterval(this._ticker);
     this._timeRemaining = timeSeconds;
-    if (this._timeRemaining === 0) { // immediately call tick callbacks if time set to 0
-      this._timeRemaining++;
-      this._tick();
+    for (const callback of Object.values(this._timeCallbacks)) {
+      callback(this._timeRemaining);
     }
     this._ticker = setInterval(() => this._tick.call(this), MS_PER_SECOND);
   }

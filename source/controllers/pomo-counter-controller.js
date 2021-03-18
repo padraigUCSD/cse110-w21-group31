@@ -45,8 +45,8 @@ export class PomoCounterController {
   start() {
     this._currentPomo = 1;
     this._stage = Stages.POMO;
-    this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
     this._timerController.set(POMO_LENGTH_SEC);
+    this._timerController.addAlarmCallback('pcc', () => this._advance.call(this));
   }
 
   /**
@@ -60,12 +60,9 @@ export class PomoCounterController {
       throw new Error('Minimum long break time has not passed, unable to skip');
     }
 
-    // We need to update the timer to show 0:00 manually when autopomo is disabled
     this._timerController.set(Number(0));
 
-    // Ordinarily we would call advance here, but are overloading _tick to get it called
-    // TODO - that will be shortly fixed and this function restored.
-    // this._advance();
+    this._advance();
   }
 
   /**
