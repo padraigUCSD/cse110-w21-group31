@@ -13,6 +13,7 @@ export class TimerControlsView {
     this._skipButton = document.getElementById('skip-long-break-btn');
     this._startButton = document.getElementById('control');
     this._transitionButton = document.getElementById('transition-btn');
+    this._stageIndicator = document.getElementById('stage-indicator');
   }
 
   /**
@@ -75,11 +76,22 @@ export class TimerControlsView {
   }
 
   /**
-   * Called when the stage is changed, to show the transition button if allowed
+   * Called when the stage button is pressed, to show the transition button if allowed,
+   * and change the text content of the stageIndicator
    * @param {Stages} stage - new stage of the cycle
    * @private
    */
   _onStageChanged(stage) {
+    // stageIndicator: set the innerText
+    if (stage === Stages.LONG_BREAK) {
+      // work around for presenting Stages.LONG_BREAK as long_break
+      this._stageIndicator.innerText = 'Long Break';
+    } else {
+      // Capitalize stage
+      this._stageIndicator.innerText = `${stage}`.charAt(0).toUpperCase() +
+      `${stage}`.slice(1);
+    }
+    // transitonButton: set the inner text
     if (stage === Stages.POMO && !this._pomoCounterController.autoPomo) {
       this._transitionButton.style.visibility = 'visible';
       this._transitionButton.innerText = 'Start Pomo'

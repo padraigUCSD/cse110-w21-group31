@@ -152,11 +152,17 @@ body {
     margin: 0;
 }
 
-h1{
-  font-size: 60px;
+h1 {
+    font-size: 60px;
 }
 
-button {
+h2 {
+  text-align: center;
+  margin-top: 3em;
+  color: #334c64;
+}
+
+button{
   height: 3rem;
   width: 7rem;
   font-family: 'IBM Plex Sans Semibold', sans-serif;
