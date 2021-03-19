@@ -1,7 +1,7 @@
 # cse110-w21-group31
 
 ![CodeFactor](https://www.codefactor.io/repository/github/padraigucsd/cse110-w21-group31/badge?s=8ac88a28fb782976326069cf183529a77833268d)
-![Jest Coverage](https://img.shields.io/badge/coverage-89%25-green)
+![Jest Coverage](https://img.shields.io/badge/coverage-91%25-green)
 
 Private project repo for the UnhandledPromiseRejection (UPR) team. We are building a Pomodoro Timer. UPR holds CSE 110 Team No. 31.
 
