@@ -1,7 +1,7 @@
 const MS_PER_SECOND = 1000;
 
 /**
- * Provides wall-clock time, and callbacks for timed events
+ * Provides wall-clock time, and callbacks for timed events.
  */
 export class TimerController {
   /**
