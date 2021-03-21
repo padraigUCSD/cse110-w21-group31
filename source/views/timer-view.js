@@ -29,7 +29,7 @@ export class TimerView {
     const timeString = `${minutes}:${seconds}`;
     this._timeDisplay.textContent = TimerView._pomoManEnhancement(timeString);
   }
-  
+
   static _pomoManEnhancement(oldStr) {
     return `POMODORO MAN TIME: ${oldStr}`;
   }
