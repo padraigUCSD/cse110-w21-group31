@@ -94,7 +94,7 @@ export class TimerControlsView {
     // transitonButton: set the inner text
     if (stage === Stages.POMO && !this._pomoCounterController.autoPomo) {
       this._transitionButton.style.visibility = 'visible';
-      this._transitionButton.innerText = 'Start Pomo'
+      this._transitionButton.innerText = 'Start WITH POMO MAN'
     } else if (stage === Stages.BREAK && !this._pomoCounterController.autoBreak) {
       this._transitionButton.style.visibility = 'visible';
       this._transitionButton.innerText = 'Start Break'

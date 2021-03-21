@@ -27,6 +27,10 @@ export class TimerView {
     const minutes = parseInt(timeRemaining / 60, 10);
     const seconds = (timeRemaining % 60).toString().padStart(2, '0');
     const timeString = `${minutes}:${seconds}`;
-    this._timeDisplay.textContent = timeString;
+    this._timeDisplay.textContent = TimerView._pomoManEnhancement(timeString);
+  }
+
+  static _pomoManEnhancement(oldStr) {
+    return `POMODORO MAN TIME: ${oldStr}`;
   }
 }
